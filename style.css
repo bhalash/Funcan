@@ -4,6 +4,7 @@
 
 /*
     CONTAINERS
+    Dimensions for the three top containers and their interiors.
 */
 
 html,
@@ -19,7 +20,7 @@ body {
     margin: 0 auto;
     overflow: auto;
     /* Fallback width if JS is disabled. */
-    width: 100%;
+    width: 80%;
 }
 
 #content-col-0 {
@@ -50,11 +51,21 @@ body {
     height: auto;
 }
 
-/*
-    SITE HEADER
-*/
+@media (max-width:1024px) {
+    /* Mobile sizes for the top three containers. */
+    #content-container {
+        width: 100%;
+    }
+
+    #content-col-0,
+    #content-col-1 {
+        float: none;
+        width: 100%;
+    }
+}
 
 /*
+    SITE HEADER
     CSS for he header banner, fonts, the like.
 */
 
@@ -84,6 +95,7 @@ header h5 {
 }
 
 @media (max-width:1025px) {
+    /* Mobile header font sizes. */
     header h1 {
         font-size: 2.9em;
     }
@@ -101,6 +113,7 @@ header h5 {
 
 /*
     WEBSITE SEARCH
+    Site-wide search in the sidebar.
 */
 
 #sidebbar-search {
@@ -118,15 +131,20 @@ header h5 {
     font-size: 1.5em;
     height: 30px;
     margin: 0 auto;
+    overflow: hidden;
     padding: 0 0 0 6px;
     position: relative;
     vertical-align: top;
-    width: 97%;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 #sidebar-search input[id=search-submit] {
     background: #4284fd url('img/chevron_15_right.png') no-repeat center center;
     border: none;
+    border-radius: 0;
     display: block;
     height: 22px;
     margin-left: 87%;
@@ -135,6 +153,8 @@ header h5 {
     width: 25px;
     /* THIS. IS. SPARTA. */
     z-index: 300;
+    -webkit-appearance: none; 
+    -webkit-border-radius: 0;
 }
 
 #sidebar input[id=search-submit]:hover {
@@ -143,7 +163,6 @@ header h5 {
 }
 
 #sidebar select {
-    border-radius: 5px;
     font-family: 'Source Code Pro', scp, 'Courier New', Courier, monospace;
     margin-top: 5px;
     width: 100%;
@@ -174,7 +193,7 @@ article pre {
     margin-bottom: 10px;
     padding: 10px;
     width: 100%;
-    /* Stops padding from making div bigger. */
+    /* Prevent padding making div bigger. */
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;

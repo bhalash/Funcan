@@ -1,5 +1,7 @@
 /*
     TEXT ALIGNMENT AND FONTS
+    Site-wide defaults for inline and block text elements. 
+    Some elements are individually overridden elsewhere.
 */
 
 a,
@@ -65,6 +67,13 @@ h6 {
     font-family: 'Classic Console', 'Source Code Pro', scp, 'Courier New', Courier, monospace; 
     margin-bottom: 10px;
     text-align: left;
+}
+
+/* Removes corner rounding in iOS. */
+input, textarea, select {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
 }
 
 /* Desktop header sizes. */
