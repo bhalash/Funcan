@@ -1,0 +1,86 @@
+/*
+    TEXT ALIGNMENT AND FONTS
+*/
+
+a,
+del,
+em,
+strong,
+sub,
+sup,
+time {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+code,
+pre {
+    color: #fff;
+    line-height: 1.3em;
+    font-family: 'Source Code Pro', scp, 'Courier New', Courier, monospace; 
+    font-size: 0.81em;
+    line-height: 1.3em;
+    text-align: left;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    -webkit-font-smoothing: antialiased !important;
+}
+
+pre {
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+}
+
+blockquote,
+li,
+option,
+p,
+select {
+    color: #fff;
+    font-family: 'Source Sans Pro', ssp, sans-serif, 'Trebuchet MS', Helvetica;
+    font-size: 0.82em;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+blockquote { border-left: 1px solid rgba(255,255,255,0.6); }
+em { text-decoration: line-through; }
+li { margin-bottom: 0; }
+object { outline: 0; }
+ol, ul { margin-bottom: 10px; }
+strong { font-style: italic; }
+sub { font-size: 75%; vertical-align: sub; }
+sup { font-size: 75%; vertical-align: super; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #fff;
+    font-family: 'Classic Console', 'Source Code Pro', scp, 'Courier New', Courier, monospace; 
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Desktop header sizes. */
+h1 { font-size: 3.0em; }
+h2 { font-size: 2.7em; }
+h3 { font-size: 2.4em; }
+h4 { font-size: 2.1em; }
+h5 { font-size: 1.8em; }
+h6 { font-size: 1.5em; }
+
+@media screen and (max-width:1025px) {
+    /* Mobile header sizes. */
+    h1 { font-size: 2.0em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.6em; }
+    h4 { font-size: 1.4em; }
+    h5 { font-size: 1.2em; }
+    h6 { font-size: 1.0em; }
+}

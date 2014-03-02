@@ -1,0 +1,70 @@
+/*
+    WEB FONTS
+*/
+
+@font-face {
+    /*
+        Name: Bebas Neue
+        Creator: Dharma Type
+        URL: http://dharmatype.com/dharma-type/bebas-neue.html 
+        License: SIL Open Font License 1.1
+    */ 
+    font-family: 'bebas';
+    src: 
+        url('fonts/bebas/bebas.eot') format('embedded-opentype');
+    src: 
+        url('fonts/bebas/bebas.woff') format('woff'),
+        url('fonts/bebas/bebas.ttf') format('truetype'),
+        url('fonts/bebas/bebas.svg') format('svg');
+}
+
+@font-face {
+    /* 
+        Name: Source Code Pro Regular
+        Creator: Adobe Systems
+        URL: http://sourceforge.net/projects/sourcecodepro.adobe/
+        License: SIL Open Font License 1.1
+    */
+    font-family: 'scp';
+    src: 
+        url('fonts/din/scp-r.eot') format('embedded-opentype');
+    src:
+        url('fonts/din/scp-r.woff') format('woff'),
+        url('fonts/din/scp-r.otf') format('opentype'),
+        url('fonts/din/scp-r.ttf') format('truetype'),
+        url('fonts/din/scp-r.svg') format('svg');
+}
+
+@font-face {
+    /* 
+        Name: Source Sans Pro Regular
+        Creator: Adobe Systems
+        URL: http://sourceforge.net/projects/sourcesans.adobe/
+        License: SIL Open Font License 1.1
+    */
+    font-family: 'ssp';
+    src: 
+        url('fonts/ssp/scp-r.eot') format('embedded-opentype');;
+    src:
+        url('fonts/ssp/clacon.woff') format('woff'),
+        url('fonts/ssp/clacon.otf') format('opentype'),
+        url('fonts/ssp/clacon.ttf') format('truetype'),
+        url('fonts/ssp/clacon.svg') format('svg');
+}
+
+@font-face {
+    /* 
+        Name: Classic Console
+        Creator: Webdraft Ltd.
+        URL: http://webdraft.hu/fonts/classic-console/
+        License: Free to doownload, use, and redistribute.
+    */
+    font-family: 'Classic Console';
+    src: 
+        url('fonts/clacon/clacon.eot') format('embedded-opentype');;
+    src:
+        url('fonts/clacon/clacon.woff') format('woff'),
+        url('fonts/clacon/clacon.otf') format('opentype'),
+        url('fonts/clacon/clacon.ttf') format('truetype'),
+        url('fonts/clacon/clacon.svg') format('svg');
+}
