@@ -18,15 +18,10 @@
                     <!-- Set the width for these icons in social.css -->
                     <!-- Width should be (100 / number of icons + 1) -->
                     <!-- If you have four icons, then width should be 20% -->
-                    <li><a class="email" title="Email person@domain.com" href="mailto:person@domain.com"></a></li>
-                    <li><a target="_blank" class="facebook" title="Contact Person on Facebook" href="http://www.facebook.com/"></a></li>
-                    <li><a target="_blank" class="github" title="Subscribe to Person on Github" href="http://www.github.com/"></a></li>
-                    <!-- <li><a target="_blank" class="google" title="Contact Person on Google+" href="http://plus.google.com/"></a></li> -->
-                    <!-- <li><a target="_blank" class="instagram" title="Follow @person on Instagram" href="http://www.instagram.com/"></a></li> -->
-                    <li><a target="_blank" class="linkedin" title="Follow @person on LinkedIn" href="http://www.linkedin.com/"></a></li>
-                    <!-- <li><a target="_blank" class="pinterest" title="Pin @person on Pinterest" href="http://www.pinterest.com/"></a></li> -->
-                    <!-- <li><a target="_blank" class="rss" title="Subscribe to this site's RSS feed" href="#"></a></li> -->
-                    <!-- <li><a target="_blank" class="twitter" title="Follow @person on Twitter" href="http://www.twitter.com/"></a></li> -->
+                    <li><a class="email social-widget" title="Email person@domain.com" href="mailto:person@domain.com"></a></li>
+                    <li><a class="facebook social-widget" title="Contact Person on Facebook" href="http://www.facebook.com/"></a></li>
+                    <li><a class="github social-widget" title="Subscribe to Person on Github" href="http://www.github.com/"></a></li>
+                    <li><a class="linkedin social-widget" title="Follow @person on LinkedIn" href="http://www.linkedin.com/"></a></li>
                 </ul>
             </div>
         </header>
@@ -93,86 +88,59 @@ done</pre>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                         <p><a title="Lorem Ipsum" href="posts/1.jpg"><img src="posts/m/1.jpg" alt="Lorem Ipsum" /></a></p>
                     </article>
-
-                    <article class="post">
-                        <h1 class="post-title">&#62; <a href="#">Lorem ipsum dolor sit amet!</a></h1>
-                        <p class="post-info">
-                            <!-- Replce 12345 with post ID. -->
-                            <code>
-                                &#62; cat post_12345_info.txt <br />
-                                <span class="post-author"><a title="Author" href="#">mark</a></span> | <time class="post-date">Tuesday September 15, 2009</time><br />
-                                <span class="post-categories">categorized | <a title="category" href="#">category</a>, <a title="category" href="#">category</a>, <a title="category" href="#">category</a></span><br />
-                                <span class="post-tags">tagged | <a title="tag" href="#">tag</a>, <a title="tag" href="#">tag</a>, <a title="tag" href="#">tag</a></span>
-                            </code>
-                        </p>
-                        <hr>
-                        <p><a href="#">Lorem ipsum dolor</a> sit amet, <em>consectetur adipisicing elit</em>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit <del>in voluptate velit esse</del> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>This paragraph has superset text: E = MC<sup>2</sup>.</p>
-                        <p>This paragraph has subset text: When you have different base numbering systems together, it is common to differentiate them by appending a subset number with the base, e.g. <code>24<sub>10</sub> = 0000 1110<sub>2</sub></code>.</p>
-                        <p>These two paragraphs have <code>&#60;pre&#62;</code> text:</p>
-                        <pre>“It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to.”</pre>
-                        <pre>using System;
-
-public class Twerk {
-    static void Main(string[] args) {
-        while (true)
-            TwerkLikeMiley();
-    }
-
-    static void TwerkLikeMiley() {
-        Console.WriteLine("*twerk*");
-    }
-}</pre>
-<pre>#!/bin/bash
-twerkLikeMiley() {
-    echo '*twerk*'
-}
-
-while [[ 0 ]]; do
-    twerklikeMiley
-done</pre>
-                        <blockquote><a href="#">Lorem ipsum dolor</a> sit amet, <em>consectetur adipisicing elit</em>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit <del>in voluptate velit esse</del> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat:</p>
-                        <ol>
-                            <li>Four CSS content columns of even width.</li>
-                            <li>Each <a href="#">column separated by</a> an even margin.</li>
-                            <li>The parent container in turn separated from the viewport sides by the same margin.</li>
-                            <li>These margins should be constant no matter how the page is resized.</li>
-                        </ol>
-                        <ul>
-                            <li>Four CSS content columns of even width.</li>
-                            <li>Each <a href="#">column separated by</a> an even margin.</li>
-                            <li>The parent container in turn separated from the viewport sides by the same margin.</li>
-                            <li>These margins should be constant no matter how the page is resized.</li>
-                        </ul>
-                        <h1>Lorem ipsum dolor sit amet.</h1>
-                        <h2>Lorem ipsum dolor sit amet.</h2>
-                        <h3>Lorem ipsum dolor sit amet.</h3>
-                        <h4>Lorem ipsum dolor sit amet.</h4>
-                        <h5>Lorem ipsum dolor sit amet.</h5>
-                        <h6>Lorem ipsum dolor sit amet.</h6>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                        <p><a title="Lorem Ipsum" href="posts/1.jpg"><img src="posts/m/1.jpg" alt="Lorem Ipsum" /></a></p>
-                    </article>
                 </div>
             </div>
             <div id="content-col-1">
                 <form id="sidebar-search">
                     <p>
-                        <input id="search" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this) "tabindex="1" type="text" value="Search Funcan..." />
-                        <input id="search-submit" name="search-submit" type="submit"value=">" />
+                        <input id="search" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search Funcan..." />
+                        <input id="search-submit" name="search-submit" type="submit" value=">" />
                     </p>
                 </form>
                 <div id="content-1">
-                    <p>
-                        <code>&#62; for n in ${social_links[@]}; do echo $n; done</code>
-                    </p>
+                    <h4>Code block:</h4>
+                    <p><code>&#62; for n in ${social_links[@]}; do echo $n; done</code></p>
+                    <h4>h4 header</h4>
+                    <p>This is non-code text in a sidebar paragraph.</p>
+                    <h5>h5 header</h5>
+                    <p>Lorem Ipsum</p>
+                    <h6>h6 header</h6>
+                    <p>Lorem Ipsum</p>
+                    <ul>
+                        <li>First item.</li>
+                        <li>Second item.</li>
+                        <li>Third item.</li>
+                        <li>Fourth item.</li>
+                    </ul>
+                    <ol>
+                        <li>First item.</li>
+                        <li>Second item.</li>
+                        <li>Third item.</li>
+                        <li>Fourth item.</li>
+                    </ol>
+                    <select>
+                        <option>Option #1</option>
+                        <option>Option #2</option>
+                        <option>Option #3</option>
+                        <option>Option #4</option>
+                        <option>Option #5</option>
+                    </select>
                 </div>
             </div>
         </div>
+            <div id="site-navigation">
+                <div id="site-navigation-interior">
+                    <p id="site-navigation-left">
+                        <a href="#" title="Previous page/post">&#60;&#60;</a>
+                    </p>
+                    <p id="site-navigation-right">
+                        <a href="#" title="Next page/post">&#62;&#62;</a>
+                    </p>
+                </div>
+            </div>
             <footer>
                 <!-- Attribution and copyright. -->
-                <p>Site content © 2014 Duncan Thomas. Design by <a href="http://www.bhalash.com">Mark</a>.</p>
+                <p>Site content © 2014 Whomever. Design by <a href="http://www.bhalash.com">Mark</a>.</p>
             </footer>
     </div>
     <script src="jquery.js"></script>

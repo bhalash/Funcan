@@ -14,8 +14,7 @@ function headerHeight() {
             'height', 
             $(window).height() - (c * 2)
         );
-    }
-    else {
+    } else {
         a.css('height', ($(window).height() * 0.75));
     }
     
@@ -33,13 +32,14 @@ function headerWidth() {
 }
 
 function sidebarHeight() {
-    /* TODO: Detemine why ~232px extra height is added. */
     var a = $('#content-col-0').height();
     var b = $('#content-1');
 
-    if ($(window.width) > bp ) {
+    if ($(window).width() > bp) {
         $(b).css('height', a + 'px');
-    }
+    } else {
+        $(b).css('height', 'auto');
+    } 
 } 
 
 function siteTitlePos() {
@@ -60,10 +60,16 @@ function clearSearch(obj) {
 
     if (obj.value == str) {
         obj.value = '';
-    }
-    else if (obj.value == '') {
+    } else if (obj.value == '') {
         obj.value = str;
     }
+}
+
+function searchButtonPos() {
+    // Anchors the search button to the right side of the search bar.
+    var a = $('#sidebar-search input[name=search-submit]');
+    var b = $('#sidebar-search');
+    a.css('margin-left', b.width() - a.width() - 16);
 }
 
 function socialWidgetHeight() {
@@ -76,6 +82,7 @@ $(document).ready(
     function() {
         headerWidth();
         headerHeight();
+        searchButtonPos();
         sidebarHeight();
         siteTitlePos();
         socialWidgetHeight();
@@ -86,6 +93,7 @@ $(window).on('resize',
     function() {
         headerWidth();
         headerHeight();
+        searchButtonPos();
         sidebarHeight();
         siteTitlePos();
         socialWidgetHeight();
