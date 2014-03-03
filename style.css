@@ -13,28 +13,26 @@ body {
 }
 
 #site-container {
-    width: 100%;
-}
-
-#content-container {
+    background: rgba(255,255,255,0.2);
     margin: 0 auto;
-    overflow: auto;
-    /* Fallback width if JS is disabled. */
+    margin-bottom: 40px;
+    margin-top: 40px;
     width: 80%;
 }
 
+#content-container {
+    overflow: auto;
+}
+
 #content-col-0 {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
     float: left;
-    margin-bottom: 10px;
     width: 80%;
 }
 
 #content-col-1 {
-    background: rgba(255,255,255,0.6);
-    min-height: 300px;
+    background: rgba(255,255,255,0.3);
     margin: 0 auto;
-    margin-bottom: 10px;
     float: right;
     width: 20%;
 }
@@ -51,9 +49,14 @@ body {
     height: auto;
 }
 
+/*
+    CONTAINER MOBILE VIEW
+
+*/
 @media (max-width:1024px) {
-    /* Mobile sizes for the top three containers. */
-    #content-container {
+    #site-container {
+        margin-bottom: 0;
+        margin-top: 0;
         width: 100%;
     }
 
@@ -75,7 +78,7 @@ header {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    width: 100%;
+    margin: 0 auto;
 }
 
 header h1 {
@@ -94,8 +97,21 @@ header h5 {
     text-align: center;
 }
 
-@media (max-width:1025px) {
-    /* Mobile header font sizes. */
+#header-screen {
+    /* Mask over header image. */
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+}
+
+/*
+    MOBILE HEADER RULES
+*/
+
+@media (max-width:1024px) {    
+    header {
+        width: 100%;
+    }
+
     header h1 {
         font-size: 2.9em;
     }
@@ -103,12 +119,6 @@ header h5 {
     header h5 {
         font-size: 1.8em;
     }
-}
-
-#header-screen {
-    /* Mask over header image. */
-    background: rgba(0,0,0,0.5);
-    width: 100%;
 }
 
 /*
@@ -199,6 +209,10 @@ article pre {
     box-sizing: border-box;
 }
 
+/*
+    ARTICLE
+*/
+
 @media (max-width:1024px) {
     article pre {
         font-size: 0.9em;
@@ -210,11 +224,50 @@ article pre {
 */
 
 footer {
+    clear: both;
     margin: 0 auto;
     width: 100%;
 }
 
 footer p {
-    font-size: 0.77em;
+    font-family: 'Classic Console', 'Source Code Pro', scp, 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 0;
     text-align: center;
 }
+
+/*
+    SIDEBAR SOCIAL ICONS
+*/
+
+#sidebar-social {
+    list-style: none;
+    margin: 0 0 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+#sidebar-social li {
+    display: inline;
+}
+
+#sidebar-social a {
+    border-radius: 50%;
+    display: inline-block;
+    width: 22.5%;
+}
+
+#sidebar-social a:hover {
+    border: none !important;
+}
+
+.facebook { background: #9fa5b1 url('img/facebook_logo.png') no-repeat center center; background-size: 60px 60px; }
+.facebook:hover { background-color: #3B5998; }
+.github { background: #9fa5b1 url('img/github_logo.png') no-repeat center center; background-size: 60px 60px; }
+.github:hover { background-color: #fd4242; }
+.instagram { background: #9fa5b1 url('img/instagram_logo.png') no-repeat center center; background-size: 60px 60px; }
+.instagram:hover { background-color: #3f729b; }
+.twitter { background: #9fa5b1 url('img/twitter_logo.png') no-repeat center center; background-size: 60px 60px; }
+.twitter:hover { background-color: #00aced; }

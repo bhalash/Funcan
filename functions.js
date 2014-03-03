@@ -4,19 +4,44 @@ bp = 1025;
 function headerHeight() {
     // Header container size + back overlay size.
     var a = $('header');
-    var b = $('#header-screen');
+    var b = $('#site-container');
 
-    // Shrinks header size below the break point.
+    // Height is window height - (margin-top * 2)
+    var c = parseInt(b.css('margin-top'), 10); 
+
     if ($(window).width() > bp) {
-        a.css('height', $(window).height());
+        a.css(
+            'height', 
+            $(window).height() - (c * 2)
+        );
     }
     else {
         a.css('height', ($(window).height() * 0.75));
     }
     
     // Black overlay that darkens the image. 
-    b.css('height', a.height());
+    $('#header-screen').css('height', a.height());
 }
+
+function headerWidth() {
+    // Header container width.
+    var a = $('header');
+    var b = $('#header-screen');
+    var c = $('#content-container');
+    a.css('width', c.width());
+    b.css('wdith', a.width());
+}
+
+function sidebarHeight() {
+    /* TODO: Detemine why ~232px extra height is added. */
+    var a = $('#content-col-0').height();
+    var b = $('#content-1');
+
+    // $(b).css(
+    //     'min-height',
+    //     a + 'px'
+    // );
+} 
 
 function siteTitlePos() {
     // Header title positon.
@@ -27,7 +52,6 @@ function siteTitlePos() {
 
     // 50% header height - half of 50% the h1 height, to center vertically. 
     a.css('padding-top', ($('header').height() * 0.5) - (c + d) * 0.5);
-
 }
 
 function clearSearch(obj) {
@@ -44,14 +68,18 @@ function clearSearch(obj) {
 
 $(document).ready(
     function() {
+        headerWidth();
         headerHeight();
+        sidebarHeight();
         siteTitlePos();
     }
 );
 
 $(window).on('resize',
     function() {
+        headerWidth();
         headerHeight();
+        sidebarHeight();
         siteTitlePos();
     }
 );    
