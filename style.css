@@ -15,6 +15,10 @@ body {
 
 #site-container {
     background: #343537;
+    border-radius: 1px;
+    -webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
     margin: 0 auto;
     margin-bottom: 40px;
     margin-top: 40px;
@@ -155,6 +159,12 @@ header h5 {
     z-index: 300;
 }
 
+@media (max-width: 1024px) {
+    #sidebar-search input[id=search-submit] {
+        margin-left: 95%;
+    } 
+}
+
 /*
     ARTICLES
 */
@@ -204,6 +214,15 @@ article pre {
     article pre {
         font-size: 0.9em;
     }
+}
+
+/*
+    INTRA-SITE NAVIGATION
+*/
+
+#site-navigation {
+    margin: 0 auto;
+    overflow: auto;
 }
 
 /*
