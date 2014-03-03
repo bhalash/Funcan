@@ -1,6 +1,7 @@
 @import url('reset.css');
 @import url('fonts.css');
 @import url('globals.css');
+@import url('social.css');
 
 /*
     CONTAINERS
@@ -9,7 +10,8 @@
 
 html,
 body {
-    background: #343537;
+    /*background: #343537;*/
+    background: url('img/binding_dark.png');
 }
 
 #site-container {
@@ -123,64 +125,6 @@ header h5 {
     }
 }
 
-/*
-    SOCIAL ICONS
-*/
-
-#social {
-    list-style: none;
-    margin: 0 auto;
-    text-align: center;
-    width: 30%;
-}
-
-@media (max-width:1024px) {  
-    #social {
-        width: 70%;
-    }
-
-    #social a {
-        width: 20%;
-    }
-}
-
-#social li {
-    display: inline;
-    text-align: center;
-}
-
-#social a {
-    border-radius: 50%;
-    display: inline-block;
-    width: 20%;
-}
-
-#social a:hover {
-    border: none !important;
-}
-
-
-
-.facebook { background: url('img/social/facebook_logo.png') no-repeat center center; background-size: 100% auto; }
-.facebook:hover { background-color: #3B5998; }
-
-.github { background: url('img/social/github_logo.png') no-repeat center center; background-size: 100% auto; }
-.github:hover { background-color: #171516; }
-
-.google { background: url('img/social/google_logo.png') no-repeat center center; background-size: 100% auto; }
-.google:hover { background-color: #db5442; }
-
-.instagram { background: url('img/social/instagram_logo.png') no-repeat center center; background-size: 100% auto; }
-.instagram:hover { background-color: #3f729b; }
-
-.linkedin { background: url('img/social/linkedin_logo.png') no-repeat center center; background-size: 100% auto; }
-.linkedin:hover { background-color: #0274b3; }
-
-.pinterest { background: url('img/social/pinterest_logo.png') no-repeat center center; background-size: 100% auto; }
-.pinterest:hover { background-color: #cb2027; }
-
-.twitter { background: url('img/social/twitter_logo.png') no-repeat center center; background-size: 100% auto; }
-.twitter:hover { background-color: #00aced; }
 
 /*
     WEBSITE SEARCH
@@ -198,7 +142,7 @@ header h5 {
 
 #sidebar-search input[name=search-input] {
     border: none;
-    font-family: 'Classic Console', 'Source Code Pro', scp, 'Courier New', Courier, monospace;
+    font-family: 'Source Code Pro', scp, 'Courier New', Courier, monospace;
     font-size: 1.5em;
     height: 30px;
     margin: 0 auto;
@@ -256,10 +200,6 @@ article ul {
 article pre {
     background: #000;
     color: #b5e853;
-    font-family: 'Classic Console';
-    font-size: 1.2em;
-    letter-spacing: 1px;
-    line-height: 0.85em;
     margin: 0 auto;
     margin-bottom: 10px;
     padding: 10px;
@@ -291,8 +231,8 @@ footer {
 }
 
 footer p {
-    font-family: 'Classic Console', 'Source Code Pro', scp, 'Courier New', Courier, monospace;
-    font-size: 1.2em;
+    font-family: 'Source Code Pro', scp, 'Courier New', Courier, monospace;
+    font-size: 0.9em;
     height: 50px;
     line-height: 50px;
     margin-bottom: 0;

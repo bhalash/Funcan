@@ -49,9 +49,10 @@ function siteTitlePos() {
     var b = $('#site-blurb');
     var c = a.height();
     var d = b.height();
+    var f = $('#social').height();
 
     // 50% header height - half of 50% the h1 height, to center vertically. 
-    a.css('padding-top', ($('header').height() * 0.5) - (c + d) * 0.5);
+    a.css('padding-top', ($('header').height() * 0.5) - (c + d + f) * 0.5);
 }
 
 function clearSearch(obj) {
