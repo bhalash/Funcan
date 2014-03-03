@@ -66,12 +66,19 @@ function clearSearch(obj) {
     }
 }
 
+function socialWidgetHeight() {
+    // Social link height, to keep them perfectly circular.
+    var a = $('#social a');
+    a.css('height', a.width());
+}
+
 $(document).ready(
     function() {
         headerWidth();
         headerHeight();
         sidebarHeight();
         siteTitlePos();
+        socialWidgetHeight();
     }
 );
 
@@ -81,5 +88,6 @@ $(window).on('resize',
         headerHeight();
         sidebarHeight();
         siteTitlePos();
+        socialWidgetHeight();
     }
 );    
