@@ -73,7 +73,7 @@ body {
 */
 
 header {
-    background: url('img/trainyard.jpg') no-repeat center center;
+    background: url('img/header/trainyard.jpg') no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -152,7 +152,7 @@ header h5 {
 }
 
 #sidebar-search input[id=search-submit] {
-    background: #4284fd url('img/chevron_15_right.png') no-repeat center center;
+    background: #4284fd url('img/magnifying_glass.png') no-repeat center center;
     border: none;
     border-radius: 0;
     display: block;
@@ -263,11 +263,11 @@ footer p {
     border: none !important;
 }
 
-.facebook { background: #9fa5b1 url('img/facebook_logo.png') no-repeat center center; background-size: 60px 60px; }
+.facebook { background: #9fa5b1 url('img/social/facebook_logo.png') no-repeat center center; background-size: 60px 60px; }
 .facebook:hover { background-color: #3B5998; }
-.github { background: #9fa5b1 url('img/github_logo.png') no-repeat center center; background-size: 60px 60px; }
+.github { background: #9fa5b1 url('img/social/github_logo.png') no-repeat center center; background-size: 60px 60px; }
 .github:hover { background-color: #fd4242; }
-.instagram { background: #9fa5b1 url('img/instagram_logo.png') no-repeat center center; background-size: 60px 60px; }
+.instagram { background: #9fa5b1 url('img/social/instagram_logo.png') no-repeat center center; background-size: 60px 60px; }
 .instagram:hover { background-color: #3f729b; }
-.twitter { background: #9fa5b1 url('img/twitter_logo.png') no-repeat center center; background-size: 60px 60px; }
+.twitter { background: #9fa5b1 url('img/social/twitter_logo.png') no-repeat center center; background-size: 60px 60px; }
 .twitter:hover { background-color: #00aced; }
