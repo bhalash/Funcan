@@ -7,6 +7,7 @@
 a,
 del,
 em,
+span,
 strong,
 sub,
 sup,
@@ -19,7 +20,7 @@ code,
 pre {
     color: #fff;
     line-height: 1.3em;
-    font-family: 'Source Code Pro', scp, 'Courier New', Courier, monospace; 
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
     font-size: 0.81em;
     line-height: 1.3em;
     text-align: left;
@@ -41,15 +42,19 @@ option,
 p,
 select {
     color: #fff;
-    font-family: 'Source Sans Pro', ssp, sans-serif, 'Trebuchet MS', Helvetica;
+    font-family: 'Source Sans Pro', 'Source Sans Pro Regular', sans-serif, 'Trebuchet MS', Helvetica;
     font-size: 0.82em;
     line-height: 1.3em;
     margin-bottom: 10px;
     text-align: left;
 }
 
+
+a { text-decoration: underline; }
+a:hover { color: #b3b3b3; }
 blockquote { border-left: 1px solid rgba(255,255,255,0.6); }
 em { text-decoration: line-through; }
+hr { background: #fff; height: 2px; width: 100%; }
 li { margin-bottom: 0; }
 object { outline: 0; }
 ol, ul { margin-bottom: 10px; }
@@ -64,14 +69,15 @@ h4,
 h5,
 h6 {
     color: #fff;
-    font-family: ProFontWindows, 'Source Code Pro', scp, 'Courier New', Courier, monospace; 
-    /*margin-bottom: 10px;*/
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+    margin-bottom: 5px;
     text-align: left;
 }
 
 /* Removes corner rounding in iOS. */
 input, textarea, select {
     border-radius: 0;
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
     -webkit-border-radius: 0;
     -webkit-appearance: none;
 }

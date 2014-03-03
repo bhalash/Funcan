@@ -37,10 +37,9 @@ function sidebarHeight() {
     var a = $('#content-col-0').height();
     var b = $('#content-1');
 
-    // $(b).css(
-    //     'min-height',
-    //     a + 'px'
-    // );
+    if ($(window.width) > bp ) {
+        $(b).css('height', a + 'px');
+    }
 } 
 
 function siteTitlePos() {
@@ -57,7 +56,7 @@ function siteTitlePos() {
 
 function clearSearch(obj) {
     // Clears the default value from inputs.
-    var str = '> search';
+    var str = 'Search Funcan...';
 
     if (obj.value == str) {
         obj.value = '';

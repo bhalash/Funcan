@@ -9,7 +9,7 @@
         URL: http://dharmatype.com/dharma-type/bebas-neue.html 
         License: SIL Open Font License 1.1
     */ 
-    font-family: 'bebas';
+    font-family: 'Bebas Neue';
     src: 
         url('fonts/bebas/bebas.eot') format('embedded-opentype');
     src: 
@@ -19,13 +19,29 @@
 }
 
 @font-face {
+    /*
+        Name: Verily Serif Mono
+        Creator: Stephen G. Hartke
+        URL: http://www.fontsquirrel.com/fonts/Verily-Serif-Mono 
+        License: Vera License SIL Open Font License 1.1
+    */ 
+    font-family: 'Verily Serif Mono';
+    src: 
+        url('fonts/verilyserifmono/verilyserifmono.eot') format('embedded-opentype');
+    src: 
+        url('fonts/verilyserifmono/verilyserifmono.woff') format('woff'),
+        url('fonts/verilyserifmono/verilyserifmono.ttf') format('truetype'),
+        url('fonts/verilyserifmono/verilyserifmono.svg') format('svg');
+}
+
+@font-face {
     /* 
         Name: Source Code Pro Regular
         Creator: Adobe Systems
         URL: http://sourceforge.net/projects/sourcecodepro.adobe/
         License: SIL Open Font License 1.1
     */
-    font-family: 'scp';
+    font-family: 'Source Code Pro Regular';
     src: 
         url('fonts/din/scp-r.eot') format('embedded-opentype');
     src:
@@ -42,7 +58,7 @@
         URL: http://sourceforge.net/projects/sourcesans.adobe/
         License: SIL Open Font License 1.1
     */
-    font-family: 'ssp';
+    font-family: 'Source Sans Pro Regular';
     src: 
         url('fonts/ssp/scp-r.eot') format('embedded-opentype');;
     src:

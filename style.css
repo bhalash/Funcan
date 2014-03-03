@@ -10,12 +10,11 @@
 
 html,
 body {
-    /*background: #343537;*/
-    background: url('img/binding_dark.png');
+    background: #111215;
 }
 
 #site-container {
-    background: rgba(255,255,255,0.2);
+    background: #343537;
     margin: 0 auto;
     margin-bottom: 40px;
     margin-top: 40px;
@@ -27,22 +26,21 @@ body {
 }
 
 #content-col-0 {
-    background: rgba(255,255,255,0.1);
     float: left;
     width: 80%;
 }
 
 #content-col-1 {
-    background: rgba(255,255,255,0.3);
-    margin: 0 auto;
+    background: #232529;
     float: right;
+    margin: 0 auto;
     width: 20%;
 }
 
 #content-0,
 #content-1 {
     margin: 0 auto;
-    padding: 10px 0 10px 0;
+    padding: 0 0 10px 0;
     width: 95%;
 }
 
@@ -53,8 +51,8 @@ body {
 
 /*
     CONTAINER MOBILE VIEW
-
 */
+
 @media (max-width:1024px) {
     #site-container {
         margin-bottom: 0;
@@ -81,11 +79,12 @@ header {
     -o-background-size: cover;
     background-size: cover;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 header h1 {
     color: #fff;
-    font-family: 'Classic Console', 'Source Code Pro', ssp, sans-serif, 'Trebuchet MS', Helvetica;
+    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, monospace;
     font-weight: 100;
     font-size: 4.0em;
     text-align: center;
@@ -95,7 +94,7 @@ header h1 {
 header h5 {
     color: #fff;
     font-size: 2.0em;
-    font-family: 'Classic Console', 'Source Code Pro', ssp, sans-serif, 'Trebuchet MS', Helvetica;
+    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, monospace;
     font-style: italic;
     margin-bottom: 5px;
     text-align: center;
@@ -125,31 +124,16 @@ header h5 {
     }
 }
 
-
 /*
     WEBSITE SEARCH
     Site-wide search in the sidebar.
 */
 
-#sidebbar-search {
-    margin-bottom: 10px;
-}
-
-#sidebar-search p {
-    overflow: auto;
-    position: relative;
-}
-
 #sidebar-search input[name=search-input] {
     border: none;
-    font-family: 'Source Code Pro', scp, 'Courier New', Courier, monospace;
-    font-size: 1.5em;
-    height: 30px;
-    margin: 0 auto;
+    height: 35px;
     overflow: hidden;
     padding: 0 0 0 6px;
-    position: relative;
-    vertical-align: top;
     width: 100%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -157,38 +141,40 @@ header h5 {
 }
 
 #sidebar-search input[id=search-submit] {
-    background: #4284fd url('img/magnifying_glass.png') no-repeat center center;
+    background: #b3b3b3;
+    background-size: 75% auto;
     border: none;
     border-radius: 0;
     display: block;
-    height: 22px;
+    height: 25px;
     margin-left: 87%;
     margin-top: -30.5px;
     position: relative;
     width: 25px;
     /* THIS. IS. SPARTA. */
     z-index: 300;
-    -webkit-appearance: none; 
-    -webkit-border-radius: 0;
-}
-
-#sidebar input[id=search-submit]:hover {
-    background-color: #ba3434;
-    outline: 0;
-}
-
-#sidebar select {
-    font-family: 'Source Code Pro', scp, 'Courier New', Courier, monospace;
-    margin-top: 5px;
-    width: 100%;
 }
 
 /*
     ARTICLES
 */
 
-.post-title h1 {
+.post-title a {
+    text-decoration: none;
     vertical-align: text-top;
+}
+
+.post-info {
+    line-height: 1em;
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+article img {
+    height: auto;
+    max-width: 100%;
 }
 
 article blockquote,
@@ -198,7 +184,7 @@ article ul {
 }
 
 article pre {
-    background: #000;
+    background: #0a0d17;
     color: #b5e853;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -211,7 +197,7 @@ article pre {
 }
 
 /*
-    ARTICLE
+    ARTICLE MOBILE
 */
 
 @media (max-width:1024px) {
@@ -225,17 +211,29 @@ article pre {
 */
 
 footer {
+    /*background: #0b0b0d;*/
     clear: both;
     margin: 0 auto;
     width: 100%;
 }
 
 footer p {
-    font-family: 'Source Code Pro', scp, 'Courier New', Courier, monospace;
-    font-size: 0.9em;
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace;
+    font-size: 0.75em;
     height: 50px;
     line-height: 50px;
     margin-bottom: 0;
     text-align: center;
 }
 
+@media (max-width:1024px) {
+    footer {
+        background: #232529;
+    }
+
+    footer p {
+        font-size: 0.5em;
+        height: 15px;
+        line-height: 0;
+    }
+}
