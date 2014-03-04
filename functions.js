@@ -32,6 +32,7 @@ function headerWidth() {
 }
 
 function sidebarHeight() {
+    // Sets the height of the sidebar to that of the content column.
     var a = $('#content-col-0').height();
     var b = $('#content-1');
 
@@ -69,7 +70,11 @@ function searchButtonPos() {
     // Anchors the search button to the right side of the search bar.
     var a = $('#sidebar-search input[name=search-submit]');
     var b = $('#sidebar-search');
-    a.css('margin-left', b.width() - a.width() - 16);
+    if ($(window).width > bp ) {
+        a.css('margin-left', b.width() - a.width() - 16);
+    } else {
+        a.css('margin-left', b.width() - a.width() - 22);
+    }
 }
 
 function socialWidgetHeight() {
@@ -83,7 +88,7 @@ $(document).ready(
         headerWidth();
         headerHeight();
         searchButtonPos();
-        sidebarHeight();
+        // sidebarHeight();
         siteTitlePos();
         socialWidgetHeight();
     }
@@ -94,7 +99,7 @@ $(window).on('resize',
         headerWidth();
         headerHeight();
         searchButtonPos();
-        sidebarHeight();
+        // sidebarHeight();
         siteTitlePos();
         socialWidgetHeight();
     }

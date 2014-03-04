@@ -49,6 +49,17 @@ select {
     text-align: left;
 }
 
+select {
+    background: #fff;
+    color: #000;
+    width: 100%;
+}
+
+option {
+    background: #fff;
+    color: #000;
+}
+
 a { text-decoration: underline; }
 a:hover { color: #b3b3b3; }
 blockquote { border-left: 1px solid rgba(255,255,255,0.6); }

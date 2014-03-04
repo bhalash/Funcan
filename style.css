@@ -26,6 +26,7 @@ body {
 }
 
 #content-container {
+    background: #232529;
     overflow: auto;
 }
 
@@ -36,7 +37,7 @@ body {
 }
 
 #content-col-1 {
-    background: #232529;
+    /*background: #232529;*/
     float: right;
     margin: 0 auto;
     width: 20%;
@@ -52,6 +53,10 @@ body {
 #content-0 img {
     max-width: 100%;
     height: auto;
+}
+
+#content-1 {
+    /*background: #343537;*/
 }
 
 /*
@@ -144,16 +149,6 @@ header h5 {
     font-size: 1em;
     list-style-type: none;
     text-align: left;
-}
-
-#content-1 select {
-    /*background: #fff;*/
-    color: #000;
-    width: 100%;
-}
-
-#content-1 option {
-    color: #000;
 }
 
 /*
@@ -252,7 +247,7 @@ article pre {
 */
 
 #site-navigation {
-    background: #232529;
+    /*background: #232529;*/
     padding-bottom: 10px;
     padding-top: 10px;
     width: 100%;
@@ -322,5 +317,6 @@ footer p {
         font-size: 0.5em;
         height: 15px;
         line-height: 15px;
+        padding-bottom: 10px;
     }
 }
