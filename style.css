@@ -289,7 +289,7 @@ sup {
 #content-col-0 {
     float: left;
     margin-top: -20px;
-    width: 80%;
+    width: 79%;
 }
 
 #content-col-1 {
@@ -570,25 +570,27 @@ article ul li {
     INTRA-SITE NAVIGATION
 */
 
-#site-navigation {
-    /*background: #232529;*/
+#site-nav {
+    background: rgba(255,255,255,0.3);
+    margin: 0 auto;
+    margin-left: auto;
+    overflow: auto;
     padding-bottom: 10px;
     padding-top: 10px;
-    width: 100%;
+    width: 110px;   
 }
 
-#site-navigation a {
+#site-nav a {
     display: block;
     height: 100%;
     text-decoration: none;
-    width: 100%;
 }
 
-#site-navigation a:hover {
+#site-nav a:hover {
     color: #000;
 }
 
-#site-navigation p {
+#site-nav p {
     font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, monospace;
     font-size: 3em;
     height: 50px;
@@ -598,21 +600,20 @@ article ul li {
     width: 50px;
 }
 
-#site-navigation p:hover {
+#site-nav p:hover {
     background: #fff;
 }
 
-#site-navigation-interior {
+#site-nav-interior {
     margin: 0 auto;
     overflow: auto;
-    width: 110px;   
 }
 
-#site-navigation-left {
+#site-nav-left {
     float: left;
 }
 
-#site-navigation-right {
+#site-nav-right {
     float: right;
 }
 
@@ -624,7 +625,7 @@ footer {
     background: #232529;
     clear: both;
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
 }
 
 footer p {

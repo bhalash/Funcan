@@ -22,7 +22,7 @@ function headerHeight() {
     $('#header-screen').css('height', a.height());
 }
 
-function containerWidths() {
+function conWidth() {
     // Header container width.
     var a = $('header');
     var b = $('#header-screen');
@@ -42,6 +42,18 @@ function sidebarHeight() {
         $(b).css('height', 'auto');
     } 
 } 
+
+function navPos() {
+    var a = $('#site-nav');
+    var b = 'margin-left';
+
+    if ($(window).width() > bp) {
+        // TODO
+        a.css(b, 'auto');
+    } else {
+        a.css(b, 'auto');
+    }
+}
 
 function siteTitlePos() {
     // Header title positon.
@@ -66,34 +78,35 @@ function clearSearch(obj) {
     }
 }
 
-function searchButtonPos() {
+function searchSubPos() {
     // Anchors the search button to the right side of the search bar.
     var a = $('#sidebar-search input[name=search-submit]');
     var b = $('#content-col-1');
     a.css('margin-left', b.width() - a.width() - 30);
 }
 
-function socialWidgetHeight() {
-    // Social link height, to keep them perfectly circular.
+function socialHeight() {// Social link height, to keep them perfectly circular.
     $('#social a').css('height', $('#social a').width() + 'px'); 
 }
 
 $(document).ready(
     function() {
-        containerWidths();
+        conWidth();
         headerHeight();
-        searchButtonPos();
+        navPos();
+        searchSubPos();
         siteTitlePos();
-        socialWidgetHeight();
+        socialHeight();
     }
 );
 
 $(window).on('resize',
     function() {
-        containerWidths();
+        conWidth();
         headerHeight();
-        searchButtonPos();
+        navPos();
+        searchSubPos();
         siteTitlePos();
-        socialWidgetHeight();
+        socialHeight();
     }
 );    
