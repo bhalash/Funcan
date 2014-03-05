@@ -1,17 +1,271 @@
-@import url('reset.css');
-@import url('fonts.css');
-@import url('globals.css');
-@import url('social.css');
+/* RESET */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    border: 0;
+    color: inherit;
+    font-size: 100%;
+    font: inherit;
+    font-family: Lucida Grande, Verdana, Lucida Sans Regular, Lucida Sans Unicode, Arial;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: baseline;
+}
 
 /*
-    CONTAINERS
-    Dimensions for the three top containers and their interiors.
+    WEB FONTS
 */
+
+@font-face {
+    /*
+        Name: Bebas Neue
+        Creator: Dharma Type
+        URL: http://dharmatype.com/dharma-type/bebas-neue.html 
+        License: SIL Open Font License 1.1
+    */ 
+    font-family: 'Bebas Neue';
+    src: 
+        url('fonts/bebas/bebas.eot') format('embedded-opentype');
+    src: 
+        url('fonts/bebas/bebas.woff') format('woff'),
+        url('fonts/bebas/bebas.ttf') format('truetype'),
+        url('fonts/bebas/bebas.svg') format('svg');
+}
+
+@font-face {
+    /*
+        Name: Verily Serif Mono
+        Creator: Stephen G. Hartke
+        URL: http://www.fontsquirrel.com/fonts/Verily-Serif-Mono 
+        License: Vera License SIL Open Font License 1.1
+    */ 
+    font-family: 'Verily Serif Mono';
+    src: 
+        url('fonts/verilyserifmono/verilyserifmono.eot') format('embedded-opentype');
+    src: 
+        url('fonts/verilyserifmono/verilyserifmono.woff') format('woff'),
+        url('fonts/verilyserifmono/verilyserifmono.ttf') format('truetype'),
+        url('fonts/verilyserifmono/verilyserifmono.svg') format('svg');
+}
+
+@font-face {
+    /* 
+        Name: Source Code Pro Regular
+        Creator: Adobe Systems
+        URL: http://sourceforge.net/projects/sourcecodepro.adobe/
+        License: SIL Open Font License 1.1
+    */
+    font-family: 'Source Code Pro Regular';
+    src: 
+        url('fonts/din/scp-r.eot') format('embedded-opentype');
+    src:
+        url('fonts/din/scp-r.woff') format('woff'),
+        url('fonts/din/scp-r.otf') format('opentype'),
+        url('fonts/din/scp-r.ttf') format('truetype'),
+        url('fonts/din/scp-r.svg') format('svg');
+}
+
+@font-face {
+    /* 
+        Name: Source Sans Pro Regular
+        Creator: Adobe Systems
+        URL: http://sourceforge.net/projects/sourcesans.adobe/
+        License: SIL Open Font License 1.1
+    */
+    font-family: 'Source Sans Pro Regular';
+    src: 
+        url('fonts/ssp/scp-r.eot') format('embedded-opentype');;
+    src:
+        url('fonts/ssp/clacon.woff') format('woff'),
+        url('fonts/ssp/clacon.otf') format('opentype'),
+        url('fonts/ssp/clacon.ttf') format('truetype'),
+        url('fonts/ssp/clacon.svg') format('svg');
+}
+
+@font-face {
+    /* 
+        Name: Classic Console
+        Creator: Webdraft Ltd.
+        URL: http://webdraft.hu/fonts/classic-console/
+        License: Free to doownload, use, and redistribute.
+    */
+    font-family: 'Classic Console';
+    src: 
+        url('fonts/clacon/clacon.eot') format('embedded-opentype');;
+    src:
+        url('fonts/clacon/clacon.woff') format('woff'),
+        url('fonts/clacon/clacon.otf') format('opentype'),
+        url('fonts/clacon/clacon.ttf') format('truetype'),
+        url('fonts/clacon/clacon.svg') format('svg');
+}
+
+/*
+    TEXT ALIGNMENT AND FONTS
+    Site-wide defaults for inline and block text elements. 
+    Some elements are individually overridden elsewhere.
+*/
+
+a { 
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #b3b3b3;
+}
+
+a,
+del,
+em,
+span,
+strong,
+sub,
+sup,
+time {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+blockquote {
+    border-left: 1px solid rgba(255,255,255,0.6);
+}
+
+blockquote,
+input,
+li,
+option,
+p,
+select {
+    color: #fff;
+    font-family: 'Source Sans Pro', 'Source Sans Pro Regular', sans-serif, 'Trebuchet MS', Helvetica;
+    font-size: 0.82em;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+code,
+pre {
+    color: #fff;
+    line-height: 1.3em;
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+    font-size: 0.81em;
+    line-height: 1.3em;
+    text-align: left;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    -webkit-font-smoothing: antialiased !important;
+}
+
+em {
+    text-decoration: line-through;
+}
+
+hr { 
+    background: #fff;
+    height: 2px;
+    width: 100%;
+}
+
+li { 
+    margin-bottom: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #fff;
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+h1 { font-size: 2.4em; }
+h2 { font-size: 2.1em; }
+h3 { font-size: 1.8em; }
+h4 { font-size: 1.5em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.0em; }
 
 html,
 body {
     background: #111215;
 }
+
+object {
+    outline: 0;
+}
+
+ol, ul { 
+    margin-bottom: 10px;
+}
+
+option {
+    background: #fff;
+    color: #000;
+}
+
+pre {
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+}
+
+select {
+    background: #fff;
+    color: #000;
+    width: 100%;
+}
+
+strong { 
+    font-style: italic;
+}
+
+sub {
+    font-size: 75%;
+    vertical-align: sub;
+}
+
+input {
+    color: #343537;
+}
+
+sup {
+    font-size: 75%;
+    vertical-align: super;
+}
+
+/*
+    MOBILE GLOBAL SETTINGS
+*/
+@media screen and (max-width:1025px) {
+    h1 { font-size: 2.0em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.6em; }
+    h4 { font-size: 1.4em; }
+    h5 { font-size: 1.1em; }
+    h6 { font-size: 0.9em; }
+}
+
+/*
+    CONTAINERS
+    Dimensions for the three top containers and their interiors.
+*/
 
 #site-container {
     background: #343537;
@@ -39,6 +293,7 @@ body {
 #content-col-1 {
     /*background: # 232529;*/
     float: right;
+
     margin: 0 auto;
     margin-top: 20px;
     width: 20%;
@@ -153,6 +408,118 @@ header h5 {
 }
 
 /*
+    ARTICLES
+*/
+
+.post-title {
+    margin-bottom: 0;
+}
+
+.post-title a {
+    text-decoration: none;
+    vertical-align: text-top;
+}
+
+.post-info {
+    line-height: 1em;
+}
+
+article {
+    margin-top: 25px;
+}
+
+article blockquote,
+article ol,
+article ul {
+    padding-left: 15px;
+}
+
+article img {
+    height: auto;
+    max-width: 100%;
+}
+
+article pre {
+    background: #0a0d17;
+    color: #b5e853;
+    font-size: 0.8em;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    /* Prevent padding making div bigger. */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+article ul li {
+    list-style-type: square;
+}
+
+/*
+    ARTICLE MOBILE
+*/
+
+@media (max-width:1024px) {
+    article pre {
+        font-size: 0.7em;
+    }
+}
+
+/*
+    ARTICLE AND SIDEBAR FORMS
+*/
+
+#content-0 form p {
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+}
+
+#content-0 input[type="radio"],
+#content-0 input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+#content-0 input {
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    height: 1.6em;
+    margin-bottom: 3px;
+    position: relative;
+    vertical-align: text-top;
+}
+
+#content-0 input[type="submit"] {
+    background: #b3b3b3;
+    font-size: 1.2em;
+    height: 22px;
+    text-align: center;
+    width: 20%;
+}
+
+#content-0 input[type="submit"]:hover {
+    background: #b3b3b3;
+}
+
+#content-0 input[type="text"],
+#content-0 input[type="password"] {
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+    font-size: 0.96em;
+    height: 30px;
+    padding: 0 0 0 6px;
+    width: 150px; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#content-0 textarea {
+    padding: 0 0 0 6px;
+    width: 100%;
+}
+
+/*
     WEBSITE SEARCH
     Site-wide search in the sidebar.
 */
@@ -195,114 +562,6 @@ header h5 {
     font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
     -webkit-border-radius: 0;
     -webkit-appearance: none;
-}
-
-/*
-    ARTICLES
-*/
-
-.post-title {
-    margin-bottom: 0;
-}
-
-.post-title a {
-    text-decoration: none;
-    vertical-align: text-top;
-}
-
-.post-info {
-    line-height: 1em;
-}
-
-article {
-    margin-top: 25px;
-}
-
-article blockquote,
-article ol,
-article ul {
-    padding-left: 15px;
-}
-
-article form p {
-    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
-}
-
-article input[type="radio"],
-article input[type="checkbox"] {
-    vertical-align: middle;
-}
-
-article img {
-    height: auto;
-    max-width: 100%;
-}
-
-article input {
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    height: 1.6em;
-    margin-bottom: 3px;
-    position: relative;
-    vertical-align: text-top;
-}
-
-article input[type="submit"] {
-    background: #b3b3b3;
-    font-size: 1.2em;
-    height: 22px;
-    text-align: center;
-    width: 20%;
-}
-
-article input[type="submit"]:hover {
-    background: #b3b3b3;
-}
-
-article input[type="text"],
-article input[type="password"] {
-    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
-    font-size: 0.96em;
-    height: 30px;
-    padding: 0 0 0 6px;
-    width: 150px; 
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-article pre {
-    background: #0a0d17;
-    color: #b5e853;
-    font-size: 0.8em;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 100%;
-    /* Prevent padding making div bigger. */
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-article textarea {
-    padding: 0 0 0 6px;
-    width: 100%;
-}
-
-article ul li {
-    list-style-type: square;
-}
-
-/*
-    ARTICLE MOBILE
-*/
-
-@media (max-width:1024px) {
-    article pre {
-        font-size: 0.7em;
-    }
 }
 
 /*
@@ -383,3 +642,74 @@ footer p {
         padding-bottom: 10px;
     }
 }
+
+/*
+    SOCIAL ICONS
+*/
+
+#social {
+    list-style: none;
+    margin: 0 auto;
+    text-align: center;
+    width: 30%;
+}
+
+@media (max-width:1024px) { 
+    /* Widens the container on smaller screens for legibility. */ 
+    #social {
+        width: 70%;
+    }
+}
+
+#social li {
+    display: inline;
+    text-align: center;
+}
+
+#social a {
+    border-radius: 50%;
+    display: inline-block;
+    width: 20%;
+}
+
+#social a:hover {
+    border: none !important;
+}
+
+/* RSS */
+
+/* Email */
+.email { background: url('img/social/email.png') no-repeat center center; background-size: 100% auto; }
+.email:hover { background-color: #ec4724; }
+
+/* Facebook */
+.facebook { background: url('img/social/facebook.png') no-repeat center center; background-size: 100% auto; }
+.facebook:hover { background-color: #3B5998; }
+
+/* Github */
+.github { background: url('img/social/github.png') no-repeat center center; background-size: 100% auto; }
+.github:hover { background-color: #171516; }
+
+/* Google+ */
+.google { background: url('img/social/google.png') no-repeat center center; background-size: 100% auto; }
+.google:hover { background-color: #db5442; }
+
+/* Instagram */
+.instagram { background: url('img/social/instagram.png') no-repeat center center; background-size: 100% auto; }
+.instagram:hover { background-color: #3f729b; }
+
+/* LinkedIn */
+.linkedin { background: url('img/social/linkedin.png') no-repeat center center; background-size: 100% auto; }
+.linkedin:hover { background-color: #0274b3; }
+
+/* Pinterest */
+.pinterest { background: url('img/social/pinterest.png') no-repeat center center; background-size: 100% auto; }
+.pinterest:hover { background-color: #cb2027; }
+
+/* RSS */
+.rss { background: url('img/social/rss.png') no-repeat center center; background-size: 100% auto; }
+.rss:hover { background-color: #FF6600; }
+
+/* Twitter */
+.twitter { background: url('img/social/twitter.png') no-repeat center center; background-size: 100% auto; }
+.twitter:hover { background-color: #00aced; }

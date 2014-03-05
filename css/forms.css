@@ -1,0 +1,93 @@
+
+#content-0 form p {
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+}
+
+#content-0 input[type="radio"],
+#content-0 input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+#content-0 input {
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    height: 1.6em;
+    margin-bottom: 3px;
+    position: relative;
+    vertical-align: text-top;
+}
+
+#content-0 input[type="submit"] {
+    background: #b3b3b3;
+    font-size: 1.2em;
+    height: 22px;
+    text-align: center;
+    width: 20%;
+}
+
+#content-0 input[type="submit"]:hover {
+    background: #b3b3b3;
+}
+
+#content-0 input[type="text"],
+#content-0 input[type="password"] {
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+    font-size: 0.96em;
+    height: 30px;
+    padding: 0 0 0 6px;
+    width: 150px; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#content-0 textarea {
+    padding: 0 0 0 6px;
+    width: 100%;
+}
+
+/*
+    WEBSITE SEARCH
+    Site-wide search in the sidebar.
+*/
+
+#sidebar-search input[name="search-input"] {
+    border: none;
+    font-size: 0.96em;
+    height: 35px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 0 0 6px;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#sidebar-search input[id="search-submit"] {
+    border: none;
+    border-radius: 0;
+    display: block;
+    height: 25px;
+    margin-left: 87%;
+    margin-top: -30.5px;
+    position: relative;
+    width: 25px;
+    text-align: center;
+    /* THIS. IS. SPARTA. */
+    z-index: 300;
+}
+
+#sidebar-search input[id="search-submit"]:hover {
+    background: #b3b3b3;
+}
+
+/* Removes corner rounding in iOS. */
+#sidebar-search input, 
+#sidebar-search textarea {
+    border-radius: 0;
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
+}
