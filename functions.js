@@ -82,7 +82,7 @@ function searchSubPos() {
     // Anchors the search button to the right side of the search bar.
     var a = $('#sidebar-search input[name=search-submit]');
     var b = $('#content-col-1');
-    a.css('margin-left', b.width() - a.width() - 30);
+    // a.css('margin-left', b.width() - a.width() - 30);
 }
 
 function socialHeight() {// Social link height, to keep them perfectly circular.
