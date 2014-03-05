@@ -1,75 +1,60 @@
 // Break point before the site switches from "desktop" mode to "mobile" mode.
-bp = 1025;
+widthBreak = 1025;
 
 function headerHeight() {
     // Header container size + back overlay size.
-    var a = $('header');
-    var b = $('#site-container');
+    // Size is set to window minus equal top and side margins.
+    var head = $('header');
+    var con = $('.site-container');
+    var win = $(window);
+    var mTop = parseInt(con.css('margin-top'), 10); 
 
-    // Height is window height - (margin-top * 2)
-    var c = parseInt(b.css('margin-top'), 10); 
-
-    if ($(window).width() > bp) {
-        a.css(
-            'height', 
-            $(window).height() - (c * 2)
-        );
+    if ($(window).width() > widthBreak) {
+        head.css('height', win.height() - (mTop * 2));
     } else {
-        a.css('height', ($(window).height() * 0.75));
+        head.css('height', (win.height() * 0.75));
     }
     
-    // Black overlay that darkens the image. 
-    $('#header-screen').css('height', a.height());
+    // Black overlay that dims the image. 
+    $('.header-screen').css('height', head.height());
 }
 
-function conWidth() {
-    // Header container width.
-    var a = $('header');
-    var b = $('#header-screen');
-    var c = $('#content-container');
-    a.css('width', c.width());
-    b.css('wdith', a.width());
+function headerWidth() {
+    // Header container, and header-screen, width.
+    var head = $('header');
+    var scr = $('.header-screen');
+    var con = $('.content-container');
+
+    head.css('width', con.width());
+    scr.css('wdith', head.width());
 }
 
-function sidebarHeight() {
-    // Sets the height of the sidebar to that of the content column.
-    var a = $('#content-col-0').height();
-    var b = $('#content-1');
-
-    if ($(window).width() > bp) {
-        $(b).css('height', a + 'px');
-    } else {
-        $(b).css('height', 'auto');
-    } 
-} 
-
-function navPos() {
-    // The navigation div lies iin an off-centered (#content-0) container.
-    // It therefore has to be offset to the right by a specific amount in order to be
-    // centered on screen.
-    var a = $('#site-nav');
-    var b = 'margin-left';
-    var c = $('#content-container');
-
-    if ($(window).width() > bp) {
-        // (window.width / 2 ) - (content-container left offsent) - (site-nav width / 2) +5
-        a.css(b, ($(window).width() * 0.5) - c.offset().left - (a.width() * 0.5) + 5);
-    } else {
-        a.css(b, 'auto');
-    }
-}
-
-function siteTitlePos() {
+function headerTitlePosition() {
     // Header title positon.
     // The title should be absolutely centered on on the header at all times.
-    var a = $('#site-title');
-    var b = $('#site-blurb');
-    var c = a.height();
-    var d = b.height();
-    var f = $('#social').height();
+    var title = $('.title');
+    var blurb = $('.blurb');
+    var social = $('.social');
+    var head = $('header'); 
 
-    // 50% header height - half of 50% the h1 height, to center vertically. 
-    a.css('padding-top', ($('header').height() * 0.5) - (c + d + f) * 0.5);
+    title.css('padding-top',
+        (head.height() * 0.5) - (title.height() + blurb.height() + social.height()) * 0.5
+    );
+}
+
+function navigationPosition() {
+    // The navigation div lies iin an off-centered (.content-0) container.
+    // It therefore has to be offset to the right by a specific amount in order 
+    //to be centered on screen.
+    var nav = $('.site-nav');
+    var con = $('.content-container');
+
+    if ($(window).width() > widthBreak) {
+        nav.css('margin-left', ($(window).width() * 0.5) 
+        - con.offset().left - (nav.width() * 0.5) + 5);
+    } else {
+        nav.css('margin-left', 'auto');
+    }
 }
 
 function clearSearch(obj) {
@@ -82,26 +67,30 @@ function clearSearch(obj) {
         obj.value = str;
     }
 }
-function socialHeight() {// Social link height, to keep them perfectly circular.
-    $('#social a').css('height', $('#social a').width() + 'px'); 
+
+function socialWidgetHeight() {
+    // Widget width is proportional to div and div container size. 
+    // Height = width.
+    var soc = $('.social a');
+    soc.css('height', soc.width() + 'px'); 
 }
 
 $(document).ready(
     function() {
-        conWidth();
+        headerWidth();
         headerHeight();
-        navPos();
-        siteTitlePos();
-        socialHeight();
+        navigationPosition();
+        headerTitlePosition();
+        socialWidgetHeight();
     }
 );
 
 $(window).on('resize',
     function() {
-        conWidth();
+        headerWidth();
         headerHeight();
-        navPos();
-        siteTitlePos();
-        socialHeight();
+        navigationPosition();
+        headerTitlePosition();
+        socialWidgetHeight();
     }
 );    

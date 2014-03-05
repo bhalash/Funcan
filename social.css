@@ -2,32 +2,39 @@
     SOCIAL ICONS
 */
 
-#social {
+.social {
     list-style: none;
     margin: 0 auto;
     text-align: center;
     width: 30%;
 }
 
-@media (max-width:1024px) { 
-    /* Widens the container on smaller screens for legibility. */ 
-    #social {
-        width: 70%;
+@media screen and (max-width: 700px) { 
+    /* Container is windened at smaller screen sizes for legibility. */
+    .social {
+        width: 40%;
     }
 }
 
-#social li {
+@media screen and (max-width: 500px) { 
+    /* Container is windened at smaller screen sizes for legibility. */
+    .social {
+        width: 50%;
+    }
+}
+
+.social li {
     display: inline;
     text-align: center;
 }
 
-#social a {
+.social a {
     border-radius: 50%;
     display: inline-block;
     width: 20%;
 }
 
-#social a:hover {
+.social a:hover {
     border: none !important;
 }
 

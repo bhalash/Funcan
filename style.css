@@ -1,5 +1,3 @@
-@import url('social.css'); 
-
 /* RESET */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -18,7 +16,8 @@ time, mark, audio, video {
     color: inherit;
     font-size: 100%;
     font: inherit;
-    font-family: Lucida Grande, Verdana, Lucida Sans Regular, Lucida Sans Unicode, Arial;
+    font-family: Lucida Grande, Verdana, Lucida Sans Regular, 
+        Lucida Sans Unicode, Arial;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -31,38 +30,6 @@ time, mark, audio, video {
 */
 
 @font-face {
-    /*
-        Name: Bebas Neue
-        Creator: Dharma Type
-        URL: http://dharmatype.com/dharma-type/bebas-neue.html 
-        License: SIL Open Font License 1.1
-    */ 
-    font-family: 'Bebas Neue';
-    src: 
-        url('fonts/bebas/bebas.eot') format('embedded-opentype');
-    src: 
-        url('fonts/bebas/bebas.woff') format('woff'),
-        url('fonts/bebas/bebas.ttf') format('truetype'),
-        url('fonts/bebas/bebas.svg') format('svg');
-}
-
-@font-face {
-    /*
-        Name: Verily Serif Mono
-        Creator: Stephen G. Hartke
-        URL: http://www.fontsquirrel.com/fonts/Verily-Serif-Mono 
-        License: Vera License SIL Open Font License 1.1
-    */ 
-    font-family: 'Verily Serif Mono';
-    src: 
-        url('fonts/verilyserifmono/verilyserifmono.eot') format('embedded-opentype');
-    src: 
-        url('fonts/verilyserifmono/verilyserifmono.woff') format('woff'),
-        url('fonts/verilyserifmono/verilyserifmono.ttf') format('truetype'),
-        url('fonts/verilyserifmono/verilyserifmono.svg') format('svg');
-}
-
-@font-face {
     /* 
         Name: Source Code Pro Regular
         Creator: Adobe Systems
@@ -71,8 +38,7 @@ time, mark, audio, video {
     */
     font-family: 'Source Code Pro Regular';
     src: 
-        url('fonts/din/scp-r.eot') format('embedded-opentype');
-    src:
+        url('fonts/din/scp-r.eot?') format('embedded-opentype'),
         url('fonts/din/scp-r.woff') format('woff'),
         url('fonts/din/scp-r.otf') format('opentype'),
         url('fonts/din/scp-r.ttf') format('truetype'),
@@ -88,8 +54,7 @@ time, mark, audio, video {
     */
     font-family: 'Source Sans Pro Regular';
     src: 
-        url('fonts/ssp/scp-r.eot') format('embedded-opentype');;
-    src:
+        url('fonts/ssp/scp-r.eot?') format('embedded-opentype'),
         url('fonts/ssp/clacon.woff') format('woff'),
         url('fonts/ssp/clacon.otf') format('opentype'),
         url('fonts/ssp/clacon.ttf') format('truetype'),
@@ -105,8 +70,7 @@ time, mark, audio, video {
     */
     font-family: 'Classic Console';
     src: 
-        url('fonts/clacon/clacon.eot') format('embedded-opentype');;
-    src:
+        url('fonts/clacon/clacon.eot?') format('embedded-opentype'),
         url('fonts/clacon/clacon.woff') format('woff'),
         url('fonts/clacon/clacon.otf') format('opentype'),
         url('fonts/clacon/clacon.ttf') format('truetype'),
@@ -140,17 +104,22 @@ time {
 }
 
 blockquote {
+    /* IE fallback. */
+    border-left: #fff;
     border-left: 1px solid rgba(255,255,255,0.6);
 }
 
+code,
 blockquote,
 input,
 li,
 option,
 p,
+pre,
 select {
     color: #fff;
-    font-family: 'Source Sans Pro', 'Source Sans Pro Regular', sans-serif, 'Trebuchet MS', Helvetica;
+    font-family: 'Source Sans Pro', 'Source Sans Pro Regular', sans-serif,
+        'Trebuchet MS', Helvetica;
     font-size: 0.82em;
     line-height: 1.3em;
     margin-bottom: 10px;
@@ -159,14 +128,10 @@ select {
 
 code,
 pre {
-    color: #fff;
-    line-height: 1.3em;
-    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
-    font-size: 0.81em;
-    line-height: 1.3em;
-    text-align: left;
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono',
+        'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    -webkit-font-smoothing: antialiased !important;
+    -webkit-font-smoothing: antialiased;
 }
 
 em {
@@ -189,9 +154,12 @@ h3,
 h4,
 h5,
 h6 {
+    border-bottom: 2px solid #fff;
     color: #fff;
-    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono',
+        'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
     margin-bottom: 5px;
+    padding-bottom: 2px;
     text-align: left;
 }
 
@@ -207,8 +175,8 @@ body {
     background: #111215;
 }
 
-object {
-    outline: 0;
+input {
+    color: #343537;
 }
 
 ol, ul { 
@@ -238,24 +206,24 @@ strong {
     font-style: italic;
 }
 
-sub {
+sub, 
+sup {
     font-size: 75%;
+}
+
+sub {
     vertical-align: sub;
 }
 
-input {
-    color: #343537;
-}
-
 sup {
-    font-size: 75%;
     vertical-align: super;
 }
 
 /*
     MOBILE GLOBAL SETTINGS
 */
-@media screen and (max-width:1025px) {
+
+@media screen and (max-width: 1024px) {
     h1 { font-size: 2.0em; }
     h2 { font-size: 1.8em; }
     h3 { font-size: 1.6em; }
@@ -269,7 +237,7 @@ sup {
     Dimensions for the three top containers and their interiors.
 */
 
-#site-container {
+.site-container {
     background: #343537;
     border-radius: 1px;
     -webkit-box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.75);
@@ -281,55 +249,55 @@ sup {
     width: 80%;
 }
 
-#content-container {
+.content-container {
     background: #232529;
     overflow: auto;
 }
 
-#content-col-0 {
+.content-left-container {
     float: left;
     margin-top: -20px;
     width: 79%;
 }
 
-#content-col-1 {
-    /*background: # 232529;*/
+.content-right-container {
     float: right;
-
     margin: 0 auto;
     margin-top: 20px;
     width: 20%;
 }
 
-#content-0,
-#content-1 {
+.content-left,
+.content-right {
     margin: 0 auto;
     padding-bottom: 10px;
     width: 95%;
 }
 
-#content-0 img {
+.content-left img {
     max-width: 100%;
     height: auto;
 }
 
-#content-1 {
-    /*background: #343537;*/
+.content-left {
+    /* Stop horizontal scrolling behaviour. */
+    min-height: 450px;
 }
 
 /*
     CONTAINER MOBILE VIEW
 */
 
-@media (max-width:1024px) {
-    #site-container {
+@media screen and (max-width: 1024px) {
+    /* At smaller screen sizes, the two containers are stacked. */ 
+    .site-container {
         margin-bottom: 0;
         margin-top: 0;
         width: 100%;
     }
 
-    #content-col-0,
-    #content-col-1 {
+    .content-left-container,
+    .content-right-container {
         float: none;
         width: 100%;
     }
@@ -337,10 +305,11 @@ sup {
 
 /*
     SITE HEADER
-    CSS for he header banner, fonts, the like.
 */
 
 header {
+    /* The header image can be easily set or changed, and it sizes itself to the
+    header. Recommend at *least* a 1600x1200 image. */
     background: url('img/header/trainyard.jpg') no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -349,45 +318,43 @@ header {
     margin: 0 auto;
 }
 
-header h1 {
-    color: #fff;
-    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, monospace;
-    font-weight: 100;
+.title {
+    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier,
+        monospace;
     font-size: 4.0em;
     text-align: center;
     text-transform: uppercase;
 }
 
-header h5 {
-    color: #fff;
+.blurb {
     font-size: 2.0em;
-    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, monospace;
+    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier,
+        monospace;
     font-style: italic;
     margin-bottom: 5px;
     text-align: center;
 }
 
-#header-screen {
+.header-screen {
     /* Mask over header image. */
+    /* IE6-8 fallback. */
+    background: #000;
     background: rgba(0,0,0,0.5);
     width: 100%;
+}
+
+.blurb,
+.title {
+    border-bottom: none;
 }
 
 /*
     MOBILE HEADER RULES
 */
 
-@media (max-width:1024px) {    
+@media screen and (max-width:1024px) {    
     header {
         width: 100%;
-    }
-
-    header h1 {
-        font-size: 2.9em;
-    }
-
-    header h5 {
-        font-size: 1.8em;
     }
 }
 
@@ -395,16 +362,8 @@ header h5 {
     WEBSITE SIDEBAR
 */
 
-/* H1, H2, and H3 are all too large to use here. */
-#content-1 h4,
-#content-1 h5,
-#content-1 h6 {
-    border-bottom: 2px solid #fff;
-}
-
-#content-1 li {
+.content-right li {
     font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
-    font-size: 1em;
     list-style-type: none;
     text-align: left;
 }
@@ -414,6 +373,7 @@ header h5 {
 */
 
 .post-title {
+    border-bottom: none;
     margin-bottom: 0;
 }
 
@@ -444,12 +404,10 @@ article img {
 article pre {
     background: #0a0d17;
     color: #b5e853;
-    font-size: 0.8em;
     margin: 0 auto;
     margin-bottom: 10px;
     padding: 10px;
     width: 100%;
-    /* Prevent padding making div bigger. */
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -463,7 +421,7 @@ article ul li {
     ARTICLE MOBILE
 */
 
-@media (max-width:1024px) {
+@media screen and (max-width: 1024px) {
     article pre {
         font-size: 0.7em;
     }
@@ -473,17 +431,18 @@ article ul li {
     ARTICLE AND SIDEBAR FORMS
 */
 
-#content-0 form p {
-    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+.content-left form p {
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono',
+        'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
 }
 
-#content-0 input[type="radio"],
-#content-0 input[type="checkbox"] {
+.content-left input[type="radio"],
+.content-left input[type="checkbox"] {
     background: none;
     vertical-align: middle;
 }
 
-#content-0 input {
+.content-left input {
     background: #fff;
     border: none;
     border-radius: 0;
@@ -493,22 +452,22 @@ article ul li {
     vertical-align: text-top;
 }
 
-#content-0 input[type="submit"] {
+.content-left input[type="submit"] {
     background: #b3b3b3;
-    font-size: 1.2em;
+    font-size: 1.0em;
     height: 22px;
     text-align: center;
     width: 20%;
 }
 
-#content-0 input[type="submit"]:hover {
+.content-left input[type="submit"]:hover {
     background: #b3b3b3;
 }
 
-#content-0 input[type="text"],
-#content-0 input[type="password"] {
-    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
-    font-size: 0.96em;
+.content-left input[type="text"],
+.content-left input[type="password"] {
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono',
+        'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
     height: 30px;
     padding: 0 0 0 6px;
     width: 150px; 
@@ -517,24 +476,22 @@ article ul li {
     box-sizing: border-box;
 }
 
-#content-0 textarea {
+.content-left textarea {
     margin-bottom: 5px;
     padding: 0 0 0 6px;
     width: 100%;
 }
 
 /*
-    WEBSITE SEARCH
-    Site-wide search in the sidebar.
+    SIDEBAR FORM / SEARCH
 */
 
-#sidebar-search {
+.sidebar-search {
     overflow: auto;
 }
 
-#sidebar-search input[name="search-input"] {
+input[class="search-input"] {
     border: none;
-    font-size: 0.96em;
     height: 35px;
     margin: 0 auto;
     overflow: hidden;
@@ -545,7 +502,7 @@ article ul li {
     box-sizing: border-box;
 }
 
-#sidebar-search input[id="search-submit"] {
+input[class="search-submit"] {
     border: none;
     border-radius: 0;
     display: block;
@@ -560,24 +517,25 @@ article ul li {
     z-index: 300;
 }
 
-#sidebar-search input[id="search-submit"]:hover {
+input[class="search-submit"]:hover {
     background: #b3b3b3;
 }
 
 /* Removes corner rounding in iOS. */
-#sidebar-search input, 
-#sidebar-search textarea {
-    border-radius: 0;
-    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
-    -webkit-border-radius: 0;
+.sidebar-search input, 
+.sidebar-search textarea {
     -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono',
+        'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
 }
 
 /*
     INTRA-SITE NAVIGATION
 */
 
-#site-nav {
+.site-nav {
     margin: 0 auto;
     margin-left: auto;
     overflow: auto;
@@ -586,40 +544,42 @@ article ul li {
     width: 110px;   
 }
 
-#site-nav a {
+.site-nav a {
     display: block;
     height: 100%;
     text-decoration: none;
 }
 
-#site-nav a:hover {
+.site-nav a:hover {
     color: #000;
 }
 
-#site-nav p {
-    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, monospace;
+.site-nav p {
+    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, 
+        monospace;
     font-size: 3em;
     height: 50px;
-    line-height: 40px;
-    margin: 0;
+    line-height: 50px;
+    margin: 0 auto;
     text-align: center;
+    vertical-align: middle;
     width: 50px;
 }
 
-#site-nav p:hover {
+.site-nav p:hover {
     background: #fff;
 }
 
-#site-nav-interior {
+.site-nav-interior {
     margin: 0 auto;
     overflow: auto;
 }
 
-#site-nav-left {
+.site-nav-left {
     float: left;
 }
 
-#site-nav-right {
+.site-nav-right {
     float: right;
 }
 
@@ -635,23 +595,20 @@ footer {
 }
 
 footer p {
-    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace;
-    font-size: 0.75em;
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 
+        'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace;
     height: 50px;
     line-height: 50px;
     margin-bottom: 0;
     text-align: center;
 }
 
-@media (max-width:1024px) {
-    footer {
-        width: 75%;
-    }
+/*
+    FOOTER MOBILE
+*/
 
-    footer p {
-        font-size: 0.5em;
-        height: 15px;
-        line-height: 15px;
-        padding-bottom: 10px;
+@media screen and (max-width: 1024px) {
+    footer {
+        display: none;
     }
 }

@@ -5,17 +5,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hella sw33t Site</title>
-<!-- The stylesheets are spread out for ease of debugging, and will be provided to you in this state. -->
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="social.css" />
 </head>
 <body>
-    <div id="site-container">
-        <div id="content-container">
+    <div class="site-container">
+        <div class="content-container">
             <header>
-                <div id="header-screen">
-                    <h1 id="site-title">Hella sw33t Site</h1>
-                    <h5 id="site-blurb">"Shit be real, yo."</h5>
-                    <ul id="social">
+                <div class="header-screen">
+                    <h1 class="title">Hella sw33t Site</h1>
+                    <h5 class="blurb">"Shit be real, yo."</h5>
+                    <ul class="social">
+                        <!-- Look at social.css for the other possible widgets. -->
                         <li><a class="email social-widget" title="Email person@domain.com" href="mailto:person@domain.com"></a></li>
                         <li><a class="facebook social-widget" title="Contact Person on Facebook" href="http://www.facebook.com/"></a></li>
                         <li><a class="github social-widget" title="Subscribe to Person on Github" href="http://www.github.com/"></a></li>
@@ -23,13 +24,13 @@
                     </ul>
                 </div>
             </header>
-            <div id="content-col-0">
-                <div id="content-0">
+            <div class="content-left-container">
+                <div class="content-left">
                     <article class="post">
                         <h2 class="post-title">&#62; <a href="#">Lorem ipsum dolor sit amet!</a></h2>
                         <p class="post-info">
-                            <!-- Replce 12345 with post ID. -->
                             <code>
+                                <!-- Replce 12345 with post ID. -->
                                 &#62; cat post_12345_info.txt <br />
                                 <span class="post-author"><a title="Author" href="#">mark</a></span> | <time class="post-date">Tuesday September 15, 2009</time><br />
                                 <span class="post-categories">categorized | <a title="category" href="#">category</a>, <a title="category" href="#">category</a>, <a title="category" href="#">category</a></span><br />
@@ -98,17 +99,17 @@ done</pre>
                         <p><a title="Lorem Ipsum" href="posts/1.jpg"><img src="posts/m/1.jpg" alt="Lorem Ipsum" /></a></p>
                     </article>
                 </div>
-                <div id="site-nav">
-                    <p id="site-nav-left"><a href="#" title="Previous page/post">&#60;&#60;</a></p>
-                    <p id="site-nav-right"><a href="#" title="Next page/post">&#62;&#62;</a></p>
+                <div class="site-nav">
+                    <p class="site-nav-left"><a href="#" title="Previous page/post">&#60;&#60;</a></p>
+                    <p class="site-nav-right"><a href="#" title="Next page/post">&#62;&#62;</a></p>
                 </div>
             </div>
-            <div id="content-col-1">
-                <div id="content-1">
-                    <form id="sidebar-search">
+            <div class="content-right-container">
+                <div class="content-right">
+                    <form class="sidebar-search">
                         <p>
-                            <input id="search" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search Funcan..." />
-                            <input id="search-submit" name="search-submit" type="submit" value=">" />
+                            <input class="search-input" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search Funcan..." />
+                            <input class="search-submit" name="search-submit" type="submit" value=">" />
                         </p>
                     </form>
                     <h4>Code block:</h4>
