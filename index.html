@@ -29,7 +29,7 @@
             <div id="content-col-0">
                 <div id="content-0">
                     <article class="post">
-                        <h1 class="post-title">&#62; <a href="#">Lorem ipsum dolor sit amet!</a></h1>
+                        <h2 class="post-title">&#62; <a href="#">Lorem ipsum dolor sit amet!</a></h2>
                         <p class="post-info">
                             <!-- Replce 12345 with post ID. -->
                             <code>
@@ -67,6 +67,18 @@ while [[ 0 ]]; do
 done</pre>
                         <blockquote><a href="#">Lorem ipsum dolor</a> sit amet, <em>consectetur adipisicing elit</em>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit <del>in voluptate velit esse</del> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat:</p>
+                        <form>
+                            <p>
+                                <input type="text" /><br />
+                                <input type="password" /><br />
+                                <input type="radio" value="Orange" />Orange<br />
+                                <input type="radio" value="blue" />Blue<br />
+                                <input type="checkbox" value="Option A" />Option A<br />
+                                <input type="checkbox" value="Option A" />Option B<br />
+                                <textarea rows="6"></textarea><br />
+                                <input type="submit" value="Submit" />
+                            </p>
+                        </form>
                         <ol>
                             <li>Four CSS content columns of even width.</li>
                             <li>Each <a href="#">column separated by</a> an even margin.</li>
@@ -97,13 +109,13 @@ done</pre>
             </div>
             </div>
             <div id="content-col-1">
-                <form id="sidebar-search">
-                    <p>
-                        <input id="search" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search Funcan..." />
-                        <input id="search-submit" name="search-submit" type="submit" value=">" />
-                    </p>
-                </form>
                 <div id="content-1">
+                <form id="sidebar-search">
+                        <p>
+                            <input id="search" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search Funcan..." />
+                            <input id="search-submit" name="search-submit" type="submit" value=">" />
+                        </p>
+                </form>
                     <h4>Code block:</h4>
                     <p><code>&#62; for n in ${social_links[@]}; do echo $n; done</code></p>
                     <h4>h4 header</h4>
@@ -124,12 +136,19 @@ done</pre>
                         <li>Third item.</li>
                         <li>Fourth item.</li>
                     </ol>
-                    <select>
+                    <select size="5">
                         <option value="Option #1">Option #1</option>
-                        <option value="Option #1">Option #2</option>
-                        <option value="Option #1">Option #3</option>
-                        <option value="Option #1">Option #4</option>
-                        <option value="Option #1">Option #5</option>
+                        <option value="Option #2">Option #2</option>
+                        <option value="Option #3">Option #3</option>
+                        <option value="Option #4">Option #4</option>
+                        <option value="Option #5">Option #5</option>
+                    </select>
+                    <select>
+                        <option value="Option #6">Option #1</option>
+                        <option value="Option #7">Option #2</option>
+                        <option value="Option #8">Option #3</option>
+                        <option value="Option #9">Option #4</option>
+                        <option value="Option #10">Option #5</option>
                     </select>
                 </div>
             </div>

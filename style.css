@@ -37,9 +37,10 @@ body {
 }
 
 #content-col-1 {
-    /*background: #232529;*/
+    /*background: # 232529;*/
     float: right;
     margin: 0 auto;
+    margin-top: 20px;
     width: 20%;
 }
 
@@ -156,8 +157,9 @@ header h5 {
     Site-wide search in the sidebar.
 */
 
-#sidebar-search input[name=search-input] {
+#sidebar-search input[name="search-input"] {
     border: none;
+    font-size: 0.96em;
     height: 35px;
     margin: 0 auto;
     overflow: hidden;
@@ -168,9 +170,7 @@ header h5 {
     box-sizing: border-box;
 }
 
-#sidebar-search input[id=search-submit] {
-    background: #b3b3b3;
-    background-size: 75% auto;
+#sidebar-search input[id="search-submit"] {
     border: none;
     border-radius: 0;
     display: block;
@@ -179,8 +179,22 @@ header h5 {
     margin-top: -30.5px;
     position: relative;
     width: 25px;
+    text-align: center;
     /* THIS. IS. SPARTA. */
     z-index: 300;
+}
+
+#sidebar-search input[id="search-submit"]:hover {
+    background: #b3b3b3;
+}
+
+/* Removes corner rounding in iOS. */
+#sidebar-search input, 
+#sidebar-search textarea {
+    border-radius: 0;
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
 }
 
 /*
@@ -204,24 +218,64 @@ article {
     margin-top: 25px;
 }
 
-article img {
-    height: auto;
-    max-width: 100%;
-}
-
 article blockquote,
 article ol,
 article ul {
     padding-left: 15px;
 }
 
-article ul li {
-    list-style-type: square;
+article form p {
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+}
+
+article input[type="radio"],
+article input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+article img {
+    height: auto;
+    max-width: 100%;
+}
+
+article input {
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    height: 1.6em;
+    margin-bottom: 3px;
+    position: relative;
+    vertical-align: text-top;
+}
+
+article input[type="submit"] {
+    background: #b3b3b3;
+    font-size: 1.2em;
+    height: 22px;
+    text-align: center;
+    width: 20%;
+}
+
+article input[type="submit"]:hover {
+    background: #b3b3b3;
+}
+
+article input[type="text"],
+article input[type="password"] {
+    font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono', 'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
+    font-size: 0.96em;
+    height: 30px;
+    padding: 0 0 0 6px;
+    width: 150px; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 article pre {
     background: #0a0d17;
     color: #b5e853;
+    font-size: 0.8em;
     margin: 0 auto;
     margin-bottom: 10px;
     padding: 10px;
@@ -232,13 +286,22 @@ article pre {
     box-sizing: border-box;
 }
 
+article textarea {
+    padding: 0 0 0 6px;
+    width: 100%;
+}
+
+article ul li {
+    list-style-type: square;
+}
+
 /*
     ARTICLE MOBILE
 */
 
 @media (max-width:1024px) {
     article pre {
-        font-size: 0.9em;
+        font-size: 0.7em;
     }
 }
 

@@ -69,12 +69,8 @@ function clearSearch(obj) {
 function searchButtonPos() {
     // Anchors the search button to the right side of the search bar.
     var a = $('#sidebar-search input[name=search-submit]');
-    var b = $('#sidebar-search');
-    if ($(window).width > bp ) {
-        a.css('margin-left', b.width() - a.width() - 16);
-    } else {
-        a.css('margin-left', b.width() - a.width() - 22);
-    }
+    var b = $('#content-col-1');
+    a.css('margin-left', b.width() - a.width() - 30);
 }
 
 function socialWidgetHeight() {
