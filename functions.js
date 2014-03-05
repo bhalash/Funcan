@@ -22,7 +22,7 @@ function headerHeight() {
     $('#header-screen').css('height', a.height());
 }
 
-function headerWidth() {
+function containerWidths() {
     // Header container width.
     var a = $('header');
     var b = $('#header-screen');
@@ -75,16 +75,14 @@ function searchButtonPos() {
 
 function socialWidgetHeight() {
     // Social link height, to keep them perfectly circular.
-    var a = $('#social a');
-    a.css('height', a.width());
+    $('#social a').css('height', $('#social a').width() + 'px'); 
 }
 
 $(document).ready(
     function() {
-        headerWidth();
+        containerWidths();
         headerHeight();
         searchButtonPos();
-        // sidebarHeight();
         siteTitlePos();
         socialWidgetHeight();
     }
@@ -92,10 +90,9 @@ $(document).ready(
 
 $(window).on('resize',
     function() {
-        headerWidth();
+        containerWidths();
         headerHeight();
         searchButtonPos();
-        // sidebarHeight();
         siteTitlePos();
         socialWidgetHeight();
     }

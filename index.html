@@ -10,22 +10,19 @@
 </head>
 <body>
     <div id="site-container">
-        <header>
-            <div id="header-screen">
-                <h1 id="site-title">Hella sw33t Site</h1>
-                <h5 id="site-blurb">"Shit be real, yo."</h5>
-                <ul id="social">
-                    <!-- Set the width for these icons in social.css -->
-                    <!-- Width should be (100 / number of icons + 1) -->
-                    <!-- If you have four icons, then width should be 20% -->
-                    <li><a class="email social-widget" title="Email person@domain.com" href="mailto:person@domain.com"></a></li>
-                    <li><a class="facebook social-widget" title="Contact Person on Facebook" href="http://www.facebook.com/"></a></li>
-                    <li><a class="github social-widget" title="Subscribe to Person on Github" href="http://www.github.com/"></a></li>
-                    <li><a class="linkedin social-widget" title="Follow @person on LinkedIn" href="http://www.linkedin.com/"></a></li>
-                </ul>
-            </div>
-        </header>
         <div id="content-container">
+            <header>
+                <div id="header-screen">
+                    <h1 id="site-title">Hella sw33t Site</h1>
+                    <h5 id="site-blurb">"Shit be real, yo."</h5>
+                    <ul id="social">
+                        <li><a class="email social-widget" title="Email person@domain.com" href="mailto:person@domain.com"></a></li>
+                        <li><a class="facebook social-widget" title="Contact Person on Facebook" href="http://www.facebook.com/"></a></li>
+                        <li><a class="github social-widget" title="Subscribe to Person on Github" href="http://www.github.com/"></a></li>
+                        <li><a class="linkedin social-widget" title="Follow @person on LinkedIn" href="http://www.linkedin.com/"></a></li>
+                    </ul>
+                </div>
+            </header>
             <div id="content-col-0">
                 <div id="content-0">
                     <article class="post">
@@ -110,12 +107,12 @@ done</pre>
             </div>
             <div id="content-col-1">
                 <div id="content-1">
-                <form id="sidebar-search">
-                        <p>
-                            <input id="search" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search Funcan..." />
-                            <input id="search-submit" name="search-submit" type="submit" value=">" />
-                        </p>
-                </form>
+                    <form id="sidebar-search">
+                            <p>
+                                <input id="search" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search Funcan..." />
+                                <input id="search-submit" name="search-submit" type="submit" value=">" />
+                            </p>
+                    </form>
                     <h4>Code block:</h4>
                     <p><code>&#62; for n in ${social_links[@]}; do echo $n; done</code></p>
                     <h4>h4 header</h4>
@@ -152,13 +149,12 @@ done</pre>
                     </select>
                 </div>
             </div>
-        </div>
             <footer>
-                <!-- Attribution and copyright. -->
                 <p>Site content © 2014 Whomever. Design by <a href="http://www.bhalash.com">Mark</a>.</p>
             </footer>
+        </div>
     </div>
-    <script src="jquery.js"></script>
+    <script src="jquery-2.1.0.min.js"></script>
     <script src="functions.js"></script>
 </body>
 </html>
