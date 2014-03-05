@@ -551,7 +551,6 @@ article ul li {
     display: block;
     float: right;
     height: 25px;
-    /*margin-left: 87%;*/
     margin-top: -30.5px;
     margin-right: 6px;
     position: relative;
@@ -579,7 +578,6 @@ article ul li {
 */
 
 #site-nav {
-    background: rgba(255,255,255,0.3);
     margin: 0 auto;
     margin-left: auto;
     overflow: auto;
