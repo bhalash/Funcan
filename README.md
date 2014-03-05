@@ -9,13 +9,6 @@ This code project is free software: you can redistribute it and/or modify it und
 
 This project is Copyright 2014 Mark Grealish (mark@bhalash.com), except for the included fonts:
 
-#### Bebas Neue
-Bebas Neue (http://dharmatype.com/dharma-type/bebas-neue.html) is copyright of Dharma Type, and is distributed under the [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web). If you choose not to purchase a license for Din 1451 EngSchrift, Bebas Neue is a compatible header font.
-
-#### Verily Serif Mono
-Bebas Neue (http://www.fontsquirrel.com/fonts/Verily-Serif-Mono) is copyright of Stephen G. Hartke, and is distributed under the [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web). If you choose not to purchase a license for Din 1451 EngSchrift, Bebas Neue is a compatible header font.
-
-
 #### Source Code Pro
 Source Code Pro (http://sourceforge.net/projects/sourcecodepro.adobe/) is copyright of Adobe Systems, and is distributed under the [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web).
 
