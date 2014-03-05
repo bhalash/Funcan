@@ -44,11 +44,15 @@ function sidebarHeight() {
 } 
 
 function navPos() {
+    // The navigation div lies iin an off-centered (#content-0) container.
+    // It therefore has to be offset to the right by a specific amount in order to be
+    // centered on screen.
     var a = $('#site-nav');
     var b = 'margin-left';
     var c = $('#content-container');
 
     if ($(window).width() > bp) {
+        // (window.width / 2 ) - (content-container left offsent) - (site-nav width / 2) +5
         a.css(b, ($(window).width() * 0.5) - c.offset().left - (a.width() * 0.5) + 5);
     } else {
         a.css(b, 'auto');
@@ -57,6 +61,7 @@ function navPos() {
 
 function siteTitlePos() {
     // Header title positon.
+    // The title should be absolutely centered on on the header at all times.
     var a = $('#site-title');
     var b = $('#site-blurb');
     var c = a.height();
@@ -68,7 +73,7 @@ function siteTitlePos() {
 }
 
 function clearSearch(obj) {
-    // Clears the default value from inputs.
+    // Clears and restores the default value from the search input.
     var str = 'Search Funcan...';
 
     if (obj.value == str) {
