@@ -616,3 +616,41 @@ footer p {
         display: none;
     }
 }
+
+/*
+    SOCIAL ICONS
+*/
+
+.social {
+    list-style: none;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    max-width: 350px;
+    text-align: center;
+}
+
+.social li {
+    display: inline;
+    text-align: center;
+}
+
+.social a {
+    border-radius: 50%;
+    display: inline-block;
+    width: 20%;
+}
+
+.social a:hover {
+    border: none;
+}
+
+#email { background: url('img/social/email.png') no-repeat center center; background-size: 100% auto; }
+#facebook { background: url('img/social/facebook.png') no-repeat center center; background-size: 100% auto; }
+#github { background: url('img/social/github.png') no-repeat center center; background-size: 100% auto; }
+#google { background: url('img/social/google.png') no-repeat center center; background-size: 100% auto; }
+#instagram { background: url('img/social/instagram.png') no-repeat center center; background-size: 100% auto; }
+#linkedin { background: url('img/social/linkedin.png') no-repeat center center; background-size: 100% auto; }
+#pinterest { background: url('img/social/pinterest.png') no-repeat center center; background-size: 100% auto; }
+#rss { background: url('img/social/rss.png') no-repeat center center; background-size: 100% auto; }
+#twitter { background: url('img/social/twitter.png') no-repeat center center; background-size: 100% auto; }
+
