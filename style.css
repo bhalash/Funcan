@@ -310,7 +310,7 @@ sup {
 header {
     /* The header image can be easily set or changed, and it sizes itself to the
     header. Recommend at *least* a 1600x1200 image. */
-    background: url('img/header/trainyard.jpg') no-repeat center center;
+    background: url('img/header/docks.jpg') no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
