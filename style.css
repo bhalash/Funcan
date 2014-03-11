@@ -326,6 +326,10 @@ header {
     text-transform: uppercase;
 }
 
+.title a{
+    text-decoration: none;
+}
+
 .blurb {
     font-size: 2.0em;
     font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier,
