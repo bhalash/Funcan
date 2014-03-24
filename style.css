@@ -637,6 +637,14 @@ footer p {
     text-align: center;
 }
 
+.social a,
+.social a:hover {
+    transition: background-color .3s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out;
+    -webkit-transition: background-color .3s ease-in-out; 
+    -o-transition: background-color .3s ease-in-out; 
+}
+
 .social a {
     border-radius: 50%;
     display: inline-block;
@@ -647,7 +655,7 @@ footer p {
     border: none;
 }
 
-#email      { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
+#emails     { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
 #facebook   { background: url('img/social/facebook.png')  no-repeat center center; background-size: 100% auto; }
 #flickr     { background: url('img/social/flickr.png')    no-repeat center center; background-size: 100% auto; }
 #github     { background: url('img/social/github.png')    no-repeat center center; background-size: 100% auto; }
@@ -658,3 +666,15 @@ footer p {
 #rss        { background: url('img/social/rss.png')       no-repeat center center; background-size: 100% auto; }
 #twitter    { background: url('img/social/twitter.png')   no-repeat center center; background-size: 100% auto; }
 #tumblr     { background: url('img/social/tumblr.png')    no-repeat center center; background-size: 100% auto; }
+
+#emails:hover     { background-color: #ec4724; }
+#facebook:hover   { background-color: #3b5998; }
+#flickr:hover     { background-color: #0063db; }
+#github:hover     { background-color: #171516; }
+#google:hover     { background-color: #db5442; }
+#instagram:hover  { background-color: #3f729b; }
+#linkedin:hover   { background-color: #0274b3; }
+#pinterest:hover  { background-color: #cb2027; }
+#rss:hover        { background-color: #ff6600; }
+#twitter:hover    { background-color: #00aced; }
+#tumblr:hover     { background-color: #3d5a70; }
