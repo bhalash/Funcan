@@ -1,0 +1,21 @@
+.gallery {
+    margin-top: 10px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.row {
+    margin: 0 auto;
+    margin-bottom: 5px;
+    overflow: auto;
+    width: 99%;
+}
+
+.gallery img {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    width: auto;
+}

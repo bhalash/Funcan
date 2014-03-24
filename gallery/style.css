@@ -294,8 +294,6 @@ sup {
 @media screen and (max-width: 1024px) {
     /* At smaller screen sizes, the two containers are stacked. */ 
     .site-container {
-        margin-bottom: 0;
-        margin-top: 0;
         width: 100%;
     }
 
@@ -595,10 +593,10 @@ input[class="search-submit"]:hover {
 */
 
 footer {
-    background: #232529;
     clear: both;
+    background: #232529;
     margin: 0 auto;
-    width: 80%;
+    width: 50%;
 }
 
 footer p {
