@@ -1,56 +1,69 @@
 function imageDebugInfo() {
     // Logs debug info on each row and image therein.
-    var img = sum = row = 0;
+    var row = 0;
 
     $('.row').each(function() {
-        console.log('Row #' + row + ':\n----');
+        console.log(
+            '.row #' 
+            + row
+            + '\t w: '
+            + sumWidth(this)
+        );
 
-        $(this).children('img').each(function() {
-            console.log(
-                'img #' + img + ': '  
-                + 'w: ' + $(this).width()
-                + ' h: '+ $(this).height()
-            );
-
-            img++;
-        });
-
-        sum = sumImgRowWidth(this);
-        console.log('Total:\tw: ' + sum + '\n');
         row++;
-        img = 0;
     });
+
+    console.log('');
 }
 
-function resizeImages() {
-    // Resizes each row (more-or-less) equally.
-    // I have run up against rounding problems, so the image sizes are fudged down by 1px.
-    // Two nested loops: Rows, and then images.
-    // 
-    // For each row:
-    // 1. Resize each image to the same height.
-    // 2. Determine length of the row of images.
-    // 3. Determine the ratio between the row and the gallery width.
-    // 4. Resize each image down by this ratio.
+function resizeImages(ref) {
     $('.row').each(function() {
-        var sum = ratio = 0;
-
-        $(this).children('img').each(function() {
-            sum += $(this).width();
-        });
-
-        var ratio = parseFloat($('.gallery').width() / sum);
+        var sum = sumOuterWidth(this);
+        var ratio = parseFloat(ref.width() / sum);
 
         $(this).children('img').each(function() {
             $(this).css('height', Math.floor($(this).height() * ratio) + 'px');
         });
+
+        // Rounding errors will leave a small margin on the right side of the gallery.
+        var diff = ref.width() - sumOuterWidth(this);
+
+        if (diff > 0 ) {
+            // Pad image width.
+            // $(this).children('img:last-child').css('padding-left', diff);
+        }
     });
 }
 
+function sumOuterWidth(obj) {
+    // Sum the width of each image WITH consideration to padding.
+    var sum = 0;
+
+    $(obj).children('img').each(function() {
+        sum += $(this).outerWidth();
+    });
+
+    return sum;
+}
+
+function sumWidth(obj) {
+    // Sum the width of each image WITHOUT consideration to padding.
+    var sum = 0;
+
+    $(obj).children('img').each(function() {
+        sum += $(this).width();
+    });
+
+    return sum;
+}
+
 $(function() {
-    resizeImages();
+    console.log($('.gallery').width());
+    imageDebugInfo();
+    resizeImages($('.gallery'));
+    imageDebugInfo();
 });
 
 $(window).resize(function() {
-    resizeImages();
+    resizeImages($('.gallery'));
 });
