@@ -57,6 +57,13 @@ function navigationPosition() {
     }
 }
 
+function socialWidgetHeight() {
+    // Widget width is dynamic and proportional to the div container size. 
+    // Height = width.
+    var soc = $('.social a');
+    soc.css('height', soc.width() + 'px'); 
+}
+
 function clearSearch(obj) {
     // Clears and restores the default value from the search input.
     var str = 'Search Funcan...';
@@ -74,6 +81,7 @@ $(document).ready(
         headerHeight();
         navigationPosition();
         headerTitlePosition();
+        socialWidgetHeight();
     }
 );
 
@@ -83,5 +91,6 @@ $(window).on('resize',
         headerHeight();
         navigationPosition();
         headerTitlePosition();
+        socialWidgetHeight();
     }
 );    
