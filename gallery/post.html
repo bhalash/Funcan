@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<!-- Bless the Maker and His water. Bless the coming and going of Him. May His passage cleanse the world. May He keep the world for His people. -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hella sw33t Site</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="gallery.css" />
+</head>
+<body>
+    <div class="site-container">
+        <div class="content-container">
+            <header>
+                <div class="header-screen">
+                    <h1 class="title"><a href="#">Hella sw33t Site</a></h1>
+                    <h5 class="blurb">"Shit be real, yo."</h5>
+                    <ul class="social">
+                        <!-- Look at social.css for the other possible widgets. -->
+                        <li><a class="social-widget" id="emails" title="Email person@domain.com" href="mailto:person@domain.com"></a></li>
+                        <li><a class="social-widget" id="facebook" title="Contact Person on Facebook" href="http://www.facebook.com/"></a></li>
+                        <li><a class="social-widget" id="github" title="Subscribe to Person on Github" href="http://www.github.com/"></a></li>
+                        <li><a class="social-widget" id="linkedin" title="Follow @person on LinkedIn" href="http://www.linkedin.com/"></a></li>
+                    </ul>
+                </div>
+            </header>
+            <div class="content-left-container">
+                <div class="content-left">
+                    <article class="post">
+                        <h2 class="post-title">&#62; <a href="#">Lorem ipsum dolor sit amet!</a></h2>
+                        <p class="post-info">
+                            <code>
+                                <!-- Replce 12345 with post ID. -->
+                                &#62; cat post_12345_info.txt <br />
+                                <span class="post-author"><a title="Author" href="#">mark</a></span> | <time class="post-date">Tuesday September 15, 2009</time><br />
+                                <span class="post-categories">categorized | <a title="category" href="#">category</a>, <a title="category" href="#">category</a>, <a title="category" href="#">category</a></span><br />
+                                <span class="post-tags">tagged | <a title="tag" href="#">tag</a>, <a title="tag" href="#">tag</a>, <a title="tag" href="#">tag</a></span>
+                            </code>
+                        </p>
+                        <hr>
+                        <div class="gallery">
+                            <div class="row">
+                                <img src="img/six_six.jpg"   alt="" />
+                                <img src="img/six_nine.jpg"  alt="" />
+                                <img src="img/nine_six.jpg"  alt="" />
+                                <img src="img/nine_nine.jpg" alt="" />
+                                <img src="img/nine_nine.jpg" alt="" />
+                            </div>
+                            <div class="row">
+                                <img src="img/six_six.jpg"   alt="" />
+                                <img src="img/nine_nine.jpg" alt="" />
+                            </div>
+                            <div class="row">
+                                <img src="img/six_nine.jpg"  alt="" />
+                                <img src="img/six_nine.jpg"  alt="" />
+                                <img src="img/six_six.jpg"   alt="" />
+                            </div>
+                            <div class="row">
+                                <img src="img/six_nine.jpg"  alt="" />
+                                <img src="img/six_nine.jpg"  alt="" />
+                                <img src="img/six_six.jpg"   alt="" />
+                                <img src="img/nine_nine.jpg" alt="" />
+                                <img src="img/six_nine.jpg"  alt="" />
+                                <img src="img/nine_nine.jpg" alt="" />
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="site-nav">
+                    <p class="site-nav-left"><a href="#" title="Previous page/post">&#60;&#60;</a></p>
+                    <p class="site-nav-right"><a href="#" title="Next page/post">&#62;&#62;</a></p>
+                </div>
+            </div>
+            <div class="content-right-container">
+                <div class="content-right">
+                    <form class="sidebar-search">
+                        <p>
+                            <input class="search-input" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search Funcan..." />
+                            <input class="search-submit" name="search-submit" type="submit" value=">" />
+                        </p>
+                    </form>
+                    <h4>Code block:</h4>
+                    <p><code>&#62; for n in ${social_links[@]}; do echo $n; done</code></p>
+                    <h4>h4 header</h4>
+                    <p>This is non-code text in a sidebar paragraph.</p>
+                    <h5>h5 header</h5>
+                    <p>Lorem Ipsum</p>
+                    <h6>h6 header</h6>
+                    <p>Lorem Ipsum</p>
+                    <ul>
+                        <li>First item.</li>
+                        <li>Second item.</li>
+                        <li>Third item.</li>
+                        <li>Fourth item.</li>
+                    </ul>
+                    <ol>
+                        <li>First item.</li>
+                        <li>Second item.</li>
+                        <li>Third item.</li>
+                        <li>Fourth item.</li>
+                    </ol>
+                    <select size="5">
+                        <option value="Option #1">Option #1</option>
+                        <option value="Option #2">Option #2</option>
+                        <option value="Option #3">Option #3</option>
+                        <option value="Option #4">Option #4</option>
+                        <option value="Option #5">Option #5</option>
+                    </select>
+                    <select>
+                        <option value="Option #6">Option #1</option>
+                        <option value="Option #7">Option #2</option>
+                        <option value="Option #8">Option #3</option>
+                        <option value="Option #9">Option #4</option>
+                        <option value="Option #10">Option #5</option>
+                    </select>
+                </div>
+            </div>
+            <footer>
+                <p>Site content © 2014 Whomever. Design by <a href="http://www.bhalash.com">Mark</a>.</p>
+            </footer>
+        </div>
+    </div>
+    <script src="jquery-2.1.0.min.js"></script>
+    <script src="functions.js"></script>
+    <script src="social.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>
