@@ -49,6 +49,14 @@ function objWidth(obj, amount) {
     $(obj).css('width', amount + 'px');
 }
 
+function objVerticalCenter(obj) {
+    // Vertically centers the given object on screen.
+    $(obj).css('margin-top', 
+        $(window).height() * 0.5
+        - $(obj).height()  * 0.5
+    );
+}
+
 function sumOuterWidth(obj) {
     // Sum the width of each image WITH consideration to padding.
     var sum = 0;
@@ -61,6 +69,15 @@ function sumOuterWidth(obj) {
 }
 
 $(function() {
+    objHeight('.focus', $(window).height());
+
+    $('.focus').children().each(function() {
+        objHeight(this, $(window).height());
+    });
+
+
+    objVerticalCenter('.focus img');
+
     resizeImages($('.gallery'));
 });
 
