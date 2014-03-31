@@ -69,14 +69,14 @@ function sumOuterWidth(obj) {
 }
 
 $(function() {
-    objHeight('.focus', $(window).height());
+    // Vertically scale focus to window height,
+    // and then center the contents vertically.
+    objHeight('.focus, .focus-0 p, .focus-2 p', $(window).height());
+    objVerticalCenter('.focus img');
 
     $('.focus').children().each(function() {
         objHeight(this, $(window).height());
     });
-
-
-    objVerticalCenter('.focus img');
 
     resizeImages($('.gallery'));
 });

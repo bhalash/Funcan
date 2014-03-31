@@ -37,33 +37,38 @@
 */
 
 .focus {
-    background: rgba(255,255,255,0.5);
+    background: rgba(17,18,21,0.8);
     overflow: auto;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 13;
+    z-index: 3;
 }
 
 .focus a {
     color: #fff;
-    display: block;
+    display: table-cell;
     font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, 
         monospace;
-        font-size: 6em;
-    height: 100%;
+    font-size: 6em;
     text-decoration: none;
-    width: 100%; 
+    vertical-align: middle;
 }
-
+/*
 .focus a:hover {
-    background: #000;
+    background: rgba(35,37,41,0.8);
+}
+*/
+.focus img {
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 80%;
 }
 
-.focus img {
-    border: 1px solid #000;
-    max-height: 90%;
-    width: auto;
+.focus p {
+    display: table;
+    width: 100%;
 }
 
 .focus-0,
@@ -71,7 +76,6 @@
 .focus-2 {
     float: left;
     overflow: hidden;
-    position: relative;
 }
 
 .focus-0,
@@ -81,25 +85,4 @@
 
 .focus-1 {
     width: 70%;
-}
-
-.focus-0 { background: rgba(0,255,255,0.3); }
-.focus-1 { background: rgba(255,0,255,0.3); }
-.focus-2 { background: rgba(255,255,0,0.3); }
-
-@media screen and (max-width: 1024px) {
-    .focus-0,
-    .focus-2 {
-        display: none;
-    }
-
-    .focus-1 {
-        float: none;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .focus img {
-        max-height: 70%;   
-    }
 }
