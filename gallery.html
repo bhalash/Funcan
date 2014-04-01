@@ -6,26 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hella sw33t Site</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" type="text/css" href="gallery.css" />
+    <link rel="stylesheet" type="text/css" href="uber-gallery/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="uber-gallery/lightbox.css" />
 </head>
 <body>
-    <div class="focus">
-        <div class="focus-0">
-            <p>
-                <a href="javascript:void(0)" title="Previous">&lt;&lt;</a>
-            </p>
-        </div>
-        <div class="focus-1">
-            <img src="img/nine_nine.jpg" alt="Lorem ipsum." />
-            <div class="focus-button">
-                <a href="javascript:void(0)" title="Close">x</a>
-            </div>
-        </div>
-        <div class="focus-2">
-            <p>
-                <a href="javascript:void(0)" title="Next">&gt;&gt;</a>
-            </p>
-        </div>
+    <div class="uber-lightbox">
+        <img class="uber-lightbox-photo" src="img/nine_nine.jpg" alt="Lorem ipsum." />
+        <p class="uber-lightbox-blurb"></p>
+    </div>
+    <div class="uber-lightbox-nav">
+        <p class="uber-lightbox-nav-left"><a href="javascript:void(0)" title="Next"></a></p>
+        <p class="uber-lightbox-nav-right"><a href="javascript:void(0)" title="Previous"></a></p>
     </div>
     <div class="site-container">
         <div class="content-container">
@@ -56,31 +47,23 @@
                             </code>
                         </p>
                         <hr>
-                        <div class="gallery">
-                            <div class="row">
-                                <img src="img/six_six.jpg"   alt="" />
-                                <img src="img/six_nine.jpg"  alt="" />
-                                <img src="img/nine_six.jpg"  alt="" />
-                                <img src="img/nine_nine.jpg" alt="" />
-                                <img src="img/nine_nine.jpg" alt="" />
-                            </div>
-                            <div class="row">
-                                <img src="img/six_six.jpg"   alt="" />
-                                <img src="img/nine_nine.jpg" alt="" />
-                            </div>
-                            <div class="row">
-                                <img src="img/six_nine.jpg"  alt="" />
-                                <img src="img/six_nine.jpg"  alt="" />
-                                <img src="img/six_six.jpg"   alt="" />
-                            </div>
-                            <div class="row">
-                                <img src="img/six_nine.jpg"  alt="" />
-                                <img src="img/six_nine.jpg"  alt="" />
-                                <img src="img/six_six.jpg"   alt="" />
-                                <img src="img/nine_nine.jpg" alt="" />
-                                <img src="img/six_nine.jpg"  alt="" />
-                                <img src="img/nine_nine.jpg" alt="" />
-                            </div>
+                        <div class="uber-gallery">
+                            <img src="uber-gallery/samples/1.jpg" alt="Image #1" />
+                            <img src="uber-gallery/samples/2.jpg" alt="Image #2" />
+                            <img src="uber-gallery/samples/3.jpg" alt="Image #3" />
+                            <img src="uber-gallery/samples/4.jpg" alt="Image #4" />
+                            <img src="uber-gallery/samples/5.jpg" alt="Image #5" />
+                            <img src="uber-gallery/samples/6.jpg" alt="Image #6" />
+                            <img src="uber-gallery/samples/7.jpg" alt="Image #7" />
+                            <img src="uber-gallery/samples/8.jpg" alt="Image #8" />
+                            <img src="uber-gallery/samples/9.jpg" alt="Image #9" />
+                            <img src="uber-gallery/samples/10.jpg" alt="Image #10" />
+                            <img src="uber-gallery/samples/11.jpg" alt="Image #11" />
+                            <img src="uber-gallery/samples/12.jpg" alt="Image #12" />
+                            <img src="uber-gallery/samples/13.jpg" alt="Image #13" />
+                            <img src="uber-gallery/samples/14.jpg" alt="Image #14" />
+                            <img src="uber-gallery/samples/15.jpg" alt="Image #15" />
+                            <img src="uber-gallery/samples/16.jpg" alt="Image #16" />
                         </div>
                     </article>
                 </div>
@@ -93,7 +76,7 @@
                 <div class="content-right">
                     <form class="sidebar-search">
                         <p>
-                            <input class="search-input" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search Funcan..." />
+                            <input class="search-input" name="search-input" onblur="clearSearch(this)" onuber-lightbox="clearSearch(this)" tabindex="1" type="text" value="Search Funcan..." />
                             <input class="search-submit" name="search-submit" type="submit" value=">" />
                         </p>
                     </form>
@@ -138,9 +121,9 @@
             </footer>
         </div>
     </div>
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> -->
     <script src="jquery-2.1.0.min.js"></script>
     <script src="functions.js"></script>
-    <script src="gallery.js"></script>
+    <script src="uber-gallery/gallery.js"></script>
+    <!-- <script src="uber-gallery/lightbox.js"></script> -->
 </body>
 </html>

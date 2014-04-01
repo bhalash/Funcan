@@ -1,0 +1,33 @@
+/*
+    GALLERY
+*/
+
+.uber-gallery {
+    margin: 0 auto;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    width: 99%;
+}
+
+.uber-row {
+    margin-bottom: 6px;
+    overflow: auto;
+}
+
+.uber-row img {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    height: 100px;
+    padding: 0 3px 0 3px;
+    width: auto;
+}
+
+.uber-row img:first-child {
+    padding-left: 0;
+}
+
+.uber-row img:last-child {
+    padding-right: 0;
+}
