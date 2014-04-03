@@ -64,17 +64,6 @@ function socialWidgetHeight() {
     soc.css('height', soc.width() + 'px'); 
 }
 
-function clearSearch(obj) {
-    // Clears and restores the default value from the search input.
-    var str = 'Search Funcan...';
-
-    if (obj.value == str) {
-        obj.value = '';
-    } else if (obj.value == '') {
-        obj.value = str;
-    }
-}
-
 $(document).ready(
     function() {
         headerWidth();
