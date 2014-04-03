@@ -15,27 +15,13 @@ function addGalleryID(obj) {
 }
 
 function addGalleryRows(obj) {
-    // Adds quasi-random row sizes to a gallery.
-    // You can hand tune the row length if you wish, but I found 2-5 images is good.
-    var rowNum = 0;
-    var imgNum = $(obj).children('img').length;
+    // Works. TODO: Add random.
     var imgArr = $(obj).children('img').toArray();
-    var rowDiv = '<div class="' + row + '"></div>';
-    
-    $(obj).prepend(rowDiv);
-    for (var i = 0; i <= 4; i ++) {
-        $(imgArr[i]).appendTo('.' + row); 
-    }
-    
-    // $('</div>').insertAfter(imgArr[3]);
-    
-    // do {
-    //     length -= smallRandom(2,5);
-    // } while (length > 0);
+    $(obj).append('<div class="' + row + '"></div>');
 
-    // if (length % 2 != 0) {
-    //     console.log('nope');
-    // }
+    for (var i = 0; i < 5; i++) {
+        $('.' + row).last().append(imgArr[i]); 
+    }
 }
 
 function smallRandom(min,max) {
