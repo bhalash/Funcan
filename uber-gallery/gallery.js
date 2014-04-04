@@ -3,8 +3,12 @@ var gal = 'uber-gallery';
 // Gallery row name.
 var row = 'uber-row';
 // Minimum and maximum row size.
-var rowMin = 3;
+var rowMin = 4;
 var rowMax = 6;
+
+$('.' + row + ' img').click(function() {
+    alert('yolo');
+});
 
 function addGalleryID(obj) {
     // Give each gallery a unique ID.
@@ -38,8 +42,10 @@ function addGalleryRows(obj) {
 
     $(imgArr).each(function (i) {
         $('.' + row).last().append(imgArr[i]); 
+        // Smaller row size on smaller screens.
+        var rowLength = ($(window).width() > 800) ? sRandom(rowMin,rowMax) : 3;
 
-        if ($('.' + row).last().children().size() > sRandom(rowMin,rowMax) && (imgArr.length - 1 - i) >= 2) {
+        if ($('.' + row).last().children().size() >= rowLength && (imgArr.length - 1 - i) >= 2) {
             addRow(obj);
         }
     });
@@ -74,17 +80,21 @@ function getRowWidth(obj) {
 }
 
 function orderRowImages(obj) {
-    // Resizes each row of images such as to evenly space their width and height 
+    // Resizes each row of images such as to evenly space their width and height. 
     $(obj).children('.' + row).each(function () {
+        // Get total width of row through width of component images.
         var sum = getRowWidth(this);
+        // Ratio between gallery width, and row width.
         var ratio = parseFloat($(obj).width() / sum);
 
         $(this).children('img').each(function () {
+            // Change the height of the image by the ratio.
             var newHeight = Math.round($(this).height() * ratio);
             changeObjHeight(this, newHeight);
+            // $(this).wrap('<a class="foo" href="#"></a>');
         });
 
-        // Rounding errors leave a small margin on the right side of the gallery
+        // Rounding errors leave a small margin on the right side of the gallery.
         // Each row should ideally be (parent.width() - 1px).
         // Otherwise each row will be 1-2px too width, which causes wrapping.
         var diff = getRowWidth(this) - ($(obj).width() - 1);
@@ -97,16 +107,16 @@ function orderRowImages(obj) {
     });
 }
 
-$(function () {
-    $('.' + gal).each(function () { 
+$(window).load(function() {
+    $('.' + gal).each(function() { 
         addGalleryID(this);
         addGalleryRows(this);
         orderRowImages(this);
     });
 });
 
-$(window).resize(function () {
-    $('.' + gal).each(function () { 
+$(window).resize(function() {
+    $('.' + gal).each(function() { 
         orderRowImages(this);
     });
 });

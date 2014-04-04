@@ -277,11 +277,6 @@ sup {
     width: 95%;
 }
 
-.content-left img {
-    max-width: 100%;
-    height: auto;
-}
-
 .content-left {
     /* Stop horizontal scrolling behaviour. */
     min-height: 450px;
@@ -397,15 +392,15 @@ article {
     margin-top: 25px;
 }
 
+article img {
+    height: auto;
+    max-width: 100%;
+}
+
 article blockquote,
 article ol,
 article ul {
     padding-left: 15px;
-}
-
-article img {
-    height: auto;
-    max-width: 100%;
 }
 
 article pre {

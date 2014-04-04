@@ -14,7 +14,8 @@
     overflow: auto;
 }
 
-.uber-row img {
+.uber-row img,
+.uber-row a > img {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -24,10 +25,10 @@
     width: auto;
 }
 
-.uber-row img:first-child {
+.uber-row:first-child {
     padding-left: 0;
 }
 
-.uber-row img:last-child {
+.uber-row:last-child {
     padding-right: 0;
 }
