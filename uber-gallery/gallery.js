@@ -1,9 +1,10 @@
 // Gallery, row, and img classes.
-// Update gallery.css if you change these!!!!
-var galName     = 'uber-gallery';
-var rowName     = galName + '-row';
-var imgName     = galName + '-img';
-var boxName     = galName + '-box';
+// UPDATE GALLERY.CSS IF YOU CHANGE THESE!!!!
+var cusName = 'uber';
+var galName = cusName + '-gallery';
+var rowName = cusName + '-row';
+var imgName = cusName + '-img';
+var boxName = cusName + '-box';
 // Maximum, minimum, and tiny row sizes. Tiny is used in mobile views.
 var rowSizeMin  = 4;
 var rowSizeMax  = 6;
@@ -139,9 +140,32 @@ function orderRowImages(obj) {
 function addLightbox(obj) {
     // Append empty lightbox to whatever.
     // Best prepended to body.
-    $(obj).prepend(
-        '<div class="' + boxName + '"><div class="' + boxName + '-img"></div></div>');
+    var divOpen = '<div class="';
+    var divClose = '"></div>';
+
+    var lbElements = [
+        boxName + '-nav',
+        boxName + '-txt',
+        boxName + '-img',
+        boxName + '-close'
+    ];
+
+    // Append lightbox to foo.
+    $(obj).prepend(divOpen + boxName + '">');
+    // Insert other elements.
+    $(lbElements).each(function(i,e) {
+        $('.' + boxName).prepend(divOpen + e + divClose);
+    });
+
+    // Insert nav elements.
+    $('.' + lbElements[0]).append(divOpen + lbElements[0] + '-left' + divClose);
+    $('.' + lbElements[0]).append(divOpen + lbElements[0] + '-right' + divClose);
+
+    // Lightbox height.
     changeObjHeight('.' + boxName, $(window).height());
+
+    // Blurb position.
+    $('.' + lbElements[1]).css('margin-top', $(window).height() * 0.85);
 }
 
 function toggleLightbox() {
@@ -171,14 +195,22 @@ $(window).load(function() {
     addLightbox('body');
 
     $('.' + imgName).click(function() {
-        // Show box.
         toggleLightbox();
         setLightboxImg(this);
     });
 
-    $('.' + boxName).click(function() {
+    $('.uber-box-close').click(function() {
         // Hide box (debug).
         toggleLightbox();
+    });
+
+    $('body').keyup(function(key) {
+        switch (key.keyCode) {
+            case 27: toggleLightbox(); break;
+            case 37: break;
+            case 39: break;
+            default: break;
+        }
     });
 });
 

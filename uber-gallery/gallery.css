@@ -2,6 +2,9 @@
     GALLERY
 */
 
+/* If you change variable 'cusName' in gallery.js, please change 'uber' to whatever to match.
+Leave the rest as-is. :) */
+
 .uber-gallery {
     margin: 0 auto;
     margin-bottom: 6px;
@@ -14,13 +17,16 @@
     padding: 0;
 }
 
-.uber-gallery-row {
+/* Every image and row should be separated by a total of 6px. 6px at the bottom of each row, and 
+3px to the left and right of each image. */
+
+.uber-row {
     margin-bottom: 6px;
     overflow: auto;
 }
 
-.uber-gallery-row img,
-.uber-gallery-row a > img {
+.uber-row img,
+.uber-row a > img {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -30,17 +36,18 @@
     width: auto;
 }
 
-.uber-gallery-row:after {
-    /* For older versions of IE. */
+.uber-row:after {
+    /* For older versions of IE. I had problem clearing row floats with 'overflow: auto'. */
     clear: both;
 }
 
-/* Prevent wrapping. */
-.uber-gallery-row:first-child {
+/* I remove padding on first and last elements in order to make the gallery rows better fit the available space.
+Look at  'orderRowImages' in gallery.js for more information. */
+.uber-row:first-child {
     padding-left: 0;
 }
 
-.uber-gallery-row:last-child {
+.uber-row:last-child {
     padding-right: 0;
 }
 
@@ -48,14 +55,55 @@
     LIGHTBOX
 */
 
-.uber-gallery-box {
-    background: rgba(255,255,255,0.3);
-    bottom: 0;
-    display: none;
+/* The lightbox should be pinned to the <body> element, and every element inside of lightbox given a fixed position and dimensions
+(100% x 100%) of the screen size. Width is set via CSS, height via JS. */
+
+.uber-box,
+.uber-box-nav,
+.uber-box-txt,
+.uber-box-img {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
     width: 100%;
+}
+
+.uber-box {
+    background: rgba(255,255,255,0.3);
+    display: none;
+    overflow: auto;
     z-index: 9;
+}
+.uber-box-txt {
+    background: rgba(255,0,100,0.6);
+    height: 15%;
+    z-index: 11;
+}
+
+.uber-box-nav {
+    background: rgba(0,255,100,0.3);
+    height: 100%;
+    overflow: auto;
+    z-index: 12;
+}
+
+.uber-box-nav-left {
+    background: rgba(0,255,100,0.3);
+    float: left; 
+    height: 100%;
+    width: 25%;
+}
+
+.uber-box-nav-right {
+    background: rgba(0,255,100,0.3);
+    float: right;
+    height: 100%;
+    width: 25%;
+}
+
+.uber-box-close {
+    background: rgba(255,255,255,1);
+    float: right;
+    height: 30px;
+    width: 30px; 
 }
