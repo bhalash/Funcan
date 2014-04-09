@@ -1,10 +1,10 @@
 // Gallery, row, and img classes.
 // UPDATE GALLERY.CSS IF YOU CHANGE THESE!!!!
-var cusName = 'uber';
-var galName = cusName + '-gallery';
-var rowName = cusName + '-row';
-var imgName = cusName + '-img';
-var boxName = cusName + '-box';
+var customName     = 'uber';
+var galleryName    = customName + '-gallery';
+var galleryRowName = customName + '-row';
+var galleryImgName = customName + '-img';
+var lightboxName   = customName + '-box';
 // Maximum, minimum, and tiny row sizes. Tiny is used in mobile views.
 var rowSizeMin  = 4;
 var rowSizeMax  = 6;
@@ -37,7 +37,7 @@ function addGalleryID(obj) {
     var count = 0;
 
     $(obj).each(function () {
-        $(this).attr('id', rowName + ' ' + count);
+        $(this).attr('id', galleryRowName + ' ' + count);
         count++;
     }); 
 }
@@ -45,7 +45,7 @@ function addGalleryID(obj) {
 function addRow(obj) {
     // Append a row to gallery.
     // <div class="uber-row"></div>
-    $(obj).append('<div class="' + rowName + '"></div>');
+    $(obj).append('<div class="' + galleryRowName + '"></div>');
 }
 
 function sRandom(min,max) {
@@ -65,12 +65,12 @@ function addGalleryRows(obj) {
     $(imgArr).each(function (i) {
         // Smaller row size on smaller screens.
         var rowLength = ($(window).width() > mobileSize) ? sRandom(rowSizeMin,rowSizeMax) : rowSizeTiny;
-        $('.' + rowName).last().append(imgArr[i]); 
+        $('.' + galleryRowName).last().append(imgArr[i]); 
 
         // Add a new row if the length exceeds our quasi-random size.
         // Do not add a new row if we are at the end of the array and only 1 or 2 images remain.
         // The effect of a single-image row is ugly and a thing to be avoided.
-        if ($('.' + rowName).last().children().size() >= rowLength && (imgArr.length - 1 - i) >= 2) {
+        if ($('.' + galleryRowName).last().children().size() >= rowLength && (imgArr.length - 1 - i) >= 2) {
             addRow(obj);
         }
     });
@@ -106,7 +106,7 @@ function getRowWidth(obj) {
 
 function orderRowImages(obj) {
     // Resizes each row of images such as to evenly space their width and height. 
-    $(obj).children('.' + rowName).each(function () {
+    $(obj).children('.' + galleryRowName).each(function () {
         // Get total width of row through width of component images.
         var sum = getRowWidth(this);
         // Ratio between gallery width, and row width.
@@ -117,7 +117,7 @@ function orderRowImages(obj) {
             // Add appropriate class for click events.
             var newHeight = Math.round($(this).height() * ratio);
             changeObjHeight(this, newHeight);
-            $(this).attr('class', imgName);
+            $(this).attr('class', galleryImgName);
         });
 
         // Rounding errors leave a small margin on the right side of the gallery.
@@ -138,55 +138,40 @@ function orderRowImages(obj) {
 */
 
 function addLightbox(obj) {
-    // Append empty lightbox to whatever.
-    // Best prepended to body.
+    // Best prepended to <body>.
     var divOpen = '<div class="';
     var divClose = '"></div>';
 
-    var lbElements = [
-        boxName + '-nav',
-        boxName + '-txt',
-        boxName + '-img',
-        boxName + '-close'
+    var lightboxDiv = [
+        lightboxName + '-close',
+        lightboxName + '-nav',
+        lightboxName + '-txt',
+        lightboxName + '-img'
     ];
 
-    // Append lightbox to foo.
-    $(obj).prepend(divOpen + boxName + '">');
-    // Insert other elements.
-    $(lbElements).each(function(i,e) {
-        $('.' + boxName).prepend(divOpen + e + divClose);
-    });
+    // Attach lightbox to obj, and size it to the window.
+    $(obj).prepend(divOpen + lightboxName + '">');
+    changeObjHeight('.' + lightboxName, $(window).height());
 
-    // Insert nav elements.
-    $('.' + lbElements[0]).append(divOpen + lbElements[0] + '-left' + divClose);
-    $('.' + lbElements[0]).append(divOpen + lbElements[0] + '-right' + divClose);
-
-    // Lightbox height.
-    changeObjHeight('.' + boxName, $(window).height());
-
-    // Blurb position.
-    $('.' + lbElements[1]).css('margin-top', $(window).height() * 0.85);
+    $('.' + lightboxName).prepend(divOpen + lightboxDiv[3] + divClose);
 }
 
 function toggleLightbox() {
     // Toggle appearance of the lightbox.
-    var lb = $('.' + boxName);
-    var lbDisp = (lb.css('display') === 'none') ? 'initial' : 'none';
-    $(lb).css('display', lbDisp);
+    var lightbox = $('.' + lightboxName);
+    var lightboxDisp = (lightbox.css('display') === 'none') ? 'initial' : 'none';
+    $(lightbox).css('display', lightboxDisp);
 }
 
 function setLightboxImg(obj) {
     // Add clicked image to lightbox.
-    var lb = $('.' + boxName + '-img');
-    lb.empty();
-    lb.append('<img class="snusnu" src="' + $(obj).attr('src') + '" />');
-    // Vertically center photo.
-    changeObjHeight('.snusnu', $(window).height() * 0.9);
-    vertCenterObj('.snusnu');
+    var lightboxImg = $('.' + lightboxName + '-img');
+    lightboxImg.empty();
+    lightboxImg.append('<img src="' + $(obj).attr('src') + '" />');
 }
 
 $(window).load(function() {
-    $('.' + galName).each(function() { 
+    $('.' + galleryName).each(function() { 
         addGalleryID(this);
         addGalleryRows(this);
         orderRowImages(this);
@@ -194,7 +179,7 @@ $(window).load(function() {
 
     addLightbox('body');
 
-    $('.' + imgName).click(function() {
+    $('.' + galleryImgName).click(function() {
         toggleLightbox();
         setLightboxImg(this);
     });
