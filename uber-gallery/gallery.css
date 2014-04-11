@@ -58,10 +58,17 @@ Look at  'orderRowImages' in gallery.js for more information. */
 /* The lightbox should be pinned to the <body> element, and every element inside of lightbox given a fixed position and dimensions
 (100% x 100%) of the screen size. Width is set via CSS, height via JS. */
 
-.uber-box {
+.uber-box,
+.uber-box-close,
+.uber-box-nav,
+.uber-box-txt {
     position: fixed;
-    top: 0;
+}
+
+.uber-box {
     left: 0;
+    overflow: auto;
+    top: 0;
     width: 100%;
 }
 
@@ -72,37 +79,42 @@ Look at  'orderRowImages' in gallery.js for more information. */
 .uber-box {
     background: rgba(255,255,255,0.3);
     display: none;
-    overflow: auto;
-    z-index: 9;
 }
 .uber-box-txt {
     background: rgba(255,0,100,0.3);
     height: 15%;
+    width: 100%;
 }
 
 .uber-box-nav {
-    height: 100%;
+    height: 85%;
     overflow: auto;
+    width: 100%;
+}
+
+.uber-box-nav-left,
+.uber-box-nav-right {
+    height: 100%;
+    width: 12%;
+}
+
+.uber-box-nav-left:hover,
+.uber-box-nav-right:hover {
+    background: rgba(0,255,100,1);
 }
 
 .uber-box-nav-left {
-    background: rgba(0,255,100,0.3);
     float: left; 
-    height: 100%;
-    width: 25%;
 }
 
 .uber-box-nav-right {
-    background: rgba(0,255,100,0.3);
     float: right;
-    height: 100%;
-    width: 25%;
 }
 
 .uber-box-close {
     background: rgba(255,255,255,1);
-    float: right;
-    height: 30px;
-    width: 30px; 
-    z-index: 300;
+    height: 40px;
+    top: 0;
+    width: 40px; 
+    z-index: 5;
 }

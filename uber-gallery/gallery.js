@@ -1,10 +1,10 @@
 // Gallery, row, and img classes.
 // UPDATE GALLERY.CSS IF YOU CHANGE THESE!!!!
-var customName     = 'uber';
-var galleryName    = customName + '-gallery';
-var galleryRowName = customName + '-row';
-var galleryImgName = customName + '-img';
-var lightboxName   = customName + '-box';
+var customClass     = 'uber';
+var galleryClass    = customClass + '-gallery';
+var galleryRowClass = customClass + '-row';
+var galleryImgClass = customClass + '-img';
+var lightboxClass   = customClass + '-box';
 // Maximum, minimum, and tiny row sizes. Tiny is used in mobile views.
 var rowSizeMin  = 4;
 var rowSizeMax  = 6;
@@ -37,7 +37,7 @@ function addGalleryID(obj) {
     var count = 0;
 
     $(obj).each(function () {
-        $(this).attr('id', galleryRowName + ' ' + count);
+        $(this).attr('id', galleryRowClass + ' ' + count);
         count++;
     }); 
 }
@@ -45,7 +45,7 @@ function addGalleryID(obj) {
 function addRow(obj) {
     // Append a row to gallery.
     // <div class="uber-row"></div>
-    $(obj).append('<div class="' + galleryRowName + '"></div>');
+    $(obj).append('<div class="' + galleryRowClass + '"></div>');
 }
 
 function sRandom(min,max) {
@@ -65,28 +65,28 @@ function addGalleryRows(obj) {
     $(imgArr).each(function (i) {
         // Smaller row size on smaller screens.
         var rowLength = ($(window).width() > mobileSize) ? sRandom(rowSizeMin,rowSizeMax) : rowSizeTiny;
-        $('.' + galleryRowName).last().append(imgArr[i]); 
+        $('.' + galleryRowClass).last().append(imgArr[i]); 
 
         // Add a new row if the length exceeds our quasi-random size.
         // Do not add a new row if we are at the end of the array and only 1 or 2 images remain.
         // The effect of a single-image row is ugly and a thing to be avoided.
-        if ($('.' + galleryRowName).last().children().size() >= rowLength && (imgArr.length - 1 - i) >= 2) {
+        if ($('.' + galleryRowClass).last().children().size() >= rowLength && (imgArr.length - 1 - i) >= 2) {
             addRow(obj);
         }
     });
 }
 
-function changeObjHeight(obj, amount) {
+function newHeight(obj, amount) {
     // Change obj height to amount.
     $(obj).css('height', amount + 'px');
 }
 
-function changeObjWidth(obj, amount) {
+function newWidth(obj, amount) {
     // Change obj width to amount.
     $(obj).css('width', amount + 'px');
 }
 
-function vertCenterObj(obj) {
+function center(obj) {
     // Vertically centers the given object on screen.
     $(obj).css('margin-top', $(window).height() * 0.5 - $(obj).height()  * 0.5);
 }
@@ -106,7 +106,7 @@ function getRowWidth(obj) {
 
 function orderRowImages(obj) {
     // Resizes each row of images such as to evenly space their width and height. 
-    $(obj).children('.' + galleryRowName).each(function () {
+    $(obj).children('.' + galleryRowClass).each(function () {
         // Get total width of row through width of component images.
         var sum = getRowWidth(this);
         // Ratio between gallery width, and row width.
@@ -115,9 +115,9 @@ function orderRowImages(obj) {
         $(this).children('img').each(function () {
             // Change the height of the image by the ratio.
             // Add appropriate class for click events.
-            var newHeight = Math.round($(this).height() * ratio);
-            changeObjHeight(this, newHeight);
-            $(this).attr('class', galleryImgName);
+            var changedHeight = Math.round($(this).height() * ratio);
+            newHeight(this, changedHeight);
+            $(this).attr('class', galleryImgClass);
         });
 
         // Rounding errors leave a small margin on the right side of the gallery.
@@ -137,49 +137,61 @@ function orderRowImages(obj) {
     LIGHTBOX
 */
 
+// The different elements of the lightbox.
+var lightboxDiv = [
+    lightboxClass + '-close',
+    lightboxClass + '-nav',
+    lightboxClass + '-txt',
+    lightboxClass + '-img'
+];
+
 function addLightbox(obj) {
-    // Best prepended to <body>.
+    // Lightbox should be prepended to <body> in order to avoid CSS conflicts.
     var divOpen = '<div class="';
     var divClose = '"></div>';
 
-    var lightboxDiv = [
-        lightboxName + '-close',
-        lightboxName + '-nav',
-        lightboxName + '-txt',
-        lightboxName + '-img'
-    ];
-
     // Attach lightbox to obj, and size it to the window.
-    $(obj).prepend(divOpen + lightboxName + '">');
-    changeObjHeight('.' + lightboxName, $(window).height());
+    $(obj).prepend(divOpen + lightboxClass + '">');
 
-    $('.' + lightboxName).prepend(divOpen + lightboxDiv[3] + divClose);
+    // Attach all child elements to the lightbox. 
+    $(lightboxDiv).each(function(index,element) {
+        $('.' + lightboxClass).append(divOpen + element + divClose);
+    });
+}
+
+function positionLightbox() {
+    newHeight('.' + lightboxClass, $(window).height());
+    $('.' + lightboxDiv[0]).css('margin-left', $(window).width() - $('.' + lightboxDiv[0]).width() + 'px');
+    $('.' + lightboxDiv[2]).css('top', $(window).height() * 0.85 + 'px'); 
+    newHeight('.' + lightboxDiv[3], $(window).height());
+    center('.' + lightboxDiv[3]);
 }
 
 function toggleLightbox() {
     // Toggle appearance of the lightbox.
-    var lightbox = $('.' + lightboxName);
+    var lightbox = $('.' + lightboxClass);
     var lightboxDisp = (lightbox.css('display') === 'none') ? 'initial' : 'none';
     $(lightbox).css('display', lightboxDisp);
 }
 
 function setLightboxImg(obj) {
     // Add clicked image to lightbox.
-    var lightboxImg = $('.' + lightboxName + '-img');
+    var lightboxImg = $('.' + lightboxClass + '-img');
     lightboxImg.empty();
     lightboxImg.append('<img src="' + $(obj).attr('src') + '" />');
 }
 
 $(window).load(function() {
-    $('.' + galleryName).each(function() { 
+    $('.' + galleryClass).each(function() { 
         addGalleryID(this);
         addGalleryRows(this);
         orderRowImages(this);
     });
 
-    addLightbox('body');
+    // addLightbox('body');
+    positionLightbox();
 
-    $('.' + galleryImgName).click(function() {
+    $('.' + galleryImgClass).click(function() {
         toggleLightbox();
         setLightboxImg(this);
     });
@@ -203,4 +215,6 @@ $(window).resize(function() {
     $('.' + gal).each(function() { 
         orderRowImages(this);
     });
+
+    positionLightbox();
 });

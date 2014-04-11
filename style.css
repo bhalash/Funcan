@@ -515,7 +515,7 @@ input[class="search-submit"] {
     position: relative;
     width: 25px;
     text-align: center;
-    z-index: 2;
+    z-index: 0;
 }
 
 input[class="search-submit"]:hover {
