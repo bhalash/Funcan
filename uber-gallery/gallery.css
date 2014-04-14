@@ -2,17 +2,17 @@
     GALLERY
 */
 
-/* If you change variable 'cusName' in gallery.js, please change 'uber' to whatever to match.
+/* If you change variable 'cusName' in gallery.js, please change 'funcan' to whatever to match.
 Leave the rest as-is. :) */
 
-.uber-gallery {
+.funcan-gallery {
     margin: 0 auto;
     margin-bottom: 6px;
     margin-top: 6px;
     width: 99%;
 }
 
-.uber-gallery a {
+.funcan-gallery a {
     margin: 0;
     padding: 0;
 }
@@ -20,101 +20,142 @@ Leave the rest as-is. :) */
 /* Every image and row should be separated by a total of 6px. 6px at the bottom of each row, and 
 3px to the left and right of each image. */
 
-.uber-row {
+.funcan-row {
     margin-bottom: 6px;
     overflow: auto;
 }
 
-.uber-row img,
-.uber-row a > img {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+.funcan-row img,
+.funcan-row a > img {
+    -moz-lightbox-sizing: border-lightbox;
+    -webkit-lightbox-sizing: border-lightbox;
+    lightbox-sizing: border-lightbox;
     float: left;
     height: 100px;
     padding: 0 3px 0 3px;
     width: auto;
 }
 
-.uber-row:after {
+.funcan-row:after {
     /* For older versions of IE. I had problem clearing row floats with 'overflow: auto'. */
     clear: both;
 }
 
 /* I remove padding on first and last elements in order to make the gallery rows better fit the available space.
 Look at  'orderRowImages' in gallery.js for more information. */
-.uber-row:first-child {
+.funcan-row:first-child {
     padding-left: 0;
 }
 
-.uber-row:last-child {
+.funcan-row:last-child {
     padding-right: 0;
 }
 
 /*
-    LIGHTBOX
+    LIGHTlightbox
 */
 
-/* The lightbox should be pinned to the <body> element, and every element inside of lightbox given a fixed position and dimensions
+/* The lightlightbox should be pinned to the <body> element, and every element inside of lightlightbox given a fixed position and dimensions
 (100% x 100%) of the screen size. Width is set via CSS, height via JS. */
 
-.uber-box,
-.uber-box-close,
-.uber-box-nav,
-.uber-box-txt {
+.funcan-lightbox,
+.funcan-lightbox-close,
+.funcan-lightbox-nav,
+.funcan-lightbox-txt {
     position: fixed;
 }
 
-.uber-box {
+.funcan-lightbox {
     left: 0;
     overflow: auto;
     top: 0;
     width: 100%;
 }
 
-.uber-box-img {
+.funcan-lightbox-img {
     margin: 0 auto;
 }
 
-.uber-box {
-    background: rgba(255,255,255,0.3);
+.funcan-lightbox {
+    background: #232529;
+    background: rgba(35,37,41,0.8);
     display: none;
 }
-.uber-box-txt {
-    background: rgba(255,0,100,0.3);
-    height: 15%;
-    width: 100%;
-}
 
-.uber-box-nav {
-    height: 85%;
-    overflow: auto;
-    width: 100%;
-}
-
-.uber-box-nav-left,
-.uber-box-nav-right {
-    height: 100%;
-    width: 12%;
-}
-
-.uber-box-nav-left:hover,
-.uber-box-nav-right:hover {
-    background: rgba(0,255,100,1);
-}
-
-.uber-box-nav-left {
-    float: left; 
-}
-
-.uber-box-nav-right {
-    float: right;
-}
-
-.uber-box-close {
+.funcan-lightbox-close {
     background: rgba(255,255,255,1);
     height: 40px;
     top: 0;
     width: 40px; 
     z-index: 5;
+}
+
+.funcan-lightbox-txt {
+    height: 15%;
+    overflow: auto;
+    width: 100%;
+}
+
+.funcan-lightbox-txt:hover {
+    background: rgba(35,37,41,0.6);
+}
+
+.funcan-lightbox-txt-left,
+.funcan-lightbox-txt-right {
+    float: left;
+    width: 50%;
+}
+
+.funcan-lightbox-txt-left p {
+    color: #fff;
+    text-align: left;
+}
+
+.funcan-lightbox-txt-right p {
+    color: #fff;
+    text-align: right;
+}
+
+.funcan-lightbox-nav {
+    height: 85%;
+    overflow: auto;
+    width: 100%;
+}
+
+.funcan-lightbox-nav-left,
+.funcan-lightbox-nav-right {
+    height: 100%;
+    width: 12%;
+}
+
+.funcan-lightbox-nav-left,
+.funcan-lightbox-nav-right:hover,
+.funcan-lightbox-nav-right,
+.funcan-lightbox-nav-left:hover,
+.funcan-lightbox-txt,
+.funcan-lightbox-txt:hover {
+    transition: background-color .3s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out;
+    -webkit-transition: background-color .3s ease-in-out; 
+    -o-transition: background-color .3s ease-in-out; 
+}
+
+.funcan-lightbox-nav-left:hover,
+.funcan-lightbox-nav-right:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.funcan-lightbox-nav-left,
+.funcan-lightbox-txt-left {
+    float: left; 
+}
+
+.funcan-lightbox-nav-right,
+.funcan-lightbox-nav-right {
+    float: right;
+}
+
+.funcan-lightbox-txt-left,
+.funcan-lightbox-txt-right {
+    width: 50%;
 }
