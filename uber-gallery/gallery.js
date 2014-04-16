@@ -176,11 +176,6 @@ function addLightbox(obj) {
         $('.' + lbElements[2]).append(dOpen + lbElements[2] + element + dClose);
     });
 
-    // Paragraph elements for text.
-    $(lbNavElements).each(function(index, element) {
-        $('.' + lbElements[2] + element).append('<p>');
-    });
-
     // Image div.
     $('.' + lbElements[3]).append('<img src=" " alt=" " />');
 }
@@ -195,7 +190,7 @@ function toggleLightbox() {
     // Toggle appearance of the lightbox.
     var a = $('.' + lightboxClass);
     var b = (a.css('display') === 'none') ? 'initial' : 'none';
-    a.css('b', display);
+    a.css('display', b);
 }
 
 function setLightboxImg(a) {
@@ -205,12 +200,16 @@ function setLightboxImg(a) {
 
 function setLightboxText(a) {
     // Set visually reported alt text.
-    $('.' + lbElements[2] + lbNavElements[0] + ' p').text(a);
+    var b = $('.' + lbElements[2] + lbNavElements[0]);
+    b.empty();
+    b.append('<p>' + a + '</p>');
 }
 
 function setLightboxCount(a, b) {
     // Set visually reported count.
-    $('.' + lbElements[2] + lbNavElements[1] + ' p').text(a + '/' + b);
+    c = $('.' + lbElements[2] + lbNavElements[1]);
+    c.empty();
+    a.append('<p>' + a + '/' + b + '</p>');
 }
 
 function updateLightbox(obj) {
@@ -302,7 +301,7 @@ $(window).load(function() {
 });
 
 $(window).resize(function() {
-    $('.' + gal).each(function() { 
+    $('.' + galleryClass).each(function() { 
         resizeRowImages(this);
     });
 
