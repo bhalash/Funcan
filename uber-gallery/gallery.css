@@ -2,8 +2,10 @@
     GALLERY
 */
 
-/* If you change variable 'cusName' in gallery.js, please change 'funcan' to whatever to match.
-Leave the rest as-is. :) */
+/* 
+ * If you change variable 'cusName' in gallery.js, please change
+ * 'funcan' to whatever to match. Leave the rest as-is. :)
+ */
 
 .funcan-gallery {
     margin: 0 auto;
@@ -17,8 +19,11 @@ Leave the rest as-is. :) */
     padding: 0;
 }
 
-/* Every image and row should be separated by a total of 6px. 6px at the bottom of each row, and 
-3px to the left and right of each image. */
+/* 
+ * Every image and row should be separated by a total of 6px.
+ * 6px at the bottom of each row, and 
+ * 3px to the left and right of each image.
+ */
 
 .funcan-row {
     margin-bottom: 6px;
@@ -36,13 +41,19 @@ Leave the rest as-is. :) */
     width: auto;
 }
 
+/* 
+ * For older versions of IE. I had problem clearing row floats with 'overflow: auto'.
+ */
+
 .funcan-row:after {
-    /* For older versions of IE. I had problem clearing row floats with 'overflow: auto'. */
     clear: both;
 }
 
-/* I remove padding on first and last elements in order to make the gallery rows better fit the available space.
-Look at  'orderRowImages' in gallery.js for more information. */
+/* 
+ * I remove padding on first and last elements in order to make the gallery rows better fit the available space.
+ * Look at 'orderRowImages' in gallery.js for more information. 
+ */
+ 
 .funcan-row:first-child {
     padding-left: 0;
 }
@@ -52,11 +63,14 @@ Look at  'orderRowImages' in gallery.js for more information. */
 }
 
 /*
-    LIGHTlightbox
+    Lightbox
 */
 
-/* The lightlightbox should be pinned to the <body> element, and every element inside of lightlightbox given a fixed position and dimensions
-(100% x 100%) of the screen size. Width is set via CSS, height via JS. */
+/* 
+ * The lightlightbox should be pinned to the <body> element, and every element
+ * inside of lightlightbox given a fixed position and dimensions
+ * (100% x 100%) of the screen size. Width is set via CSS, height via JS. 
+ */
 
 .funcan-lightbox,
 .funcan-lightbox-close,
@@ -91,9 +105,34 @@ Look at  'orderRowImages' in gallery.js for more information. */
 }
 
 .funcan-lightbox-txt {
+    width: 100%;
+}
+
+/* 
+ * There is a serious bug in the latest version of Chrome that, in the precise
+ * circumstancs that arises in the lightbox, causes the paragraph font to not 
+ * render, unless the paragraph is forcibly refreshed.
+ *
+ * fontfix is a hacky workaround that changes the paragraph opacity from 
+ * 1.0 to 1.0 through a CSS3 animation effect, which triggers a refresh.
+ *  
+ * The bug is /only/ present in the latest (April 2014) version of Chrome. See
+ * https://code.google.com/p/chromium/issues/detail?id=336476 for more info.
+ */
+
+.funcan-lightbox-txt p {
+    -webkit-animation-duration: 0.1s;
+    -webkit-animation-name: fontfix;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 2s;
     height: 15%;
     overflow: auto;
-    width: 100%;
+}
+
+@-webkit-keyframes fontfix {
+    from { opacity: 1; }
+    to   { opacity: 1; }
 }
 
 .funcan-lightbox-txt:hover {

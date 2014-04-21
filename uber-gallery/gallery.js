@@ -152,7 +152,7 @@ var lbNavElements = [
 // Current lightbox gallery.
 var cg = 0;
 // Current lightbox image.
-var ci  = 0;
+var ci = 0;
 
 // Two-dimensional array of /all/ gallery images on this page.
 var galleryImages = [];
@@ -176,6 +176,11 @@ function addLightbox(obj) {
         $('.' + lbElements[2]).append(dOpen + lbElements[2] + element + dClose);
     });
 
+    // Paragraph elements for text.
+    $(lbNavElements).each(function(index, element) {
+        $('.' + lbElements[2] + element).append('<p>');
+    });
+
     // Image div.
     $('.' + lbElements[3]).append('<img src=" " alt=" " />');
 }
@@ -189,8 +194,9 @@ function positionLightbox() {
 function toggleLightbox() {
     // Toggle appearance of the lightbox.
     var a = $('.' + lightboxClass);
-    var b = (a.css('display') === 'none') ? 'initial' : 'none';
-    a.css('display', b);
+    a.toggle(); 
+    // var b = (a.css('display') === 'none') ? 'initial' : 'none';
+    // a.css('display', b);
 }
 
 function setLightboxImg(a) {
@@ -200,22 +206,20 @@ function setLightboxImg(a) {
 
 function setLightboxText(a) {
     // Set visually reported alt text.
-    var b = $('.' + lbElements[2] + lbNavElements[0]);
-    b.empty();
-    b.append('<p>' + a + '</p>');
+    var b = $('.' + lbElements[2] + lbNavElements[0] + ' p');
+    b.text(a);
 }
 
 function setLightboxCount(a, b) {
     // Set visually reported count.
-    c = $('.' + lbElements[2] + lbNavElements[1]);
-    c.empty();
-    a.append('<p>' + a + '/' + b + '</p>');
+    c = $('.' + lbElements[2] + lbNavElements[1] + ' p');
+    c.text(a + '/' + b);
 }
 
 function updateLightbox(obj) {
     setLightboxImg(obj.src);
     setLightboxText($(obj).attr('alt'));
-    setLightboxCount($(obj).attr('class'), galleryImages[cg].length);
+    setLightboxCount(parseInt($(obj).attr('class')) + 1, galleryImages[cg].length);
 }
 
 function decrementLightboxImage() {
