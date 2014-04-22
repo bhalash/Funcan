@@ -192,16 +192,33 @@ function positionLightbox() {
 }
 
 function toggleLightbox() {
-    // Toggle appearance of the lightbox.
     var a = $('.' + lightboxClass);
     a.toggle(); 
-    // var b = (a.css('display') === 'none') ? 'initial' : 'none';
-    // a.css('display', b);
 }
 
 function setLightboxImg(a) {
     // Set selected image in the lightbox.
-    $('.' + lbElements[3] + ' img').attr('src', a);
+    var b = $('.' + lbElements[3] + ' img');
+    b.attr('src', a);
+
+    $(b).load(function() {
+        // Have to wait for image to load before I center it.
+        var h = $(this).height();
+        var w = $(this).width();
+
+        var heightRatio = h / $(window).height();
+        var widthRatio  = w / $(window).width();
+        var winRatio    = $(window).height() / $(window).width();
+
+        console.log(
+            this.src + '\n' +
+            'widthRatio: '  + heightRatio + '\n' + 
+            'heightRatio: ' + widthRatio + '\n' +
+            'winRatio: '    + winRatio 
+        );
+
+        center(this);
+    });
 }
 
 function setLightboxText(a) {
