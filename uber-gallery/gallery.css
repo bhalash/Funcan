@@ -1,5 +1,5 @@
 /* 
- * If you change variable 'cusName' in gallery.js, please change
+ * If you change variable 'customClass' in gallery.js, please change
  * 'funcan' to whatever to match. Leave the rest as-is. :)
  * 
  * font-family is set on line 672 of style.css. 
@@ -115,6 +115,7 @@
 */
 
 .funcan-lightbox-close {
+    display: table;
     height: 40px;
     line-height: 40px;
     top: 0;
@@ -124,17 +125,19 @@
 
 .funcan-lightbox-close a {
     background: rgba(255,255,255,0.5);
-    display: block;
+    display: table-cell;
     font-size: 40px;
-    /* 'Classic Console' font glyphs have an invisible marign around them. */
-    /* Change this if you decide change the font-family. */
-    margin-top: -8px;
     text-transform: uppercase;
+    vertical-align: middle;
     width: 100%;
 }
 
+.funcan-lightbox-close a:hover {
+    background: rgba(255,255,255,0.7);
+}
+
 .funcan-lightbox-close a:active {
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.9);
 }
 
 /*
@@ -168,7 +171,6 @@
     box-sizing: border-box;
     display: table-cell;
     font-size: 80px;
-    margin-top: -8px;
     height: 100%;
     padding: 10px;
     vertical-align: middle;

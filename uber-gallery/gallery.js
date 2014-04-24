@@ -1,9 +1,9 @@
 // Gallery, row, and img classes.
 // UPDATE GALLERY.CSS IF YOU CHANGE THESE!!!!
-var customClass     = 'funcan';
-var galleryClass    = '.' + customClass + '-gallery';
-var galleryRowClass = '.' + customClass + '-row';
-var lightboxClass   = '.' + customClass + '-lightbox';
+var customClass   = '.funcan';
+var galleryClass  = customClass + '-gallery';
+var rowClass      = customClass + '-row';
+var lightboxClass = customClass + '-lightbox';
 // Maximum, minimum, and tiny row sizes. Tiny is used in mobile views.
 var rowSizeMin  = 4;
 var rowSizeMax  = 6;
@@ -16,7 +16,7 @@ var altAsTitle  = false;
 var voidHref    = true;
 
 /*
-    GALLERY
+ * GALLERY
 */
 
 function addAnchor(obj, addTitle) {
@@ -43,7 +43,8 @@ function addGalleryID(obj) {
 function addRow(obj) {
     // Append a row to gallery.
     // <div class="uber-row"></div>
-    $(obj).append('<div class="' + galleryRowClass + '"></div>');
+    var row = rowClass.substring(1);
+    $(obj).append('<div class="' + row + '"></div>');
 }
 
 function sRandom(min,max) {
@@ -63,12 +64,12 @@ function addGalleryRows(obj) {
     $(imgArr).each(function (i) {
         // Smaller row size on smaller screens.
         var rowLength = ($(window).width() > mobileSize) ? sRandom(rowSizeMin,rowSizeMax) : rowSizeTiny;
-        $(galleryRowClass).last().append(imgArr[i]); 
+        $(rowClass).last().append(imgArr[i]); 
 
         // Add a new row if the length exceeds our quasi-random size.
         // Do not add a new row if we are at the end of the array and only 1 or 2 images remain.
         // The effect of a single-image row is ugly and a thing to be avoided.
-        if ($(galleryRowClass).last().children().size() >= rowLength && (imgArr.length - 1 - i) >= 2) {
+        if ($(rowClass).last().children().size() >= rowLength && (imgArr.length - 1 - i) >= 2) {
             addRow(obj);
         }
     });
@@ -92,10 +93,10 @@ function getRowWidth(obj) {
     return sum;
 }
 
-function resizeRowImages(obj) {
+function updateGallery(obj) {
     // Resizes each row of images such as to evenly space their width and height. 
     var n = 0;
-    $(obj).children(galleryRowClass).each(function () {
+    $(obj).children(rowClass).each(function () {
         // Get total width of row through width of component images.
         var sum = getRowWidth(this);
         // Ratio between gallery width, and row width.
@@ -122,11 +123,10 @@ function resizeRowImages(obj) {
 }
 
 /*
-    LIGHTBOX
+ * LIGHTBOX
 */
 
 var lbElements = [
-    // The different elements of the lightbox.
     lightboxClass + '-close',
     lightboxClass + '-nav',
     lightboxClass + '-txt',
@@ -148,35 +148,41 @@ var galleryImages = [];
 
 function addLightbox(obj) {
     // Lightbox should be prepended to <body> in order to avoid conflicts with other CSS.
-    var divOpen = '<div class="';
+    var divOpen  = '<div class="';
     var divClose = '"></div>';
+    var lightbox  = lightboxClass.substring(1); 
+    var lbe = []; 
+
+    $(lbElements).each(function(i,e) {
+        lbe.push(e.substring(1));
+    });
 
     // Attach lightbox to obj.
-    $(obj).prepend(divOpen + lightboxClass + '">');
+    $(obj).prepend(divOpen + lightbox + '">');
 
-    $(lbElements).each(function(i, e) {
+    $(lbe).each(function(i, e) {
         // Attach all child elements to the lightbox. 
         $(lightboxClass).append(divOpen + e + divClose);
     });
 
     // Close button.
-    $(lbElements[0]).append('<a href="javascript:void(0)">X</a>');
+    $(lbe[0]).append('<a href="javascript:void(0)">X</a>');
 
     $(lbNavElements).each(function(i, e) {
         // Navigation elements.
-        $(lbElements[1]).append(divOpen + lbElements[1] + e + divClose);
-        $(lbElements[2]).append(divOpen + lbElements[2] + e + divClose);
+        $(lbe[1]).append(divOpen + lbElements[1] + e + divClose);
+        $(lbe[2]).append(divOpen + lbElements[2] + e + divClose);
     });
 
-    $(lbNavElements).each(function(index, element) {
+    $(lbNavElements).each(function(i, e) {
         // Paragraph elements for text.
-        var arrow = (index === 0) ? '&lt;&lt;' : '&gt;&gt;';
-        $(lbElements[2] + element).append('<p>');
-        $(lbElements[1] + element).append('<a href="javascript:void(0)">' + arrow + '</a>');
+        var arrow = (i === 0) ? '&lt;&lt;' : '&gt;&gt;';
+        $(lbe[2] + e).append('<p>');
+        $(lbe[1] + e).append('<a href="javascript:void(0)">' + arrow + '</a>');
     });
 
     // Image div.
-    $(lbElements[3]).append('<img src=" " alt=" " />');
+    $(lbe[3]).append('<img src=" " alt=" " />');
 }
 
 function positionLightbox() {
@@ -192,7 +198,7 @@ function setLightboxImage(imgSrc) {
     var img = $(lbElements[3] + ' img');
     img.attr('src', imgSrc);
 
-    $(img).load(function() {
+    img.load(function() {
         // Have to wait for image to load before I center it.
         // Get 0 width/height otherwise.
         shrinkLightboxImage();
@@ -251,12 +257,9 @@ $(window).load(function() {
      * Gallery load events.
      */
 
-    // Give each gallery a unique ID starting from 0.
     addGalleryID(galleryClass);
 
     $(galleryClass).each(function() { 
-        // Build muilt-dimensional array that contains every image on page.
-        // [0][0] is first gallery, first image, etc.
         var tmp = [];
 
         $(this).children('img').each(function() {
@@ -265,7 +268,7 @@ $(window).load(function() {
 
         galleryImages.push(tmp);
         addGalleryRows(this);
-        resizeRowImages(this);
+        updateGallery(this);
     });
 
     /*
@@ -282,10 +285,8 @@ $(window).load(function() {
      */
 
     $(galleryClass + ' img').click(function() {
-        // Set gallery and image within the gallery. 
         clg = parseInt($(this).closest(galleryClass).attr('id'));
         cli = parseInt($(this).attr('class'));
-        // Set lightbox image and then display it.
         updateLightbox(galleryImages[clg][cli]);
         toggleLightbox();
     });
@@ -313,8 +314,8 @@ $(window).load(function() {
 });
 
 $(window).resize(function() {
-    $(galleryClass).each(function() { 
-        resizeRowImages(this);
+    $(gallery).each(function() { 
+        updateGallery(this);
     });
 
     updateLightbox(galleryImages[clg][cli]);
