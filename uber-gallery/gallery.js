@@ -1,9 +1,9 @@
 // Gallery, row, and img classes.
 // UPDATE GALLERY.CSS IF YOU CHANGE THESE!!!!
 var customClass     = 'funcan';
-var galleryClass    = customClass + '-gallery';
-var galleryRowClass = customClass + '-row';
-var lightboxClass   = customClass + '-lightbox';
+var galleryClass    = '.' + customClass + '-gallery';
+var galleryRowClass = '.' + customClass + '-row';
+var lightboxClass   = '.' + customClass + '-lightbox';
 // Maximum, minimum, and tiny row sizes. Tiny is used in mobile views.
 var rowSizeMin  = 4;
 var rowSizeMax  = 6;
@@ -63,12 +63,12 @@ function addGalleryRows(obj) {
     $(imgArr).each(function (i) {
         // Smaller row size on smaller screens.
         var rowLength = ($(window).width() > mobileSize) ? sRandom(rowSizeMin,rowSizeMax) : rowSizeTiny;
-        $('.' + galleryRowClass).last().append(imgArr[i]); 
+        $(galleryRowClass).last().append(imgArr[i]); 
 
         // Add a new row if the length exceeds our quasi-random size.
         // Do not add a new row if we are at the end of the array and only 1 or 2 images remain.
         // The effect of a single-image row is ugly and a thing to be avoided.
-        if ($('.' + galleryRowClass).last().children().size() >= rowLength && (imgArr.length - 1 - i) >= 2) {
+        if ($(galleryRowClass).last().children().size() >= rowLength && (imgArr.length - 1 - i) >= 2) {
             addRow(obj);
         }
     });
@@ -95,7 +95,7 @@ function getRowWidth(obj) {
 function resizeRowImages(obj) {
     // Resizes each row of images such as to evenly space their width and height. 
     var n = 0;
-    $(obj).children('.' + galleryRowClass).each(function () {
+    $(obj).children(galleryRowClass).each(function () {
         // Get total width of row through width of component images.
         var sum = getRowWidth(this);
         // Ratio between gallery width, and row width.
@@ -139,60 +139,60 @@ var lbNavElements = [
 ];
 
 // Current lightbox gallery.
-var cg = 0;
+var clg = 0;
 // Current lightbox image.
-var ci = 0;
+var cli = 0;
 
 // Two-dimensional array of /all/ gallery images on this page.
 var galleryImages = [];
 
 function addLightbox(obj) {
     // Lightbox should be prepended to <body> in order to avoid conflicts with other CSS.
-    var dOpen = '<div class="';
-    var dClose = '"></div>';
+    var divOpen = '<div class="';
+    var divClose = '"></div>';
 
     // Attach lightbox to obj.
-    $(obj).prepend(dOpen + lightboxClass + '">');
+    $(obj).prepend(divOpen + lightboxClass + '">');
 
-    $(lbElements).each(function(index, element) {
+    $(lbElements).each(function(i, e) {
         // Attach all child elements to the lightbox. 
-        $('.' + lightboxClass).append(dOpen + element + dClose);
+        $(lightboxClass).append(divOpen + e + divClose);
     });
 
     // Close button.
-    $('.' + lbElements[0]).append('<a href="javascript:void(0)">X</a>');
+    $(lbElements[0]).append('<a href="javascript:void(0)">X</a>');
 
-    $(lbNavElements).each(function(index, element) {
+    $(lbNavElements).each(function(i, e) {
         // Navigation elements.
-        $('.' + lbElements[1]).append(dOpen + lbElements[1] + element + dClose);
-        $('.' + lbElements[2]).append(dOpen + lbElements[2] + element + dClose);
+        $(lbElements[1]).append(divOpen + lbElements[1] + e + divClose);
+        $(lbElements[2]).append(divOpen + lbElements[2] + e + divClose);
     });
 
     $(lbNavElements).each(function(index, element) {
         // Paragraph elements for text.
         var arrow = (index === 0) ? '&lt;&lt;' : '&gt;&gt;';
-        $('.' + lbElements[2] + element).append('<p>');
-        $('.' + lbElements[1] + element).append('<a href="javascript:void(0)">' + arrow + '</a>');
+        $(lbElements[2] + element).append('<p>');
+        $(lbElements[1] + element).append('<a href="javascript:void(0)">' + arrow + '</a>');
     });
 
     // Image div.
-    $('.' + lbElements[3]).append('<img src=" " alt=" " />');
+    $(lbElements[3]).append('<img src=" " alt=" " />');
 }
 
 function positionLightbox() {
-    $('.' + lightboxClass).css('height', $(window).height() + 'px');
-    $('.' + lbElements[0]).css('margin-left', $(window).width() - $('.' + lbElements[0]).width() + 'px');
+    $(lightboxClass).css('height', $(window).height() + 'px');
+    $(lbElements[0]).css('margin-left', $(window).width() - $(lbElements[0]).width() + 'px');
 }
 
 function toggleLightbox() {
-    var a = $('.' + lightboxClass).toggle(); 
+    $(lightboxClass).toggle(); 
 }
 
-function setLightboxImage(a) {
-    var b = $('.' + lbElements[3] + ' img');
-    b.attr('src', a);
+function setLightboxImage(imgSrc) {
+    var img = $(lbElements[3] + ' img');
+    img.attr('src', imgSrc);
 
-    $(b).load(function() {
+    $(img).load(function() {
         // Have to wait for image to load before I center it.
         // Get 0 width/height otherwise.
         shrinkLightboxImage();
@@ -202,7 +202,7 @@ function setLightboxImage(a) {
 
 function shrinkLightboxImage() {
     // Shrink image to fit if it is larger than the window.
-    var img = $('.' + lbElements[3] + ' img');
+    var img = $(lbElements[3] + ' img');
 
     if (img.width() >= $(window).width() || img.height() >= $(window).height()) {
         var wd = img.width()  - $(window).width();
@@ -218,34 +218,32 @@ function shrinkLightboxImage() {
     }
 }
 
-function setLightboxText(a) {
+function setLightboxText(txt) {
     // Set alt text display.
-    var b = $('.' + lbElements[2] + lbNavElements[0] + ' p');
-    b.text(a);
+    $(lbElements[2] + lbNavElements[0] + ' p').text(txt);
 }
 
-function setLightboxCount(a, b) {
+function setLightboxCount(current, total) {
     // Set current / total count.
-    c = $('.' + lbElements[2] + lbNavElements[1] + ' p');
-    c.text(a + '/' + b);
+    $(lbElements[2] + lbNavElements[1] + ' p').text(current + '/' + total);
 }
 
 function updateLightbox(obj) {
     // Pass image to this.
     setLightboxImage(obj.src);
     setLightboxText($(obj).attr('alt'));
-    setLightboxCount(parseInt($(obj).attr('class')) + 1, galleryImages[cg].length);
+    setLightboxCount(parseInt($(obj).attr('class')) + 1, galleryImages[clg].length);
     positionLightbox();
 }
 
 function decrementLightboxImage() {
-    ci -= (ci <= 0) ? 0 : 1; 
-    updateLightbox(galleryImages[cg][ci]);
+    cli -= (cli <= 0) ? 0 : 1; 
+    updateLightbox(galleryImages[clg][cli]);
 }
 
 function incrementLightboxImage() {
-    ci += (ci >= galleryImages[cg].length - 1) ? 0 : 1; 
-    updateLightbox(galleryImages[cg][ci]);
+    cli += (cli >= galleryImages[clg].length - 1) ? 0 : 1; 
+    updateLightbox(galleryImages[clg][cli]);
 }
 
 $(window).load(function() {
@@ -254,9 +252,9 @@ $(window).load(function() {
      */
 
     // Give each gallery a unique ID starting from 0.
-    addGalleryID('.' + galleryClass);
+    addGalleryID(galleryClass);
 
-    $('.' + galleryClass).each(function() { 
+    $(galleryClass).each(function() { 
         // Build muilt-dimensional array that contains every image on page.
         // [0][0] is first gallery, first image, etc.
         var tmp = [];
@@ -275,7 +273,7 @@ $(window).load(function() {
      */
 
     addLightbox('body');
-    updateLightbox(galleryImages[cg][ci]);
+    updateLightbox(galleryImages[clg][cli]);
 });
 
 $(window).load(function() {
@@ -283,24 +281,24 @@ $(window).load(function() {
      * Mouse click and keypress events.
      */
 
-    $('.' + galleryClass + ' img').click(function() {
+    $(galleryClass + ' img').click(function() {
         // Set gallery and image within the gallery. 
-        cg = parseInt($(this).closest('.' + galleryClass).attr('id'));
-        ci = parseInt($(this).attr('class'));
+        clg = parseInt($(this).closest(galleryClass).attr('id'));
+        cli = parseInt($(this).attr('class'));
         // Set lightbox image and then display it.
-        updateLightbox(galleryImages[cg][ci]);
+        updateLightbox(galleryImages[clg][cli]);
         toggleLightbox();
     });
 
-    $('.' + lbElements[0] + ' a').click(function() {
+    $(lbElements[0] + ' a').click(function() {
         toggleLightbox();
     });
 
-    $('.' + lbElements[1] + lbNavElements[0]).click(function() {
+    $(lbElements[1] + lbNavElements[0]).click(function() {
         decrementLightboxImage();
     });
 
-    $('.' + lbElements[1] + lbNavElements[1]).click(function() {
+    $(lbElements[1] + lbNavElements[1]).click(function() {
         incrementLightboxImage();
     });
 
@@ -315,11 +313,9 @@ $(window).load(function() {
 });
 
 $(window).resize(function() {
-    $('.' + galleryClass).each(function() { 
+    $(galleryClass).each(function() { 
         resizeRowImages(this);
     });
 
-    updateLightbox(galleryImages[cg][ci]);
-    shrinkLightboxImage();
-    vertCenter('.' + lbElements[3] + ' img');
+    updateLightbox(galleryImages[clg][cli]);
 });
