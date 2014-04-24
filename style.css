@@ -50,22 +50,6 @@ time, mark, audio, video {
 
 @font-face {
     /* 
-        Name: Source Sans Pro Regular
-        Creator: Adobe Systems
-        URL: http://sourceforge.net/projects/sourcesans.adobe/
-        License: SIL Open Font License 1.1
-    */
-    font-family: 'Source Sans Pro Regular';
-    src: 
-        url('fonts/ssp/scp-r.eot?')  format('embedded-opentype'),
-        url('fonts/ssp/clacon.woff') format('woff'),
-        url('fonts/ssp/clacon.otf')  format('opentype'),
-        url('fonts/ssp/clacon.ttf')  format('truetype'),
-        url('fonts/ssp/clacon.svg')  format('svg');
-}
-
-@font-face {
-    /* 
         Name: Classic Console
         Creator: Webdraft Ltd.
         URL: http://webdraft.hu/fonts/classic-console/
@@ -473,14 +457,14 @@ article ul li {
 
 .content-left input[type="text"],
 .content-left input[type="password"] {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     font-family: 'Source Code Pro', Consolas, 'Bitstream Vera Sans Mono',
         'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
     height: 30px;
     padding: 0 0 0 6px;
     width: 150px; 
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 .content-left textarea {
@@ -498,15 +482,15 @@ article ul li {
 }
 
 input[class="search-input"] {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     border: none;
     height: 35px;
     margin: 0 auto;
     overflow: hidden;
     padding: 0 0 0 6px;
     width: 100%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 input[class="search-submit"] {
@@ -679,3 +663,11 @@ footer p {
 #rss:hover        { background-color: #ff6600; }
 #twitter:hover    { background-color: #00aced; }
 #tumblr:hover     { background-color: #3d5a70; }
+
+/*
+    DROP-IN LIGHTBOX
+*/
+
+.funcan-lightbox a {
+    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, monospace;
+}
