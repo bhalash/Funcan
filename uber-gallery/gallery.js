@@ -74,17 +74,7 @@ function addGalleryRows(obj) {
     });
 }
 
-function newHeight(obj, amount) {
-    // Change obj height to amount.
-    $(obj).css('height', amount + 'px');
-}
-
-function newWidth(obj, amount) {
-    // Change obj width to amount.
-    $(obj).css('width', amount + 'px');
-}
-
-function center(obj) {
+function vertCenter(obj) {
     // Vertically centers the given object on screen.
     $(obj).css('margin-top', $(window).height() * 0.5 - $(obj).height()  * 0.5);
 }
@@ -113,9 +103,8 @@ function resizeRowImages(obj) {
 
         $(this).children('img').each(function () {
             // Change the height of the image by the ratio.
-            // Add appropriate class for click events.
             var changedHeight = Math.round($(this).height() * ratio);
-            newHeight(this, changedHeight);
+            $(this).css('height', changedHeight + 'px');
             $(this).attr('class', n++);
         });
 
@@ -136,8 +125,8 @@ function resizeRowImages(obj) {
     LIGHTBOX
 */
 
-// The different elements of the lightbox.
 var lbElements = [
+    // The different elements of the lightbox.
     lightboxClass + '-close',
     lightboxClass + '-nav',
     lightboxClass + '-txt',
@@ -165,20 +154,25 @@ function addLightbox(obj) {
     // Attach lightbox to obj.
     $(obj).prepend(dOpen + lightboxClass + '">');
 
-    // Attach all child elements to the lightbox. 
     $(lbElements).each(function(index, element) {
+        // Attach all child elements to the lightbox. 
         $('.' + lightboxClass).append(dOpen + element + dClose);
     });
 
-    // Navigation elements.
+    // Close button.
+    $('.' + lbElements[0]).append('<a href="javascript:void(0)">X</a>');
+
     $(lbNavElements).each(function(index, element) {
+        // Navigation elements.
         $('.' + lbElements[1]).append(dOpen + lbElements[1] + element + dClose);
         $('.' + lbElements[2]).append(dOpen + lbElements[2] + element + dClose);
     });
 
-    // Paragraph elements for text.
     $(lbNavElements).each(function(index, element) {
+        // Paragraph elements for text.
+        var arrow = (index === 0) ? '&lt;&lt;' : '&gt;&gt;';
         $('.' + lbElements[2] + element).append('<p>');
+        $('.' + lbElements[1] + element).append('<a href="javascript:void(0)">' + arrow + '</a>');
     });
 
     // Image div.
@@ -186,57 +180,62 @@ function addLightbox(obj) {
 }
 
 function positionLightbox() {
-    newHeight('.' + lightboxClass, $(window).height());
+    $('.' + lightboxClass).css('height', $(window).height() + 'px');
     $('.' + lbElements[0]).css('margin-left', $(window).width() - $('.' + lbElements[0]).width() + 'px');
-    $('.' + lbElements[2]).css('top', $(window).height() * 0.85 + 'px'); 
 }
 
 function toggleLightbox() {
-    var a = $('.' + lightboxClass);
-    a.toggle(); 
+    var a = $('.' + lightboxClass).toggle(); 
 }
 
-function setLightboxImg(a) {
-    // Set selected image in the lightbox.
+function setLightboxImage(a) {
     var b = $('.' + lbElements[3] + ' img');
     b.attr('src', a);
 
     $(b).load(function() {
         // Have to wait for image to load before I center it.
-        var h = $(this).height();
-        var w = $(this).width();
-
-        var heightRatio = h / $(window).height();
-        var widthRatio  = w / $(window).width();
-        var winRatio    = $(window).height() / $(window).width();
-
-        console.log(
-            this.src + '\n' +
-            'widthRatio: '  + heightRatio + '\n' + 
-            'heightRatio: ' + widthRatio + '\n' +
-            'winRatio: '    + winRatio 
-        );
-
-        center(this);
+        // Get 0 width/height otherwise.
+        shrinkLightboxImage();
+        vertCenter(this);
     });
 }
 
+function shrinkLightboxImage() {
+    // Shrink image to fit if it is larger than the window.
+    var img = $('.' + lbElements[3] + ' img');
+
+    if (img.width() >= $(window).width() || img.height() >= $(window).height()) {
+        var wd = img.width()  - $(window).width();
+        var hd = img.height() - $(window).height();
+
+        if (wd >= hd) {
+            img.css('max-width', '99%');
+            img.css('height', 'auto');
+        } else {
+            img.css('max-height', '99%');
+            img.css('width', 'auto');
+        }
+    }
+}
+
 function setLightboxText(a) {
-    // Set visually reported alt text.
+    // Set alt text display.
     var b = $('.' + lbElements[2] + lbNavElements[0] + ' p');
     b.text(a);
 }
 
 function setLightboxCount(a, b) {
-    // Set visually reported count.
+    // Set current / total count.
     c = $('.' + lbElements[2] + lbNavElements[1] + ' p');
     c.text(a + '/' + b);
 }
 
 function updateLightbox(obj) {
-    setLightboxImg(obj.src);
+    // Pass image to this.
+    setLightboxImage(obj.src);
     setLightboxText($(obj).attr('alt'));
     setLightboxCount(parseInt($(obj).attr('class')) + 1, galleryImages[cg].length);
+    positionLightbox();
 }
 
 function decrementLightboxImage() {
@@ -251,52 +250,49 @@ function incrementLightboxImage() {
 
 $(window).load(function() {
     /*
-        Gallery ordering.
-    */
+     * Gallery load events.
+     */
 
     // Give each gallery a unique ID starting from 0.
     addGalleryID('.' + galleryClass);
 
     $('.' + galleryClass).each(function() { 
-        // Push each image in this gallery to a temporary array.
+        // Build muilt-dimensional array that contains every image on page.
+        // [0][0] is first gallery, first image, etc.
         var tmp = [];
 
         $(this).children('img').each(function() {
             tmp.push(this);
         });
 
-        // Push temp array to multi-dimensional array of all images.
         galleryImages.push(tmp);
-        // Add rows to the gallery.
         addGalleryRows(this);
-        // Resize each row to gallery width. 
         resizeRowImages(this);
     });
 
     /*
-        Lightbox ordering.
-    */
+     * Lightbox load events.
+     */
 
     addLightbox('body');
-    positionLightbox();
+    updateLightbox(galleryImages[cg][ci]);
 });
 
 $(window).load(function() {
     /*
-        Mouse click and keypress events.
-    */
+     * Mouse click and keypress events.
+     */
 
     $('.' + galleryClass + ' img').click(function() {
         // Set gallery and image within the gallery. 
         cg = parseInt($(this).closest('.' + galleryClass).attr('id'));
-        ci   = parseInt($(this).attr('class'));
+        ci = parseInt($(this).attr('class'));
         // Set lightbox image and then display it.
         updateLightbox(galleryImages[cg][ci]);
         toggleLightbox();
     });
 
-    $('.' + lbElements[0]).click(function() {
-        // Hide lightbox when close button is clicked.
+    $('.' + lbElements[0] + ' a').click(function() {
         toggleLightbox();
     });
 
@@ -310,11 +306,8 @@ $(window).load(function() {
 
     $('body').keyup(function(key) {
         switch (key.keyCode) {
-            // Escape.
             case 27: toggleLightbox(); break;
-            // Left arrow.
             case 37: decrementLightboxImage(); break;
-            // Right arrow.
             case 39: incrementLightboxImage(); break;
             default: break;
         }
@@ -326,5 +319,7 @@ $(window).resize(function() {
         resizeRowImages(this);
     });
 
-    positionLightbox();
+    updateLightbox(galleryImages[cg][ci]);
+    shrinkLightboxImage();
+    vertCenter('.' + lbElements[3] + ' img');
 });
