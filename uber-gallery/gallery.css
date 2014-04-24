@@ -1,11 +1,13 @@
-/*
-    GALLERY
-*/
-
 /* 
  * If you change variable 'cusName' in gallery.js, please change
  * 'funcan' to whatever to match. Leave the rest as-is. :)
+ * 
+ * font-family is set on line 672 of style.css. 
  */
+
+/*
+    GALLERY
+*/
 
 .funcan-gallery {
     margin: 0 auto;
@@ -63,11 +65,11 @@
 }
 
 /*
-    Lightbox
+    GLOBAL POSITIONING
 */
 
 /* 
- * The lightlightbox should be pinned to the <body> element, and every element
+ * The lightlightbox should be appended to the <body> element, and every element
  * inside of lightlightbox given a fixed position and dimensions
  * (100% x 100%) of the screen size. Width is set via CSS, height via JS. 
  */
@@ -79,33 +81,134 @@
     position: fixed;
 }
 
+.funcan-lightbox a,
+.funcan-lightbox p {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*
+    LIGHTBOX
+*/
+
 .funcan-lightbox {
+    /* Fallback. */
+    background: #232529;
+    background: rgba(35,37,41,0.9);
+    display: none;
     left: 0;
     overflow: auto;
     top: 0;
     width: 100%;
 }
 
+/*
+    LIGHTBOX IMAGE
+*/
+
 .funcan-lightbox-img {
     margin: 0 auto;
 }
 
-.funcan-lightbox {
-    background: #232529;
-    background: rgba(35,37,41,0.8);
-    display: none;
-}
+/*
+    CLOSE LIGHTBOX
+*/
 
 .funcan-lightbox-close {
-    background: rgba(255,255,255,1);
     height: 40px;
+    line-height: 40px;
     top: 0;
-    width: 40px; 
+    width: 40px;
     z-index: 5;
 }
 
-.funcan-lightbox-txt {
+.funcan-lightbox-close a {
+    background: rgba(255,255,255,0.5);
+    display: block;
+    font-size: 40px;
+    /* 'Classic Console' font glyphs have an invisible marign around them. */
+    /* Change this if you decide change the font-family. */
+    margin-top: -8px;
+    text-transform: uppercase;
     width: 100%;
+}
+
+.funcan-lightbox-close a:active {
+    background: rgba(255,255,255,0.8);
+}
+
+/*
+    NAVIGATION BARS
+*/
+
+.funcan-lightbox-nav {
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+}
+
+.funcan-lightbox-nav-left,
+.funcan-lightbox-nav-right {
+    display: table;
+    height: 100%;
+    width: 50%;
+}
+
+.funcan-lightbox-nav-left {
+    float: left; 
+}
+
+.funcan-lightbox-nav-right {
+    float: right;
+}
+
+.funcan-lightbox-nav a {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: table-cell;
+    font-size: 80px;
+    margin-top: -8px;
+    height: 100%;
+    padding: 10px;
+    vertical-align: middle;
+    width:100%;
+}
+
+.funcan-lightbox-nav-left a {
+    text-align: left;
+}
+
+.funcan-lightbox-nav-right a {
+    text-align: right;
+}
+
+/*
+    IMAGE CAPTION
+*/
+
+.funcan-lightbox-txt {
+    /* Debug. Disabled while I work out kinks. */
+    display: none;
+    height: 10%;
+    width: 100%;
+}
+
+.funcan-lightbox-txt:hover {
+    background: rgba(35,37,41,0.6);
+}
+
+.funcan-lightbox-txt-left,
+.funcan-lightbox-txt-right {
+    width: 50%;
+}
+
+.funcan-lightbox-txt-left {
+    float: left; 
+}
+
+.funcan-lightbox-txt-right {
+    float: right;
 }
 
 /* 
@@ -116,7 +219,7 @@
  * fontfix is a hacky workaround that changes the paragraph opacity from 
  * 1.0 to 1.0 through a CSS3 animation effect, which triggers a refresh.
  *  
- * The bug is /only/ present in the latest (April 2014) version of Chrome. See
+ * The bug is /only/ present in the latest (April 2014) versions of Chrome. See
  * https://code.google.com/p/chromium/issues/detail?id=336476 for more info.
  */
 
@@ -126,8 +229,9 @@
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: linear;
     -webkit-animation-delay: 2s;
-    height: 15%;
+    height: 100%;
     overflow: auto;
+    text-align: center;
 }
 
 @-webkit-keyframes fontfix {
@@ -135,37 +239,9 @@
     to   { opacity: 1; }
 }
 
-.funcan-lightbox-txt:hover {
-    background: rgba(35,37,41,0.6);
-}
-
-.funcan-lightbox-txt-left,
-.funcan-lightbox-txt-right {
-    float: left;
-    width: 50%;
-}
-
-.funcan-lightbox-txt-left p {
-    color: #fff;
-    text-align: left;
-}
-
-.funcan-lightbox-txt-right p {
-    color: #fff;
-    text-align: right;
-}
-
-.funcan-lightbox-nav {
-    height: 85%;
-    overflow: auto;
-    width: 100%;
-}
-
-.funcan-lightbox-nav-left,
-.funcan-lightbox-nav-right {
-    height: 100%;
-    width: 12%;
-}
+/*
+    ANIMATION TRANSITIONS
+*/
 
 .funcan-lightbox-nav-left,
 .funcan-lightbox-nav-right:hover,
@@ -177,24 +253,4 @@
     -moz-transition: background-color .3s ease-in-out;
     -webkit-transition: background-color .3s ease-in-out; 
     -o-transition: background-color .3s ease-in-out; 
-}
-
-.funcan-lightbox-nav-left:hover,
-.funcan-lightbox-nav-right:hover {
-    background: rgba(255,255,255,0.3);
-}
-
-.funcan-lightbox-nav-left,
-.funcan-lightbox-txt-left {
-    float: left; 
-}
-
-.funcan-lightbox-nav-right,
-.funcan-lightbox-nav-right {
-    float: right;
-}
-
-.funcan-lightbox-txt-left,
-.funcan-lightbox-txt-right {
-    width: 50%;
 }
