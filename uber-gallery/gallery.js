@@ -4,9 +4,19 @@ var customClass   = '.funcan';
 var galleryClass  = customClass + '-gallery';
 var rowClass      = customClass + '-row';
 var lightboxClass = customClass + '-lightbox';
-// Maximum, minimum, and tiny row sizes. Tiny is used in mobile views.
+// Lightbox div elements.
+var lightboxElements = [
+    lightboxClass + '-close',
+    lightboxClass + '-nav',
+    lightboxClass + '-txt',
+    lightboxClass + '-img'
+];
+// Lightbox navigation/text div elements.
+var lightboxNavigation = ['-left', '-right'];
+// Row lengths will inclusively range between min and max.
 var rowSizeMin  = 4;
 var rowSizeMax  = 6;
+// For mobile views. Fixed width.
 var rowSizeTiny = 3;
 // Break point before switching to mobile view.
 var mobileSize  = 880;
@@ -14,6 +24,12 @@ var mobileSize  = 880;
 var altAsTitle  = false;
 // Debug. Replace anchor hyperlinks with "javascript:void(0)".
 var voidHref    = true;
+// Two-dimensional array of all gallery images on this page.
+var galleryImages = [];
+// Current lightbox gallery.
+var clg = 0;
+// Current lightbox image.
+var cli = 0;
 
 /*
  * GALLERY
@@ -122,72 +138,44 @@ function updateGallery(obj) {
     });
 }
 
-/*
- * LIGHTBOX
-*/
-
-var lbElements = [
-    lightboxClass + '-close',
-    lightboxClass + '-nav',
-    lightboxClass + '-txt',
-    lightboxClass + '-img'
-];
-
-var lbNavElements = [
-    '-left',
-    '-right'
-];
-
-// Current lightbox gallery.
-var clg = 0;
-// Current lightbox image.
-var cli = 0;
-
-// Two-dimensional array of /all/ gallery images on this page.
-var galleryImages = [];
-
 function addLightbox(obj) {
     // Lightbox should be prepended to <body> in order to avoid conflicts with other CSS.
     var divOpen  = '<div class="';
     var divClose = '"></div>';
-    var lightbox  = lightboxClass.substring(1); 
-    var lbe = []; 
-
-    $(lbElements).each(function(i,e) {
-        lbe.push(e.substring(1));
-    });
 
     // Attach lightbox to obj.
-    $(obj).prepend(divOpen + lightbox + '">');
+    $(obj).prepend(divOpen + lightboxClass.substring(1) + '">');
 
-    $(lbe).each(function(i, e) {
+    $(lightboxElements).each(function(i, e) {
         // Attach all child elements to the lightbox. 
-        $(lightboxClass).append(divOpen + e + divClose);
+        $(lightboxClass).append(divOpen + e.substring(1) + divClose);
     });
 
     // Close button.
-    $(lbe[0]).append('<a href="javascript:void(0)">X</a>');
+    $(lightboxElements[0]).append('<a href="javascript:void(0)">X</a>');
 
-    $(lbNavElements).each(function(i, e) {
+    $(lightboxNavigation).each(function(i, e) {
         // Navigation elements.
-        $(lbe[1]).append(divOpen + lbElements[1] + e + divClose);
-        $(lbe[2]).append(divOpen + lbElements[2] + e + divClose);
+        $(lightboxElements[1]).append(divOpen + lightboxElements[1].substring(1) + e + divClose);
+        $(lightboxElements[2]).append(divOpen + lightboxElements[2].substring(1) + e + divClose);
     });
 
-    $(lbNavElements).each(function(i, e) {
+    $(lightboxNavigation).each(function(i, e) {
         // Paragraph elements for text.
         var arrow = (i === 0) ? '&lt;&lt;' : '&gt;&gt;';
-        $(lbe[2] + e).append('<p>');
-        $(lbe[1] + e).append('<a href="javascript:void(0)">' + arrow + '</a>');
+        $(lightboxElements[2] + e).append('<p>');
+        $(lightboxElements[1] + e).append('<a href="javascript:void(0)">' + arrow + '</a>');
     });
 
     // Image div.
-    $(lbe[3]).append('<img src=" " alt=" " />');
+    $(lightboxElements[3]).append('<img src=" " alt=" " />');
 }
 
 function positionLightbox() {
     $(lightboxClass).css('height', $(window).height() + 'px');
-    $(lbElements[0]).css('margin-left', $(window).width() - $(lbElements[0]).width() + 'px');
+    $(lightboxElements[0]).css('margin-left', $(window).width() - $(lightboxElements[0]).width() + 'px');
+    $(lightboxElements[2]).css('margin-top', $(window).height() * 0.9 + 'px');
+    $(lightboxElements[2] + ' p').css('line-height', $(window).height() * 0.1 + 'px');
 }
 
 function toggleLightbox() {
@@ -195,43 +183,26 @@ function toggleLightbox() {
 }
 
 function setLightboxImage(imgSrc) {
-    var img = $(lbElements[3] + ' img');
+    var img = $(lightboxElements[3] + ' img');
     img.attr('src', imgSrc);
 
     img.load(function() {
         // Have to wait for image to load before I center it.
         // Get 0 width/height otherwise.
-        shrinkLightboxImage();
         vertCenter(this);
     });
 }
 
-function shrinkLightboxImage() {
-    // Shrink image to fit if it is larger than the window.
-    var img = $(lbElements[3] + ' img');
-
-    if (img.width() >= $(window).width() || img.height() >= $(window).height()) {
-        var wd = img.width()  - $(window).width();
-        var hd = img.height() - $(window).height();
-
-        if (wd >= hd) {
-            img.css('max-width', '99%');
-            img.css('height', 'auto');
-        } else {
-            img.css('max-height', '99%');
-            img.css('width', 'auto');
-        }
-    }
-}
-
 function setLightboxText(txt) {
     // Set alt text display.
-    $(lbElements[2] + lbNavElements[0] + ' p').text(txt);
+    var box = $(lightboxElements[2] + lightboxNavigation[0] + ' p');
+    box.text(txt);
 }
 
 function setLightboxCount(current, total) {
     // Set current / total count.
-    $(lbElements[2] + lbNavElements[1] + ' p').text(current + '/' + total);
+    var box = $(lightboxElements[2] + lightboxNavigation[1] + ' p');
+    box.text(current + '/' + total);
 }
 
 function updateLightbox(obj) {
@@ -288,24 +259,24 @@ $(window).load(function() {
         clg = parseInt($(this).closest(galleryClass).attr('id'));
         cli = parseInt($(this).attr('class'));
         updateLightbox(galleryImages[clg][cli]);
-        toggleLightbox();
+        $(lightboxClass).toggle(); 
     });
 
-    $(lbElements[0] + ' a').click(function() {
-        toggleLightbox();
+    $(lightboxElements[0] + ' a').click(function() {
+        $(lightboxClass).toggle(); 
     });
 
-    $(lbElements[1] + lbNavElements[0]).click(function() {
+    $(lightboxElements[1] + lightboxNavigation[0]).click(function() {
         decrementLightboxImage();
     });
 
-    $(lbElements[1] + lbNavElements[1]).click(function() {
+    $(lightboxElements[1] + lightboxNavigation[1]).click(function() {
         incrementLightboxImage();
     });
 
     $('body').keyup(function(key) {
         switch (key.keyCode) {
-            case 27: toggleLightbox(); break;
+            case 27: $(lightboxClass).toggle(); break;
             case 37: decrementLightboxImage(); break;
             case 39: incrementLightboxImage(); break;
             default: break;

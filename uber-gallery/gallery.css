@@ -102,12 +102,32 @@
     width: 100%;
 }
 
+.funcan-lightbox a {
+    outline: 0;
+}
+
 /*
     LIGHTBOX IMAGE
 */
 
 .funcan-lightbox-img {
     margin: 0 auto;
+}
+
+@media screen and (orientation: landscape) {
+    .funcan-lightbox-img img {
+        max-height: 99%;
+        overflow: hidden;
+        width: auto;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .funcan-lightbox-img img {
+        height: auto;
+        overflow: hidden;
+        max-width: 99%;
+    }
 }
 
 /*
@@ -190,14 +210,9 @@
 */
 
 .funcan-lightbox-txt {
-    /* Debug. Disabled while I work out kinks. */
-    display: none;
+    background: rgba(35,37,41,0.4);
     height: 10%;
     width: 100%;
-}
-
-.funcan-lightbox-txt:hover {
-    background: rgba(35,37,41,0.6);
 }
 
 .funcan-lightbox-txt-left,
@@ -231,28 +246,13 @@
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: linear;
     -webkit-animation-delay: 2s;
+    font-size: 20px;
     height: 100%;
-    overflow: auto;
     text-align: center;
 }
 
 @-webkit-keyframes fontfix {
     from { opacity: 1; }
+    50%  { opacity: 0.8; }
     to   { opacity: 1; }
-}
-
-/*
-    ANIMATION TRANSITIONS
-*/
-
-.funcan-lightbox-nav-left,
-.funcan-lightbox-nav-right:hover,
-.funcan-lightbox-nav-right,
-.funcan-lightbox-nav-left:hover,
-.funcan-lightbox-txt,
-.funcan-lightbox-txt:hover {
-    transition: background-color .3s ease-in-out;
-    -moz-transition: background-color .3s ease-in-out;
-    -webkit-transition: background-color .3s ease-in-out; 
-    -o-transition: background-color .3s ease-in-out; 
 }
