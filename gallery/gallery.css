@@ -129,7 +129,8 @@
 .funcan-lightbox-close a {
     display: block;
     font-size: 50px;
-    text-align: center;
+    padding-right: 5px;
+    text-align: right;
     text-transform: uppercase;
 }
 
@@ -191,7 +192,7 @@
 .funcan-lightbox-nav-right {
     display: table;
     height: 100%;
-    width: 50%;
+    width: 25%;
 }
 
 .funcan-lightbox-nav-left { float: left; }
