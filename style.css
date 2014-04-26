@@ -1,5 +1,5 @@
 /* 
- * RESET 
+ * Site-wide Reset 
  */
 
 html, body, div, span, applet, object, iframe,
@@ -29,16 +29,17 @@ time, mark, audio, video {
 }
 
 /*
- * EB FONTS
+ * Font Faces
  */
 
+/* 
+ * Name: Source Code Pro Regular
+ * Creator: Adobe Systems
+ * URL: http://sourceforge.net/projects/sourcecodepro.adobe/
+ * License: SIL Open Font License 1.1
+*/
+
 @font-face {
-    /* 
-        Name: Source Code Pro Regular
-        Creator: Adobe Systems
-        URL: http://sourceforge.net/projects/sourcecodepro.adobe/
-        License: SIL Open Font License 1.1
-    */
     font-family: 'Source Code Pro Regular';
     src: 
         url('fonts/din/scp-r.eot?') format('embedded-opentype'),
@@ -48,13 +49,14 @@ time, mark, audio, video {
         url('fonts/din/scp-r.svg')  format('svg');
 }
 
+/* 
+ * Name: Classic Console
+ * Creator: Webdraft Ltd.
+ * URL: http://webdraft.hu/fonts/classic-console/
+ * License: Free to doownload, use, and redistribute.
+*/
+
 @font-face {
-    /* 
-        Name: Classic Console
-        Creator: Webdraft Ltd.
-        URL: http://webdraft.hu/fonts/classic-console/
-        License: Free to doownload, use, and redistribute.
-    */
     font-family: 'Classic Console';
     src: 
         url('fonts/clacon/clacon.eot?') format('embedded-opentype'),
@@ -65,7 +67,7 @@ time, mark, audio, video {
 }
 
 /*
- * TEXT ALIGNMENT AND FONTS
+ * Text Alignment and Typefaces
  * Site-wide defaults for inline and block text elements. 
  * Some elements are individually overridden elsewhere.
  */
@@ -209,7 +211,7 @@ sup {
 }
 
 /*
- * MOBILE GLOBAL SETTINGS
+ * Mobile Global Header
  */
 
 @media screen and (max-width: 1024px) {
@@ -222,7 +224,7 @@ sup {
 }
 
 /*
- * CONTAINERS
+ * Top Containers
  * Dimensions for the three top containers and their interiors.
  */
 
@@ -269,7 +271,7 @@ sup {
 }
 
 /*
- * CONTAINER MOBILE VIEW
+ * Website Mobile View
  */
 
 @media screen and (max-width: 1024px) {
@@ -288,10 +290,7 @@ sup {
 }
 
 /*
- * SITE HEADER
- */
-
-/* 
+ * Site Header
  * The header image can be easily set or changed, and it sizes itself to the
  * header. Recommend at *least* a 1600x1200 image.
  */
@@ -342,7 +341,7 @@ header {
 }
 
 /*
- * MOBILE HEADER RULES
+ * Mobile Header
  */
 
 @media screen and (max-width:1024px) {    
@@ -352,7 +351,7 @@ header {
 }
 
 /*
- * WEBSITE SIDEBAR
+ * Website Sidebar
  */
 
 .content-right li {
@@ -362,7 +361,7 @@ header {
 }
 
 /*
- * ARTICLES
+ * Desktop Article View
  */
 
 .post-title {
@@ -411,7 +410,7 @@ article ul li {
 }
 
 /*
- * ARTICLE MOBILE
+ * Mobile Article View
  */
 
 @media screen and (max-width: 1024px) {
@@ -421,7 +420,7 @@ article ul li {
 }
 
 /*
- * ARTICLE AND SIDEBAR FORMS
+ * Article and Sidebar Form Elements
  */
 
 .content-left form p {
@@ -476,7 +475,7 @@ article ul li {
 }
 
 /*
- * SIDEBAR FORM / SEARCH
+ * Sidebar Search Form
  */
 
 .sidebar-search {
@@ -514,8 +513,9 @@ input[class="search-submit"]:hover {
 }
 
 /* 
- * Removes corner rounding in iOS.
+ * Remove corner rounding in iOS.
  */
+
 .sidebar-search input, 
 .sidebar-search textarea {
     -webkit-appearance: none;
@@ -525,9 +525,9 @@ input[class="search-submit"]:hover {
         'Andale Mono', Monaco, 'DejaVu Sans Mono', 'Lucida Console', monospace; 
 }
 
-/*
-    INTRA-SITE NAVIGATION
-*/
+/* 
+ * Inta-site Navigation
+ */
 
 .site-nav {
     margin: 0 auto;
@@ -569,17 +569,12 @@ input[class="search-submit"]:hover {
     overflow: auto;
 }
 
-.site-nav-left {
-    float: left;
-}
+.site-nav-left { float: left; }
+.site-nav-right { float: right; }
 
-.site-nav-right {
-    float: right;
-}
-
-/*
-    SITE FOOTER
-*/
+/* 
+ * Website Footer
+ */
 
 footer {
     background: #232529;
@@ -597,19 +592,16 @@ footer p {
     text-align: center;
 }
 
-/*
-    FOOTER MOBILE
-*/
-
 @media screen and (max-width: 1024px) {
+    /* Footer Mobile View */
     footer {
         display: none;
     }
 }
 
-/*
-    SOCIAL ICONS
-*/
+/* 
+ * Social Widget Icons
+ */
 
 .social {
     list-style: none;
@@ -638,9 +630,7 @@ footer p {
     width: 20%;
 }
 
-.social a:hover {
-    border: none;
-}
+.social a:hover { border: none; }
 
 #emails     { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
 #facebook   { background: url('img/social/facebook.png')  no-repeat center center; background-size: 100% auto; }
@@ -665,12 +655,3 @@ footer p {
 #rss:hover        { background-color: #ff6600; }
 #twitter:hover    { background-color: #00aced; }
 #tumblr:hover     { background-color: #3d5a70; }
-
-/*
-    DROP-IN LIGHTBOX
-*/
-
-.funcan-lightbox a,
-.funcan-lightbox p {
-    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, monospace, sans-serif;
-}
