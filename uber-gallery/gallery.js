@@ -1,39 +1,35 @@
 // Gallery, row, and img classes.
 // UPDATE GALLERY.CSS IF YOU CHANGE THESE!!!!
-var customClass   = '.funcan';
-var galleryClass  = customClass + '-gallery';
-var rowClass      = customClass + '-row';
+var customClass = '.funcan';
+var galleryClass = customClass + '-gallery';
+var rowClass = customClass + '-row';
 var lightboxClass = customClass + '-lightbox';
 // Lightbox div elements.
 var lightboxElements = [
-    lightboxClass + '-close',
-    lightboxClass + '-nav',
-    lightboxClass + '-txt',
+    lightboxClass + '-close', 
+    lightboxClass + '-nav', 
+    lightboxClass + '-txt', 
     lightboxClass + '-img'
 ];
 // Lightbox navigation/text div elements.
 var lightboxNavigation = ['-left', '-right'];
 // Row lengths will inclusively range between min and max.
-var rowSizeMin  = 4;
-var rowSizeMax  = 6;
+var rowSizeMin = 4;
+var rowSizeMax = 6;
 // For mobile views. Fixed width.
 var rowSizeTiny = 3;
 // Break point before switching to mobile view.
-var mobileSize  = 880;
+var mobileSize = 880;
 // Include image alt text as anchor title?
-var altAsTitle  = false;
+var altAsTitle = false;
 // Debug. Replace anchor hyperlinks with "javascript:void(0)".
-var voidHref    = true;
+var voidHref = true;
 // Two-dimensional array of all gallery images on this page.
 var galleryImages = [];
 // Current lightbox gallery.
 var clg = 0;
 // Current lightbox image.
 var cli = 0;
-
-/*
- * GALLERY
-*/
 
 function addAnchor(obj, addTitle) {
     // Turn static image into a clickable hyperlink. 
@@ -63,7 +59,7 @@ function addRow(obj) {
     $(obj).append('<div class="' + row + '"></div>');
 }
 
-function sRandom(min,max) {
+function rangedRandom(min, max) {
     // Return a random number between mix and max values, inclusive.
     return Math.floor(Math.random() * (max - min) + min);
 }
@@ -79,12 +75,12 @@ function addGalleryRows(obj) {
 
     $(imgArr).each(function (i) {
         // Smaller row size on smaller screens.
-        var rowLength = ($(window).width() > mobileSize) ? sRandom(rowSizeMin,rowSizeMax) : rowSizeTiny;
+        var rowLength = ($(window).width() > mobileSize) ? rangedRandom(rowSizeMin, rowSizeMax) : rowSizeTiny;
         $(rowClass).last().append(imgArr[i]); 
 
         // Add a new row if the length exceeds our quasi-random size.
         // Do not add a new row if we are at the end of the array and only 1 or 2 images remain.
-        // The effect of a single-image row is ugly and a thing to be avoided.
+        // A single-image row is ugly and a thing to be avoided.
         if ($(rowClass).last().children().size() >= rowLength && (imgArr.length - 1 - i) >= 2) {
             addRow(obj);
         }
@@ -118,11 +114,12 @@ function updateGallery(obj) {
         // Ratio between gallery width, and row width.
         var ratio = parseFloat($(obj).width() / sum);
 
-        $(this).children('img').each(function () {
+        $(this).children('img').each(function() {
             // Change the height of the image by the ratio.
             var changedHeight = Math.round($(this).height() * ratio);
             $(this).css('height', changedHeight + 'px');
             $(this).attr('class', n++);
+            $(this).fadeIn(2000);
         });
 
         // Rounding errors leave a small margin on the right side of the gallery.
@@ -178,24 +175,9 @@ function positionLightbox() {
     $(lightboxElements[2] + ' p').css('line-height', $(window).height() * 0.1 + 'px');
 }
 
-function toggleLightbox() {
-    $(lightboxClass).toggle(); 
-}
-
-function setLightboxImage(imgSrc) {
-    var img = $(lightboxElements[3] + ' img');
-    img.attr('src', imgSrc);
-
-    img.load(function() {
-        // Have to wait for image to load before I center it.
-        // Get 0 width/height otherwise.
-        shrinkLightboxImage();
-        vertCenter(this);
-    });
-}
-
 function shrinkLightboxImage() {
-    // Firefox and Internet Explorer ignore max-width and max-height for the lightbox image.
+    // Firefox and Internet Explorer ignore max-width and max-height.
+    // Unless the page has explicit dimensions set.
     var img = $(lightboxElements[3] + ' img');
 
     if (img.width() >= $(window).width() || img.height() >= $(window).height()) {
@@ -210,6 +192,18 @@ function shrinkLightboxImage() {
             img.css('width', 'auto');
         }
     }
+}
+
+function setLightboxImage(imgSrc) {
+    var img = $(lightboxElements[3] + ' img');
+    img.attr('src', imgSrc);
+
+    img.load(function() {
+        // Have to wait for image to load before I center it.
+        // Get 0 width/height otherwise.
+        shrinkLightboxImage();
+        vertCenter(this);
+    });
 }
 
 function setLightboxText(txt) {
@@ -244,10 +238,7 @@ function incrementLightboxImage() {
 }
 
 $(window).load(function() {
-    /*
-     * Gallery load events.
-     */
-
+    // Gallery load events.
     addGalleryID(galleryClass);
 
     $(galleryClass).each(function() { 
@@ -262,19 +253,13 @@ $(window).load(function() {
         updateGallery(this);
     });
 
-    /*
-     * Lightbox load events.
-     */
-
+    // Lightbox load events.
     addLightbox('body');
     updateLightbox(galleryImages[clg][cli]);
 });
 
 $(window).load(function() {
-    /*
-     * Mouse click and keypress events.
-     */
-
+    // Mouse click and keypress events.
     $(galleryClass + ' img').click(function() {
         clg = parseInt($(this).closest(galleryClass).attr('id'));
         cli = parseInt($(this).attr('class'));
