@@ -162,7 +162,7 @@ function addLightbox(obj) {
 
     $(lightboxNavigation).each(function(i, e) {
         // Paragraph elements for text.
-        var arrow = (i === 0) ? '&lt;&lt;' : '&gt;&gt;';
+        var arrow = (i === 0) ? '&lt;' : '&gt;';
         $(lightboxElements[2] + e).append('<p>');
         $(lightboxElements[1] + e).append('<a href="javascript:void(0)">' + arrow + '</a>');
     });
