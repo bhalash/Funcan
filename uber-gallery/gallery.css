@@ -126,6 +126,14 @@
     z-index: 5;
 }
 
+.funcan-lightbox-close a,
+.funcan-lightbox-close a:hover {
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out; 
+    -o-transition: opacity .25s ease-in-out; 
+}
+
 .funcan-lightbox-close a {
     display: block;
     font-size: 40px;
@@ -140,14 +148,6 @@
 
 .funcan-lightbox-close a:active {
     opacity: 0.99;
-}
-
-.funcan-lightbox-close a,
-.funcan-lightbox-close a:hover {
-    transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out; 
-    -o-transition: opacity .25s ease-in-out; 
 }
 
 /*
@@ -175,6 +175,15 @@
     float: right;
 }
 
+.funcan-lightbox-nav a,
+.funcan-lightbox-nav a:hover,
+.funcan-lightbox-nav a:active {
+    transition: opacity .15s ease-in-out;
+    -moz-transition: opacity .15s ease-in-out;
+    -webkit-transition: opacity .15s ease-in-out; 
+    -o-transition: opacity .15s ease-in-out; 
+}
+
 .funcan-lightbox-nav a {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -187,20 +196,21 @@
     vertical-align: middle;
     width:100%;
 }
-.funcan-lightbox-nav a:hover {
-    opacity: 0.5;
+
+@media screen and (orientation: portrait) {
+    .funcan-lightbox-nav a {
+        opacity: 0.6;
+    }
 }
 
-.funcan-lightbox-nav a:active {
-    opacity: 0.99;
-}
+@media screen and (orientation: landscape) {
+    .funcan-lightbox-nav a:hover {
+        opacity: 0.5;
+    }
 
-.funcan-lightbox-nav a,
-.funcan-lightbox-nav a {
-    transition: opacity .15s ease-in-out;
-    -moz-transition: opacity .15s ease-in-out;
-    -webkit-transition: opacity .15s ease-in-out; 
-    -o-transition: opacity .15s ease-in-out; 
+    .funcan-lightbox-nav a:active {
+        opacity: 0.99;
+    }
 }
 
 .funcan-lightbox-nav-left a {

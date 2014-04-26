@@ -175,6 +175,7 @@ function positionLightbox() {
     $(lightboxClass).css('height', $(window).height() + 'px');
     $(lightboxElements[0]).css('margin-left', $(window).width() - $(lightboxElements[0]).width() + 'px');
     $(lightboxElements[2]).css('margin-top', $(window).height() * 0.9 + 'px');
+    $(lightboxElements[2] + ' p').css('line-height', $(window).height() * 0.1 + 'px');
 }
 
 function toggleLightbox() {
@@ -301,12 +302,4 @@ $(window).load(function() {
             default: break;
         }
     });
-});
-
-$(window).resize(function() {
-    $(gallery).each(function() { 
-        updateGallery(this);
-    });
-
-    updateLightbox(galleryImages[clg][cli]);
 });
