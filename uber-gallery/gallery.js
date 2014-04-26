@@ -175,7 +175,6 @@ function positionLightbox() {
     $(lightboxClass).css('height', $(window).height() + 'px');
     $(lightboxElements[0]).css('margin-left', $(window).width() - $(lightboxElements[0]).width() + 'px');
     $(lightboxElements[2]).css('margin-top', $(window).height() * 0.9 + 'px');
-    $(lightboxElements[2] + ' p').css('line-height', $(window).height() * 0.1 + 'px');
 }
 
 function toggleLightbox() {
@@ -189,14 +188,34 @@ function setLightboxImage(imgSrc) {
     img.load(function() {
         // Have to wait for image to load before I center it.
         // Get 0 width/height otherwise.
+        shrinkLightboxImage();
         vertCenter(this);
     });
 }
 
+function shrinkLightboxImage() {
+    // Firefox and Internet Explorer ignore max-width and max-height for the lightbox image.
+    var img = $(lightboxElements[3] + ' img');
+
+    if (img.width() >= $(window).width() || img.height() >= $(window).height()) {
+        var wd = img.width()  - $(window).width();
+        var hd = img.height() - $(window).height();
+
+        if (wd >= hd) {
+            img.css('max-width', $(window).width() * 0.97);
+            img.css('height', 'auto');
+        } else {
+            img.css('max-height', $(window).height() * 0.97);
+            img.css('width', 'auto');
+        }
+    }
+}
+
 function setLightboxText(txt) {
     // Set alt text display.
-    var box = $(lightboxElements[2] + lightboxNavigation[0] + ' p');
-    box.text(txt);
+    var box = $(lightboxElements[2] + lightboxNavigation[0]);
+    box.empty();
+    box.append('<p>' + txt + '</p>');
 }
 
 function setLightboxCount(current, total) {

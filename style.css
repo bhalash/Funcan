@@ -159,7 +159,9 @@ h6 { font-size: 1.0em; }
 
 html,
 body {
+    min-height: 100%;
     background: #111215;
+    width: 100%;
 }
 
 input {
@@ -668,6 +670,7 @@ footer p {
     DROP-IN LIGHTBOX
 */
 
-.funcan-lightbox a {
-    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, monospace;
+.funcan-lightbox a,
+.funcan-lightbox p {
+    font-family: 'Classic Console', 'Source Code Pro', 'Courier New', Courier, monospace, sans-serif;
 }

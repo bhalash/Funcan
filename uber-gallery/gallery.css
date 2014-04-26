@@ -114,50 +114,40 @@
     margin: 0 auto;
 }
 
-@media screen and (orientation: landscape) {
-    .funcan-lightbox-img img {
-        max-height: 99%;
-        overflow: hidden;
-        width: auto;
-    }
-}
-
-@media screen and (orientation: portrait) {
-    .funcan-lightbox-img img {
-        height: auto;
-        overflow: hidden;
-        max-width: 99%;
-    }
-}
-
 /*
     CLOSE LIGHTBOX
 */
 
 .funcan-lightbox-close {
     display: table;
-    height: 40px;
-    line-height: 40px;
+    height: 60px;
     top: 0;
     width: 40px;
     z-index: 5;
 }
 
 .funcan-lightbox-close a {
-    background: rgba(255,255,255,0.5);
-    display: table-cell;
+    display: block;
     font-size: 40px;
+    opacity: 0.3;
     text-transform: uppercase;
-    vertical-align: middle;
     width: 100%;
 }
 
 .funcan-lightbox-close a:hover {
-    background: rgba(255,255,255,0.7);
+    opacity: 0.5;
 }
 
 .funcan-lightbox-close a:active {
-    background: rgba(255,255,255,0.9);
+    opacity: 0.99;
+}
+
+.funcan-lightbox-close a,
+.funcan-lightbox-close a:hover {
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out; 
+    -o-transition: opacity .25s ease-in-out; 
 }
 
 /*
@@ -192,9 +182,25 @@
     display: table-cell;
     font-size: 80px;
     height: 100%;
+    opacity: 0.1;
     padding: 10px;
     vertical-align: middle;
     width:100%;
+}
+.funcan-lightbox-nav a:hover {
+    opacity: 0.5;
+}
+
+.funcan-lightbox-nav a:active {
+    opacity: 0.99;
+}
+
+.funcan-lightbox-nav a,
+.funcan-lightbox-nav a {
+    transition: opacity .15s ease-in-out;
+    -moz-transition: opacity .15s ease-in-out;
+    -webkit-transition: opacity .15s ease-in-out; 
+    -o-transition: opacity .15s ease-in-out; 
 }
 
 .funcan-lightbox-nav-left a {
@@ -209,8 +215,19 @@
     IMAGE CAPTION
 */
 
+/* 
+ * There is a serious bug in the latest version of Chrome that, in the precise
+ * circumstancs that arises in the lightbox, causes the paragraph font to not 
+ * render, unless the paragraph is forcibly refreshed.
+ *  
+ * The bug is /only/ present in the latest (April 2014) versions of Chrome. See
+ * https://code.google.com/p/chromium/issues/detail?id=336476 for more info.
+ */
+
 .funcan-lightbox-txt {
     background: rgba(35,37,41,0.4);
+    /* Disabled until a bug is fixed in Chrome */
+    display: none;
     height: 10%;
     width: 100%;
 }
@@ -228,31 +245,8 @@
     float: right;
 }
 
-/* 
- * There is a serious bug in the latest version of Chrome that, in the precise
- * circumstancs that arises in the lightbox, causes the paragraph font to not 
- * render, unless the paragraph is forcibly refreshed.
- *
- * fontfix is a hacky workaround that changes the paragraph opacity from 
- * 1.0 to 1.0 through a CSS3 animation effect, which triggers a refresh.
- *  
- * The bug is /only/ present in the latest (April 2014) versions of Chrome. See
- * https://code.google.com/p/chromium/issues/detail?id=336476 for more info.
- */
-
 .funcan-lightbox-txt p {
-    -webkit-animation-duration: 0.1s;
-    -webkit-animation-name: fontfix;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-delay: 2s;
     font-size: 20px;
     height: 100%;
     text-align: center;
-}
-
-@-webkit-keyframes fontfix {
-    from { opacity: 1; }
-    50%  { opacity: 0.8; }
-    to   { opacity: 1; }
 }
