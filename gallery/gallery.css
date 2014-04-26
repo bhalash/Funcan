@@ -122,14 +122,6 @@
     z-index: 5;
 }
 
-/*.funcan-lightbox-close a,
-.funcan-lightbox-close a:hover {
-    transition: opacity .15s ease-in-out;
-    -moz-transition: opacity .15s ease-in-out;
-    -webkit-transition: opacity .15s ease-in-out; 
-    -o-transition: opacity .15s ease-in-out; 
-}
-*/
 /*
  * Button should be in the top-right corner with equal top/right padding.
  */
@@ -149,8 +141,8 @@
     -o-transition: opacity .15s ease-in-out; 
 }
 
-.funcan-lightbox-close a { opacity: 0.1; }
-.funcan-lightbox-close a:hover { opacity: 0.6; }
+.funcan-lightbox-close a { opacity: 0.5; }
+.funcan-lightbox-close a:hover { opacity: 0.9; }
 
 /*
  * Navigation Bars
