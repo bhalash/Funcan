@@ -239,23 +239,25 @@ function incrementLightboxImage() {
 
 $(window).load(function() {
     // Gallery load events.
-    addGalleryID(galleryClass);
+    if ($(galleryClass).length > 0) {
+        addGalleryID(galleryClass);
 
-    $(galleryClass).each(function() { 
-        var tmp = [];
+        $(galleryClass).each(function() { 
+            var tmp = [];
 
-        $(this).children('img').each(function() {
-            tmp.push(this);
+            $(this).children('img').each(function() {
+                tmp.push(this);
+            });
+
+            galleryImages.push(tmp);
+            addGalleryRows(this);
+            updateGallery(this);
         });
 
-        galleryImages.push(tmp);
-        addGalleryRows(this);
-        updateGallery(this);
-    });
-
-    // Lightbox load events.
-    addLightbox('body');
-    updateLightbox(galleryImages[clg][cli]);
+        // Lightbox load events.
+        addLightbox('body');
+        updateLightbox(galleryImages[clg][cli]);
+    }
 });
 
 $(window).load(function() {
